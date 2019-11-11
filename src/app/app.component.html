@@ -10,7 +10,7 @@
     <div class="col-12 text-center">
       <h1>Body Profile</h1>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <p>The first phase, Body Profile, is the most important segment of the My Fitbody Program. It's the building block
         that sets the foundation for the formulation of your ideal fitness plan.</p>
       <p>In this phase the program gathers key factors that varies amongst individuals to eliminate guess work and to
@@ -22,102 +22,211 @@
       <p>Contact Us: <a> Live Chat</a> </p>
       <p>If you need assistance or have questions.</p>
     </div>
-    <div class="col-6">
-      <img src="https://placekitten.com/g/570/380" />
+    <div class="col-12 col-lg-6">
+      <img src="https://placekitten.com/g/300/300" />
     </div>
   </div>
 
-  <br/>
+  <br />
   <!-- First Section -->
   <div class="row">
     <div class="col-12">
       <h2>User Profile</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>Personal Stats</h3>
           <h5>Complete the user stats form as accurately as possible.</h5>
         </div>
-        <div class="col-12">
-          <h4>What is your gender?</h4>
-        </div>
-        <div class="col-12">
-          <h4>How old are you?</h4>
-        </div>
-        <div class="col-12">
-          <h4>How tall are you?</h4>
-        </div>
-        <div class="col-12">
-          <h4>How much do you weigh?</h4>
-        </div>
-        <div class="col-12">
-          <h4>What is your body fat %?</h4>
-        </div>
-        <div class="col-12">
-          <h4>What is your body type?</h4>
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col-12">
+              <h4>What is your gender?</h4>
+              <div class="row justify-content-center">
+                <div class="col-4 col-lg-2 text-right">Woman</div>
+                <div class="col-3 col-lg-1">
+                  <toggle-button [on]="profile.gender" (toggled)="onGenderToggle($event)"></toggle-button>
+                </div>
+                <div class="col-4 col-lg-2">Man</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <h4>How old are you?</h4>
+              <div class="row justify-content-center">
+                <div class="col-12 col-lg-4">
+                  <ng5-slider [(value)]="profile.age" [options]="ageOptions"></ng5-slider>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <h4>How tall are you?</h4>
+              <div class="row justify-content-center">
+                <div class="col-12 col-lg-4">
+                  <ng5-slider [(value)]="profile.height" [options]="heightOptions"></ng5-slider>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <h4>How much do you weigh?</h4>
+              <div class="row justify-content-center">
+                <div class="col-12 col-lg-4">
+                  <ng5-slider [(value)]="profile.weight" [options]="weightOptions"></ng5-slider>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <h4>What is your body fat %?</h4>
+              <div class="row justify-content-center">
+                <div class="col-12 col-lg-4">
+                  <ng5-slider [(value)]="profile.fatPercentage" [options]="fatPercentageOptions"></ng5-slider>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <h4>What is your body type?</h4>
+              <div class="row justify-content-center text-center">
+                <ng-container *ngFor="let item of bodyTypes; let i = index">
+                  <div class="col-7 col-lg-3 py-2 mx-2 fake-btn" [ngClass]="{'selected': item.selected}"
+                    (click)="onSelect(i, 'TYPE')">
+                    <h5>{{item.type}}</h5>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <br/>
+  <br />
   <!-- Second Section -->
   <div class="row">
     <div class="col-12">
       <h2>Current Acticity Output</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>USER ACTIVITY LEVEL</h3>
           <h5>Select the activity level that best describes your current physical life.</h5>
         </div>
-        <div class="col-12">
-          <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col-12">
+              <h4>How Active Is Your Job & Daily Routine?</h4>
+            </div>
+          </div>
+          <ng-container *ngFor="let item of activityTypes; let i = index">
+            <div class="row justify-content-center my-2">
+              <div class="col-12 col-lg-5 fake-btn py-2" [ngClass]="{'selected': item.selected}"
+                (click)="onSelect(i, 'ACTIVITY')">
+                <div class="row">
+                  <div class="col-5">
+                    <h5>{{item.type}}</h5>
+                  </div>
+                  <div class="col-7">
+                    <h6>{{item.description}}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>
   </div>
 
-  <br/>
+  <br />
   <!-- Third Section -->
   <div class="row">
     <div class="col-12">
       <h2>Repose Assessment</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>SLEEP GAUGE</h3>
           <h5>Specify, on average, the total daily time you spend asleep.</h5>
         </div>
-        <div class="col-12">
-          <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col">
+              <h4>How Much Time Do You Spend At Rest?</h4>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-4">
+              <ng5-slider [(value)]="profile.sleepTime" [options]="sleepTimeOptions"></ng5-slider>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <br/>
+  <br />
   <!-- Fourth Section -->
   <div class="row">
     <div class="col-12">
       <h2>Problematic Areas - PT 1</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>INJURY ASSESSMENT</h3>
           <h5>Specify, which body parts, if any, you're currently experiencing physical setbacks with because of
             past/current injuries.</h5>
         </div>
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col">
+              <h4>Have You Sustained Any Injuries That Currently Pose A Physical Setback For You? If You Have, Specify
+                What Body Parts.</h4>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4 col-lg-1">Do Not</div>
+            <div class="col-3 col-lg-1">
+              <toggle-button [on]="profile.physicalSetback" (toggled)="onPhysicalSetBackToggle($event)"></toggle-button>
+            </div>
+            <div class="col-4 col-lg-1">Do</div>
+          </div>
+          <ng-container *ngIf="profile.physicalSetback">
+            <div class="row justify-content-center my-2" *ngFor="let item of setbackTypes; let i = index">
+              <div class="col-12 col-lg-5 fake-btn py-2" [ngClass]="{'selected': item.selected}"
+                (click)="onSelect(i, 'SETBACK')">
+                <div class="row">
+                  <div class="col-5">
+                    <h5>{{item.type}}</h5>
+                  </div>
+                  <div class="col-7">
+                    <h6>{{item.description}}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
       </div>
     </div>
   </div>
 
-  <br/>
+  <br />
   <!-- Fith Section -->
   <div class="row">
     <div class="col-12">
       <h2>Set Fitness Goal - PT 1</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>PHYSIQUE OBJECTIVES</h3>
           <h5>Specify, which body parts, if any, you're currently experiencing physical setbacks with because of
             past/current injuries.</h5>
+        </div>
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col-12">
+              <h4>What Is Your Physique Objective?</h4>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-2 objective-height">
+              <ng5-slider [(value)]="profile.objectives" [options]="objectiveOptions"></ng5-slider>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -133,78 +242,603 @@
     <div class="col-12 text-center">
       <h1>Training</h1>
     </div>
+    <div class="col-12 col-lg-6">
+      <p>The second phase, Training, makes up one half of your generated fitness plan. It’s the vehicle of the My
+        Fitbody Program that drives you to your fitness goals.</p>
+      <p>In this phase the program collects the key factors required to craft a personalized exercise regime that meets
+        your individual needs in the most optimal and efficient manner.</p>
+      <p>Factors such as training frequency, experience level, fitness goal, problematic areas and training style are
+        all necessary ingredients used in conjunction with data collected from the Body Profile segment, to formulate
+        the perfect workout plan.</p>
+      <p>The Training phase plays a crucial role in the integration process of the My Fitbody Program. Complete the
+        segment below to get one step closer to your ideal fitness plan.</p>
+      <p>Contact Us: <a> Live Chat</a> </p>
+      <p>If you need assistance or have questions.</p>
+    </div>
+    <div class="col-12 col-lg-6">
+      <img src="https://placekitten.com/g/300/300" />
+    </div>
   </div>
 
-  <br/>
+  <br />
   <!-- Sixth Section -->
   <div class="row">
     <div class="col-12">
       <h2>Workout Schedule</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>TRAINING FREQUENCY</h3>
           <h5>Specify the available training days you prefer in a 7 day week, with 6 days being the maximum. Afterward,
             select the number of training sessions you prefer for each particular day, with 2 sessions being the
             maximum. </h5>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <br/>
-  <!-- Seventh Section -->
-  <div class="row">
-    <div class="col-12">
-      <h2>Experience Level</h2>
-      <div class="row">
-        <div class="col-12">
-          <h3>TRAINING SKILL</h3>
-          <h5>Select the experience level that best describes your exercise skill/competence.</h5>
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col">
+              <h4>How Many Training Sessions Do Your Prefer In 6 Day Week?</h4>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-4">
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4 col-lg-2">Day 1</div>
+            <div class="col-4 col-lg-2">Day 2</div>
+            <div class="col-4 col-lg-2">Day 3</div>
+            <div class="col-4 col-lg-2">Day 4</div>
+            <div class="col-4 col-lg-2">Day 5</div>
+            <div class="col-4 col-lg-2">Day 6</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <br/>
+  <br />
+  <!-- Seventh Section -->
+  <div class="row">
+    <div class="col-12">
+      <h2>Experience Level</h2>
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <h3>TRAINING SKILL</h3>
+          <h5>Select the experience level that best describes your exercise skill/competence.</h5>
+        </div>
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col-12">
+              <h4>What Is Your Present Training Experience Level?</h4>
+            </div>
+          </div>
+          <div class="row justify-content-center text-center">
+            <ng-container *ngFor="let item of levelTypes; let i = index">
+              <div class="col-12 col-lg-3 py-2 mx-2 fake-btn" [ngClass]="{'selected': item.selected}"
+                (click)="onSelect(i, 'LEVEL')">
+                <h5>{{item.type}}</h5>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
   <!-- Eigth Section -->
   <div class="row">
     <div class="col-12">
       <h2>Set Fitness Goal - PT 2</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>TRAINING OBJECTIVES</h3>
           <h5>Choose your desired goal for each muscle group from the list of below. Your choice plays a crucial role in
             the formulation of your personal fitness plan and will be factored into your training regime.</h5>
         </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-2">
+              <h4>Calves</h4>
+            </div>
+
+            <div class="col-4 col-lg-2">Build Mass</div>
+            <div class="col-3 col-lg-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-4 col-lg-2">Shape/Tone</div>
+
+            <div class="col-4 col-lg-2">Strength </div>
+            <div class="col-3 col-lg-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-4 col-lg-2">Endurance</div>
+          </div>
+        </div>
+
+        <!-- <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-2">
+              <h4>Quadriceps</h4>
+            </div>
+
+            <div class="col-4 col-lg-2">Build Mass</div>
+            <div class="col-3 col-lg-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-4 col-lg-2">Shape/Tone</div>
+
+            <div class="col-4 col-lg-2">Strength </div>
+            <div class="col-3 col-lg-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-4 col-lg-2">Endurance</div>
+          </div>
+
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Hamstrings</h4>
+            </div>
+
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Adductors</h4>
+            </div>
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Abductors</h4>
+            </div>
+
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Glutes</h4>
+            </div>
+
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Back</h4>
+            </div>
+
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Trapezius</h4>
+            </div>
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Deltoids</h4>
+            </div>
+
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Chest</h4>
+            </div>
+
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Triceps</h4>
+            </div>
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">Biceps</div>
+
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div>
+
+        <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <h4>Forearms</h4>
+            </div>
+
+            <div class="col-2">Build Mass</div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Shape/Tone</div>
+
+            <div class="col-2">Strength </div>
+            <div class="col-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-2">Endurance</div>
+          </div>
+        </div> -->
+
       </div>
     </div>
   </div>
 
-  <br/>
+  <br />
   <!-- Ninth Section -->
   <div class="row">
     <div class="col-12">
       <h2>Problematic Areas - PT 2</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>PRIORITIZED MUSCLE GROUPS</h3>
           <h5>Specify, which muscle groups, if any, you consider to be a weakness in regards to muscularity or
             performance objective. Afterward, using the number scale, rate the weakness of the specified muscle, from
             minor to major, with the lowest value, '1', representing very minor.</h5>
         </div>
+        <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-4 col-lg-2">Do</div>
+            <div class="col-3 col-lg-1">
+              <toggle-button [on]="capi" (toggled)="onToggled($event)"></toggle-button>
+            </div>
+            <div class="col-4 col-lg-2">Do Not</div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-4 col-lg-3">
+              <h5>Deltoids</h5>
+            </div>
+            <div class="col-8 col-lg-3">
+              <h5>Front Delts, Side Delts, Rear Delts</h5>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-4">
+              <h4>Front Delts</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-4">
+              <h4>Side Delts</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-4">
+              <h4>Rear Delts</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-3">
+              <h5>Chest</h5>
+            </div>
+            <div class="col-3">
+              <h5>Upper, Lower</h5>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Upper Chest</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Lower Chest</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-3">
+              <h5>Back</h5>
+            </div>
+            <div class="col-3">
+              <h5>Trapezius, Middle Back, Lats, Lower Back</h5>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Trapezius</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Middle Back</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Lats</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Lower Back</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-3">
+              <h5>Arm</h5>
+            </div>
+            <div class="col-3">
+              <h5>Triceps, Biceps, Forearms</h5>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Triceps</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Biceps</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Forearms</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-3">
+              <h5>Core</h5>
+            </div>
+            <div class="col-3">
+              <h5>Abdominals, Obliques</h5>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Abdominals</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Obliques</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="row justify-content-center">
+            <div class="col-3">
+              <h5>Leg</h5>
+            </div>
+            <div class="col-3">
+              <h5>Glutes, Hamstrings, Abductors, Quadriceps, Adductors, Calves</h5>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Glutes</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Hamstrings</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Abductors</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Quadriceps</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Adductors</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-4">
+              <h4>Calves</h4>
+              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+            </div>
+          </div>
+        </div> -->
+
       </div>
     </div>
   </div>
 
-  <br/>
+  <br />
   <!-- Tenth Section -->
   <div class="row">
     <div class="col-12">
       <h2>Training Style</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>EXERCISE REGIME</h3>
           <h5>Select each equipment to identify the training arsenal you have access to and/or prefer to work with.</h5>
+        </div>
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col-12">
+              <h4>Which training equipment do you have access to & prefer to utilize for your workouts?</h4>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-8">
+              <div class="row justify-content-center text-center">
+                  <ng-container *ngFor="let item of trainingTypes; let i = index">
+                      <div class="col-6 col-lg-4 py-2 my-1 mx-2 fake-btn" [ngClass]="{'selected': item.selected}"
+                        (click)="onSelect(i, 'TRAINING')">
+                        <h5>{{item.type}}</h5>
+                      </div>
+                    </ng-container>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -220,34 +854,74 @@
     <div class="col-12 text-center">
       <h1>Nutrition</h1>
     </div>
+    <div class="col-12 col-lg-6">
+      <p>The final phase, Nutrition, is the most favored segment of the My Fitbody Program. Nutrition is the fuel that
+        helps power the drive to your fitness goals.</p>
+      <p>In this phase the program engages users to specify their dietary needs thus identifying what works and tastes
+        best to them.</p>
+      <p>Elements such as meal frequency and diet preference are integrated with data from the Body Profile segment to
+        generate the perfect diet regime.</p>
+      <p>The Nutrition phase plays a vital role in the integration process of the My Fitbody Program. Complete the final
+        segment below and claim your ideal fitness plan.</p>
+      <p>Contact Us: <a> Live Chat</a> </p>
+      <p>If you need assistance or have questions.</p>
+    </div>
+    <div class="col-12 col-lg-6">
+      <img src="https://placekitten.com/g/300/300" />
+    </div>
   </div>
 
-  <br/>
+  <br />
   <!-- Eleventh Section -->
   <div class="row">
     <div class="col-12">
       <h2>Eating Schedule</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>MEAL FREQUENCY</h3>
           <h5>Select the amount of meals you prefer to consume in a day.</h5>
+        </div>
+        <div class="col-12 col-lg-11">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <h4>How Many Meals Do You Prefer To Eat In A Day?</h4>
+            </div>
+            <div class="col-12 col-lg-4">
+              <ng5-slider [(value)]="profile.mealAmount" [options]="mealOptions"></ng5-slider>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <br/>
+  <br />
   <!-- Twelvth Section -->
   <div class="row">
     <div class="col-12">
       <h2>Diet Preference</h2>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-12">
           <h3>MACRO COUNTING DIETING</h3>
           <h5>The macro diet has been gaining a lot of popularity because of its flexibility regarding food choices.
             This philosophy is based on scientific studies showing that the most important factor in losing or gaining
             weight is quantity of calories consumed. Below are the top macro ratio diets that have a proven history of
             effectiveness. Select the diet regime you prefer to follow.</h5>
+        </div>
+        <div class="col-12 col-lg-11">
+          <div class="row">
+            <div class="col-12">
+              <h4>Which Dietary Macro-Nutrient Selection Do You Prefer? </h4>
+            </div>
+          </div>
+          <div class="row justify-content-center text-center">
+              <ng-container *ngFor="let item of macroTypes; let i = index">
+                  <div class="col-6 col-lg-3 py-2 my-1 mx-2 fake-btn" [ngClass]="{'selected': item.selected}"
+                    (click)="onSelect(i, 'MACRO')">
+                    <h5>{{item.type}}</h5>
+                  </div>
+                </ng-container>
+          </div>
         </div>
       </div>
     </div>
@@ -257,7 +931,7 @@
     <div class="col-12 text-center">
       <h1>Confirm</h1>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <p>You've now completed all 3 phases of the My Fitbody Progam! Below are confirmation boxes, from all three
         phases, with your submitted content. Review your input for errors and ensure the information is accurate.</p>
       <p>If you are not satisfied with your submissions click the phase button, either in the header of the
@@ -269,8 +943,8 @@
       <p>Contact Us: <a>Live Chat</a></p>
       <p>If you need assistance or have questions.</p>
     </div>
-    <div class="col-6">
-      <img src="https://placekitten.com/g/570/380" />
+    <div class="col-12 col-lg-6">
+      <img src="https://placekitten.com/g/300/300" />
     </div>
   </div>
 </div>
