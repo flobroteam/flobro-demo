@@ -315,8 +315,7 @@ export class AppComponent {
     let headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
 
     const body = this.createEmailBody();
-
-    debugger;
+    
     this.httpClient.post(url, body, { headers })
       .toPromise()
       .then((res) => {
