@@ -3,9 +3,13 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 import {Ng5SliderModule} from 'ng5-slider';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FontAwesomeModule, FaIconLibrary} from '@fortawesome/angular-fontawesome';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
+import { faUser, faDumbbell, faUtensils, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
@@ -16,9 +20,16 @@ import {HeaderComponent} from './header/header.component';
     BrowserModule,
     HttpClientModule,
     SharedModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    NgbModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(faUser, faDumbbell, faUtensils, faClipboardList);
+  }
+}

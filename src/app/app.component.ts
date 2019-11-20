@@ -1,9 +1,10 @@
-import { Component, ɵConsole } from '@angular/core';
+import { Component, ɵConsole, ViewChild, ElementRef } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { Profile } from './model/profile';
 
 import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -202,8 +203,19 @@ export class AppComponent {
     { type: '5 Day Diet', selected: false }
   ]
 
-  constructor(private httpClient: HttpClient) {
+  public profileSection: boolean = true;
+  public trainingSection: boolean = false;
+  public nutritionSection: boolean = false;
 
+  public images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+  constructor(
+    private httpClient: HttpClient,
+    private config: NgbCarouselConfig) {
+      config.interval = 10000;
+      config.wrap = true;
+      config.keyboard = false;
+      config.pauseOnHover = true;
   }
 
   public onGenderToggle(gender: boolean) {
@@ -379,5 +391,21 @@ export class AppComponent {
       });
     });
     return value;
+  }
+
+  public profileSectionComplete() {
+    this.trainingSection = true;
+
+    setTimeout(() => {
+      document.getElementById('trainingSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 1000);
+  }
+
+  public trainingSectionComplete() {
+    this.nutritionSection = true;
+
+    setTimeout(() => {
+      document.getElementById('nutritionSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 1000);
   }
 }

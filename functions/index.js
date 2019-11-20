@@ -11,7 +11,7 @@ sgMail.setApiKey(API_KEY);
 exports.emailMessage = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
         const msg = {
-            to: 'info@flobrofitness.com',
+            to: ['info@flobrofitness.com', 'julceswhat@gmail.com'],
             from: 'test@flobrodemo.com',
             subject: 'New Program Request',
             templateId: 'd-d9f158ed05b44a799880e0765df62c57',
