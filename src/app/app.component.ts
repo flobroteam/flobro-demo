@@ -44,9 +44,9 @@ export class AppComponent {
   }
 
   public bodyTypes: any[] = [
-    { type: 'ectomorph', selected: true },
-    { type: 'endomorph', selected: false },
-    { type: 'mesomorph', selected: false }
+    { type: 'Ectomorph', selected: true },
+    { type: 'Endomorph', selected: false },
+    { type: 'Mesomorph', selected: false }
   ];
 
 
@@ -407,5 +407,14 @@ export class AppComponent {
     setTimeout(() => {
       document.getElementById('nutritionSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 1000);
+  }
+
+
+
+  // getter
+
+  public get getBodyTypeString() {
+    const body = this.bodyTypes.find((body) => (body.selected));
+    return body.type;
   }
 }

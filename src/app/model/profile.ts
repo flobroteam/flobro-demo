@@ -45,9 +45,13 @@ export class Profile {
         this.macroType = values.macroType || 'Moderate';
     }
 
+    public get getGenderString() {
+        return this.gender ? 'Male' : 'Female';
+    }
+
     public get getBodyProfile(): any {
         return {
-            sex: this.gender ? 'Man' : 'Woman',
+            sex: this.gender ? 'Male' : 'Female',
             age: this.age + " yrs old",
             weight: this.weight + " lbs",
             height: this.height + " in.",
@@ -56,6 +60,12 @@ export class Profile {
             activityLevel: this.activityLevel,
             goal: this.objectives + " lbs/week"
         };
+    }
+
+    public get getHeightString() {
+        let firstVal = Math.trunc(this.height / 12);
+        let secondVal = this.height % 12;
+        return firstVal + ' ft. ' + secondVal + ' in.';
     }
 
     public get getTraining(): any {

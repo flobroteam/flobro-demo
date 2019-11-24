@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, HostBinding } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostBinding, Input } from '@angular/core';
 import { fromEvent, Observable, } from 'rxjs';
 import {
   throttleTime,
@@ -46,6 +46,10 @@ export const enum Direction {
 export class HeaderComponent implements OnInit, AfterViewInit {
   public isVisible = true;
 
+  @Input() public profileSection: boolean;
+  @Input() public trainingSection: boolean;
+  @Input() public nutritionSection: boolean;
+
   constructor() { }
 
   ngOnInit() {
@@ -75,6 +79,24 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
     scrollUp.subscribe(() => (this.isVisible = true));
     scrollDown.subscribe(() => (this.isVisible = false));
+  }
+
+  public handleOnClick(place: string) {
+    switch(place) {
+      case 'P':
+          document.getElementById('profileSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 'T':
+          document.getElementById('trainingSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 'N':
+          document.getElementById('nutritionSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 'C':
+          document.getElementById('confirmSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break
+      default:
+    }
   }
 
 }
