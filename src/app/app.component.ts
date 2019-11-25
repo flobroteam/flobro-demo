@@ -350,6 +350,7 @@ export class AppComponent implements OnInit {
     this.httpClient.post(url, body, { headers })
       .toPromise()
       .then((res) => {
+        window.location.href = "http://flobrofitness.com/";    
         console.log('Successfully submitted');
       }).catch((err) => {
         console.log(err);
@@ -359,9 +360,9 @@ export class AppComponent implements OnInit {
   public createEmailBody() {
     return {
       customerProfile: {
-        name: "Julio",
-        lastName: "Whatley",
-        email: "test@att.com"
+        name: this.custInfoForm.get('firstName').value,
+        lastName: this.custInfoForm.get('lastName').value,
+        email: this.custInfoForm.get('email').value
       },
       bodyProfile: this.profile.getBodyProfile,
       training: {
@@ -379,7 +380,7 @@ export class AppComponent implements OnInit {
         glutes: this.getGoalTypeByIndex(10),
         abductors: this.getGoalTypeByIndex(11),
         adductors: this.getGoalTypeByIndex(12),
-        days: this.frequency.days,
+        days: this.getDaysFrequency(),
         problematicAreas: this.getProblematicAreas(),
         trainingStyles: this.trainingTypes.filter((t) => (t.selected)).map((t) => ({name: t.type}))
       },
@@ -404,12 +405,19 @@ export class AppComponent implements OnInit {
     areas.forEach((a) => {
       a.subitems.forEach((s) => {
         value.push({
-          name: s.subtype,
+          name: s.subtype + ' ' + a.type,
           value: s.sessions
         });
       });
     });
     return value;
+  }
+
+  public getDaysFrequency() {
+    return this.frequencyTypes.filter((f) => (f.selected)).map((f) => ({
+      name: f.type,
+      value: f.sessions + ' Sessions'
+    }));
   }
 
   public profileSectionComplete() {

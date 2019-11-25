@@ -28,8 +28,8 @@ export class Profile {
         this.height = values.height || 36;
         this.weight = values.weight || 60;
         this.fatPercentage = values.fatPercentage || 2;
-        this.bodyType = values.bodyType || '';
-        this.activityLevel = values.activityLevel || '';
+        this.bodyType = values.bodyType || 'Ectomorph';
+        this.activityLevel = values.activityLevel || 'Sedantary';
 
         this.sleepTime = values.sleepTime || 8;
 
@@ -58,6 +58,7 @@ export class Profile {
             bodyFat: this.fatPercentage + "%",
             bodyType: this.bodyType,
             activityLevel: this.activityLevel,
+            sleepTime: this.sleepTime + " hrs",
             goal: this.objectives + " lbs/week"
         };
     }
