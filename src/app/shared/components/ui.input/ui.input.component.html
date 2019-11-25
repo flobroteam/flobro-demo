@@ -1,0 +1,55 @@
+<div class="float-input {{additionalClasses}}" [formGroup]="theFormGroup"
+     [ngClass]="{'invalid-value': theFormGroup.get(inputId).touched && theFormGroup.get(inputId).invalid,
+                 'value-entered': theFormGroup.get(inputId).value || placeHolder}">
+
+     <input type="text"
+           formControlName="{{inputId}}"
+           maxlength="{{maxLength}}"
+           minlength="{{minLength}}"
+           class="form-control input-text ieclose {{additionalClasses}}"
+           name="{{inputId}}"
+           id="{{inputId}}"
+           placeholder="{{placeHolder}}"
+           autocomplete="off"
+           [autofocus]="autofocus"
+           required
+           noSpecialCharactersSpacesAllowed
+           *ngIf="inputType === 'text' && noSpecialCharactersSpacesAllowed">
+
+    <input type="text"
+           formControlName="{{inputId}}"
+           maxlength="{{maxLength}}"
+           minlength="{{minLength}}"
+           class="form-control input-text ieclose email {{additionalClasses}}"
+           name="{{inputId}}"
+           id="{{inputId}}"
+           placeholder="{{placeHolder}}"
+           autocomplete="off"
+           [autofocus]="autofocus"
+           required
+           *ngIf="inputType === 'email'">
+
+      <input type="text"
+           formControlName="{{inputId}}"
+           maxlength="{{maxLength}}"
+           minlength="{{minLength}}"
+           class="form-control input-text ieclose"
+           name="{{inputId}}"
+           id="{{inputId}}"
+           placeholder="{{placeHolder}}"
+           [autofocus]="autofocus"
+           autocomplete="off"
+           [required]="false"
+           *ngIf="inputType === 'optional'">
+
+    <label class="floating-label {{additionalClasses}} " for="{{inputId}}">{{placeHolderText}}</label>
+    <span *ngIf="inputType === 'text' &&  placeHolder && !theFormGroup.get(inputId).value; else showCloseIcon"></span>
+    <ng-template #showCloseIcon>
+          <span class="floating-close {{additionalClasses}}"
+               (click)="clearInput()">
+               <i class="fa fa-times-circle clear-x"
+               aria-hidden="true" *ngIf='!disabledFlag'>&nbsp;</i>
+          </span>
+    </ng-template>
+
+</div>

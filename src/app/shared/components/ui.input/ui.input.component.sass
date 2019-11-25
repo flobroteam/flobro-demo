@@ -1,0 +1,158 @@
+.float-input 
+    border: 1px solid #E1DFE1
+    border-radius: 4px
+    padding: 14px 4px 5px 10px
+    display: block
+    width: 100%
+    text-align: left
+    height: 50px
+    position: relative
+    background-color: white
+
+
+.float-input.disabled-field 
+    background: #F6F6F6
+
+
+.float-input.input-with-button 
+    width: 69%
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+
+
+.float-input:not(.disabled-field):focus-within 
+    border-width: 2px
+    border-color: #1B75BB
+
+
+.float-input:not(.disabled-field).invalid-value 
+    border-width: 1px
+    border-color: #CF292A
+
+
+.float-input>.input-text 
+    position: absolute
+    left: 0
+    background: transparent
+    border: none
+    padding-left: 10px
+    width: 90%
+    box-shadow: none
+    font-family: 'SimplyCricket-Book'
+
+
+.float-input>.input-text.email 
+    text-transform: lowercase
+
+
+.float-input>.input-text.email::placeholder 
+    text-transform: initial
+
+
+.float-input>.floating-label 
+    position: absolute
+    top: 14px
+    -webkit-transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    -moz-transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    -o-transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    -ms-transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    font-family: 'SimplyCricket-Book'
+
+
+.float-input>.floating-label.input-optional 
+    color: #BBBDC0
+
+
+.floating-close 
+    position: absolute
+    right: 0
+    cursor: pointer
+    display: none
+    font-size: 18px
+    padding-top: 1px
+
+
+.value-entered .floating-close 
+    display: block
+    width: auto
+    padding: 3px
+
+
+
+.float-input>input:focus~.floating-close 
+    display: block
+
+
+.float-input>input:focus~.floating-label,
+.float-input>input:not(:focus)~.float,
+.value-entered .floating-label 
+    top: 3px
+    font-size: 10px
+    font-family: 'SimplyCricket-Demibold'
+    -webkit-transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    -moz-transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    -o-transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    -ms-transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    transition: all 0.1667s cubic-bezier(0.26, 0.37, 0.77, 0.70)
+    color: #6E6F72
+
+
+.float-input:not(.disabled-field)>input:focus~.floating-label,
+.float-input:not(.disabled-field)>input:focus~.floating-label.input-optional 
+    color: #1B75BB
+
+
+.float-input:not(.disabled-field).invalid-value > input:focus ~ .floating-label 
+    color: #CF292A
+
+
+.hidden 
+    visibility: hidden
+
+
+.input-for-button 
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+
+
+.clear-x-pdg 
+    padding-top: 8px
+
+
+.button-with-toggle 
+    width: 78%
+    display: inline-block
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+
+
+.float-input:focus 
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+    border-radius: 4px
+
+
+.lowercase 
+    text-transform: lowercase
+
+
+.ng-untouched .floating-close.hide-icon, .ng-pristine .floating-close.hide-icon, .ng-invalid .floating-close.hide-icon 
+    display: none
+
+
+.ng-touched .floating-close.hide-icon 
+    display: block
+
+
+.hide-icon::placeholder 
+    font-size: 14px
+    font-family: 'SimplyCricket-Book'
+    color: #212529
+
+
+.disabled
+    color: #6E6F72 !important
+    border-color: #E1DFE1
+    background-color: #E1DFE1
+

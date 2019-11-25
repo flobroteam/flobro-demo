@@ -102,7 +102,7 @@ export class AppComponent {
   ]
 
   public goalTypes: any[] = [
-    { type: 'Calvel', muscularity: false, strength: false },
+    { type: 'Calves', muscularity: false, strength: false },
     { type: 'Quadriceps', muscularity: false, strength: false },
     { type: 'Hamstrings', muscularity: false, strength: false },
     { type: 'Back', muscularity: false, strength: false },
@@ -346,7 +346,7 @@ export class AppComponent {
       },
       bodyProfile: this.profile.getBodyProfile,
       training: {
-        skill: this.getSkill(),
+        skill: this.getSkill,
         calves: this.getGoalTypeByIndex(0),
         quadriceps: this.getGoalTypeByIndex(1),
         hamstring: this.getGoalTypeByIndex(2),
@@ -368,14 +368,14 @@ export class AppComponent {
     };
   }
 
-  public getSkill(): string {
+  public get getSkill(): string {
     const level = this.levelTypes.find((l) => (l.selected));
     return level.shortDec
   }
 
   public getGoalTypeByIndex(index: number) {
-    let goal = this.goalTypes[index].muscularity ? 'Build Mass' : 'Shape/Tone';
-    goal = goal + ' & ' + (this.goalTypes[index].strength ? 'Strength' : 'Endurance');
+    let goal = this.goalTypes[index].muscularity ? 'Shape/Tone' : 'Build Mass';
+    goal = goal + ' & Increase ' + (this.goalTypes[index].strength ? 'Endurance' : 'Strength');
     return goal;
   }
 
@@ -416,5 +416,18 @@ export class AppComponent {
   public get getBodyTypeString() {
     const body = this.bodyTypes.find((body) => (body.selected));
     return body.type;
+  }
+
+  public get getActivityTypeString() {
+    const body = this.activityTypes.find((body) => (body.selected));
+    return body.type;
+  }
+
+  public get getTraningStylesString() {
+    return this.trainingTypes.filter((t) => (t.selected)).map((t) => (t.type)).join(', ');
+  }
+
+  public get getMucleWeaknesesString() {
+    return this.mucleWeakneses ? 'Do' : 'Do Not';
   }
 }

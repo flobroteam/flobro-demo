@@ -1,0 +1,10 @@
+<div class="row popover alert-popup inputDanger errorArrow" *ngIf="displayError">
+    <div class="arrow"></div>
+    <div class="col">
+        <div class="alert-popup-content error-msg" [innerHTML]="errorMsg"></div>
+
+        <div class="close-icon mt-1" (click)="closeErrorMessage()">
+            <i class="fa fa-times-circle cw-red" role="img" aria-label=""></i>
+        </div>
+    </div>
+</div>

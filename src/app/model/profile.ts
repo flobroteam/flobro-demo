@@ -80,4 +80,12 @@ export class Profile {
             dietSelection: this.macroType
         };
     }
+
+    public get getPhysicalSetbackString() {
+        return this.physicalSetback ? 'Do' : 'Do Not';
+    }
+
+    public get getObjectivesString() {
+        return (this.objectives > 0 ? 'Gain ' : 'Loose ') + this.objectives; 
+    }
 }

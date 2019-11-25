@@ -13,7 +13,7 @@
     <div class="col-12 text-center">
       <span class="major-title-txt">BODY PROFILE</span>
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12">
       <p>The first phase, Body Profile, is the most important segment of the My Fitbody Program. It's the building block
         that sets the foundation for the formulation of your ideal fitness plan.</p>
       <p>In this phase the program gathers key factors that varies amongst individuals to eliminate guess work and to
@@ -25,9 +25,9 @@
       <p>Contact Us: <a> Live Chat</a> </p>
       <p>If you need assistance or have questions.</p>
     </div>
-    <div class="col-12 col-lg-6">
+    <!-- <div class="col-12 col-lg-6">
       <img src="https://placekitten.com/g/300/300" />
-    </div>
+    </div> -->
   </div>
 
   <br />
@@ -43,9 +43,9 @@
         <div class="col-12 col-lg-11">
           <div class="row">
             <div class="col-12">
-              <h4>What is your gender?</h4>
+              <h4 class="fbf-blue">What is your gender?</h4>
               <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Sex Is: {{profile.getGenderString}}</h4>
+                <h4 class="col-12 text-center">My Sex Is: <span class="fbf-blue">{{profile.getGenderString}}</span></h4>
                 <div class="col-4 col-lg-2 text-right">Female</div>
                 <div class="col-3 col-lg-1">
                   <toggle-button [on]="profile.gender" (toggled)="onGenderToggle($event)"></toggle-button>
@@ -54,45 +54,45 @@
               </div>
             </div>
             <div class="col-12">
-              <h4>How old are you?</h4>
+              <h4 class="fbf-blue">How old are you?</h4>
               <div class="row justify-content-center">
-                <h4 class="col-12 text-center">I Am: {{profile.age}} Years Old</h4>
+                <h4 class="col-12 text-center">I Am: <span class="fbf-blue">{{profile.age}} Years Old</span></h4>
                 <div class="col-12 col-lg-4">
                   <ng5-slider [(value)]="profile.age" [options]="ageOptions"></ng5-slider>
                 </div>
               </div>
             </div>
             <div class="col-12">
-              <h4>How tall are you?</h4>
+              <h4 class="fbf-blue">How tall are you?</h4>
               <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Height Is: {{profile.getHeightString}}</h4>
+                <h4 class="col-12 text-center">My Height Is: <span class="fbf-blue">{{profile.getHeightString}}</span></h4>
                 <div class="col-12 col-lg-4">
                   <ng5-slider [(value)]="profile.height" [options]="heightOptions"></ng5-slider>
                 </div>
               </div>
             </div>
             <div class="col-12">
-              <h4>How much do you weigh?</h4>
+              <h4 class="fbf-blue">How much do you weigh?</h4>
               <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Weight Is: {{profile.weight}} lbs</h4>
+                <h4 class="col-12 text-center">My Weight Is: <span class="fbf-blue">{{profile.weight}} lbs</span></h4>
                 <div class="col-12 col-lg-4">
                   <ng5-slider [(value)]="profile.weight" [options]="weightOptions"></ng5-slider>
                 </div>
               </div>
             </div>
             <div class="col-12">
-              <h4>What is your body fat %?</h4>
+              <h4 class="fbf-blue">What is your body fat %?</h4>
               <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Body Fat Percentage Is: {{profile.fatPercentage}} %</h4>
+                <h4 class="col-12 text-center">My Body Fat Percentage Is: <span class="fbf-blue">{{profile.fatPercentage}} %</span></h4>
                 <div class="col-12 col-lg-4">
                   <ng5-slider [(value)]="profile.fatPercentage" [options]="fatPercentageOptions"></ng5-slider>
                 </div>
               </div>
             </div>
             <div class="col-12">
-              <h4>What is your body type?</h4>
+              <h4 class="fbf-blue">What is your body type?</h4>
               <div class="row">
-                  <h4 class="col-12 text-center">My Body Type Is: {{getBodyTypeString}}</h4>
+                  <h4 class="col-12 text-center">My Body Type Is: <span class="fbf-blue">{{getBodyTypeString}}</span></h4>
               </div>
               <div class="row justify-content-center text-center">
                 <ng-container *ngFor="let item of bodyTypes; let i = index">
@@ -122,8 +122,9 @@
         <div class="col-12 col-lg-11">
           <div class="row">
             <div class="col-12">
-              <h4>How Active Is Your Job & Daily Routine?</h4>
+              <h4 class="fbf-blue">How Active Is Your Job & Daily Routine?</h4>
             </div>
+            <h4 class="col-12 text-center">My Activity Level Is Best Described As: <span class="fbf-blue">{{getActivityTypeString}}</span></h4>
           </div>
           <ng-container *ngFor="let item of activityTypes; let i = index">
             <div class="row justify-content-center my-2">
@@ -158,10 +159,11 @@
         <div class="col-12 col-lg-11">
           <div class="row">
             <div class="col">
-              <h4>How Much Time Do You Spend At Rest?</h4>
+              <h4 class="fbf-blue">How Much Time Do You Spend At Rest?</h4>
             </div>
           </div>
           <div class="row justify-content-center">
+            <h4 class="col-12 text-center">I Sleep: <span class="fbf-blue">{{profile.sleepTime}} hours</span>, On Average, Each Day</h4>
             <div class="col-12 col-lg-4">
               <ng5-slider [(value)]="profile.sleepTime" [options]="sleepTimeOptions"></ng5-slider>
             </div>
@@ -185,11 +187,12 @@
         <div class="col-12 col-lg-11">
           <div class="row">
             <div class="col">
-              <h4>Have You Sustained Any Injuries That Currently Pose A Physical Setback For You? If You Have, Specify
+              <h4 class="fbf-blue">Have You Sustained Any Injuries That Currently Pose A Physical Setback For You? If You Have, Specify
                 What Body Parts.</h4>
             </div>
           </div>
           <div class="row justify-content-center">
+            <h4 class="col-12 text-center">Presently, I: <span class="fbf-blue">{{profile.getPhysicalSetbackString}}</span> Have Physical Set Backs From Past Injuries.</h4>
             <div class="col-4 col-lg-1 text-right">Do Not</div>
             <div class="col-3 col-lg-1">
               <toggle-button [on]="profile.physicalSetback" (toggled)="onPhysicalSetBackToggle($event)"></toggle-button>
@@ -230,10 +233,11 @@
         <div class="col-12 col-lg-11">
           <div class="row">
             <div class="col-12">
-              <h4>What Is Your Physique Objective?</h4>
+              <h4 class="fbf-blue">What Is Your Physique Objective?</h4>
             </div>
           </div>
           <div class="row justify-content-center">
+              <h4 class="col-12 text-center">My Physique Objective Is To: <span class="fbf-blue">{{profile.getObjectivesString}} lbs per week </span></h4>
             <div class="col-3 col-lg-1 objective-height">
               <ng5-slider [(value)]="profile.objectives" [options]="objectiveOptions"></ng5-slider>
             </div>
@@ -241,7 +245,7 @@
         </div>
       </div>
     </div>
-    <div class="col-11 col-lg-3 fake-btn selected my-2 py-2 text-center" (click)="profileSectionComplete()">
+    <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="profileSectionComplete()">
       <h5>Save and Continue</h5>
     </div>
   </div>
@@ -290,10 +294,12 @@
           <div class="col-12 col-lg-11">
             <div class="row">
               <div class="col">
-                <h4>How Many Training Sessions Do Your Prefer In 6 Day Week?</h4>
+                <h4 class="fbf-blue">How Many Training Sessions Do Your Prefer In 6 Day Week?</h4>
               </div>
             </div>
             <div class="row justify-content-center">
+              <h4 class="col-12 text-center">I Prefer A Total Of: <span class="fbf-blue">{{frequency.sessions}}</span> Training Sessions Per Week</h4>
+              <h4 class="col-12 text-center">Days: <span class="fbf-blue">{{frequency.days}}</span></h4>
               <div class="col-12 col-lg-4">
                 <ng5-slider [(value)]="frequency.days" (userChange)="handleUserChange('FREQUENCY')"
                   [options]="frequencyOptions"></ng5-slider>
@@ -334,10 +340,11 @@
           <div class="col-12 col-lg-11">
             <div class="row">
               <div class="col-12">
-                <h4>What Is Your Present Training Experience Level?</h4>
+                <h4 class="fbf-blue">What Is Your Present Training Experience Level?</h4>
               </div>
             </div>
             <div class="row justify-content-center text-center">
+                <h4 class="col-12 text-center">My Experience Level Is: <span class="fbf-blue">{{getSkill}}</span></h4>
               <ng-container *ngFor="let item of levelTypes; let i = index">
                 <div class="col-11 col-lg-3 py-2 mx-2 my-1 fake-btn" [ngClass]="{'selected': item.selected}"
                   (click)="onSelect(i, 'LEVEL')">
@@ -361,12 +368,15 @@
             <p class="subtitle-description-txt">Choose your desired goal for each muscle group from the list of below. Your choice plays a crucial role in
               the formulation of your personal fitness plan and will be factored into your training regime.</p>
           </div>
-
+          <div class="col-12">
+              <h4 class="fbf-blue">What Is Your Training Objective For The Specified Muscle Group?</h4>
+          </div>
           <ng-container *ngFor="let item of goalTypes; let i = index">
-            <div class="col-12 col-lg-11">
+            <div class="col-12 col-lg-11 my-3">
               <div class="row justify-content-center">
+                  <h4 class="col-12">My Training Objective For {{item.type}} Is To: <span class="fbf-blue">{{getGoalTypeByIndex(i)}}</span></h4>
                 <div class="col-12 col-lg-2">
-                  <h4>{{item.type}}</h4>
+                  <h4 class="fbf-blue">{{item.type}}</h4>
                 </div>
 
                 <div class="col-4 col-lg-2 text-right">Build Mass</div>
@@ -401,7 +411,11 @@
               minor to major, with the lowest value, '1', representing very minor.</p>
           </div>
           <div class="col-12">
+              <h4 class="fbf-blue">What Is Your Present Training Experience Level?</h4>
+          </div>
+          <div class="col-12">
             <div class="row justify-content-center">
+                <h4 class="col-12 text-center">Presently, I: <span class="fbf-blue">{{getMucleWeaknesesString}}</span> Have Muscle Groups I Consider A Weakness In My Physique.</h4>
               <div class="col-4 col-lg-2 text-right">Do Not</div>
               <div class="col-3 col-lg-1">
                 <toggle-button [on]="mucleWeakneses" (toggled)="onToggled()"></toggle-button>
@@ -442,7 +456,7 @@
 
     <br />
     <!-- Tenth Section -->
-    <div class="row justify-content-center text-center">
+    <div class="row justify-content-center">
       <div class="col-12">
         <span class="title-txt">TRAINING STYLE</span>
         <div class="row justify-content-center">
@@ -453,10 +467,11 @@
           <div class="col-12 col-lg-11">
             <div class="row">
               <div class="col-12">
-                <h4>Which training equipment do you have access to & prefer to utilize for your workouts?</h4>
+                <h4 class="fbf-blue">Which training equipment do you have access to & prefer to utilize for your workouts?</h4>
               </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center text-center">
+              <h4 class="col-12 text-center">I Prefer My Training Arsenal To Encompass: <span class="fbf-blue">{{getTraningStylesString}}</span>, Exercises</h4>
               <div class="col-12 col-lg-8">
                 <div class="row justify-content-center text-center">
                   <ng-container *ngFor="let item of trainingTypes; let i = index">
@@ -472,7 +487,7 @@
           </div>
         </div>
       </div>
-      <div class="col-11 col-lg-3 fake-btn selected my-2 py-2" (click)="trainingSectionComplete()">
+      <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="trainingSectionComplete()">
         <h5>Save and Continue</h5>
       </div>
     </div>
@@ -501,9 +516,9 @@
       <p>Contact Us: <a> Live Chat</a> </p>
       <p>If you need assistance or have questions.</p>
     </div>
-    <div class="col-12 col-lg-6">
+    <!-- <div class="col-12 col-lg-6">
       <img src="https://placekitten.com/g/300/300" />
-    </div>
+    </div> -->
   </div>
 
   <br />
@@ -519,8 +534,9 @@
         <div class="col-12 col-lg-11">
           <div class="row justify-content-center">
             <div class="col-12">
-              <h4>How Many Meals Do You Prefer To Eat In A Day?</h4>
+              <h4 class="fbf-blue">How Many Meals Do You Prefer To Eat In A Day?</h4>
             </div>
+            <h4 class="col-12 text-center">I Prefer To Eat: <span class="fbf-blue">{{profile.mealAmount}}</span> Meals A Day</h4>
             <div class="col-12 col-lg-4">
               <ng5-slider [(value)]="profile.mealAmount" [options]="mealOptions"></ng5-slider>
             </div>
@@ -546,10 +562,11 @@
         <div class="col-12 col-lg-11">
           <div class="row">
             <div class="col-12">
-              <h4>Which Dietary Macro-Nutrient Selection Do You Prefer? </h4>
+              <h4 class="fbf-blue">Which Dietary Macro-Nutrient Selection Do You Prefer? </h4>
             </div>
           </div>
           <div class="row justify-content-center text-center">
+            <h4 class="col-12 text-center">I Prefer To Follow The: <span class="fbf-blue">{{profile.macroType}}</span> Diet</h4>
             <ng-container *ngFor="let item of macroTypes; let i = index">
               <div class="col-5 col-lg-3 py-2 my-1 mx-2 fake-btn" [ngClass]="{'selected': item.selected}"
                 (click)="onSelect(i, 'MACRO')">
@@ -558,7 +575,7 @@
             </ng-container>
           </div>
         </div>
-        <div class="col-12 col-lg-8">
+        <!-- <div class="col-12 col-lg-8">
           <ngb-carousel *ngIf="images">
             <ng-template ngbSlide>
               <div class="picsum-img-wrapper">
@@ -597,7 +614,7 @@
               </div>
             </ng-template>
           </ngb-carousel>      
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -619,8 +636,8 @@
       <p>Contact Us: <a>Live Chat</a></p>
       <p>If you need assistance or have questions.</p>
     </div>
-    <div class="col-11 col-lg-3 fake-btn selected my-2 py-2" (click)="submitEmail()">
-      <h5>Save and Continue</h5>
+    <div class="col-11 col-lg-3 fake-btn selected my-5 py-2" (click)="submitEmail()">
+      <h5>Submit</h5>
     </div>
   </div>
   </ng-container>
