@@ -1,0 +1,97 @@
+.float-input 
+    border-radius: 4px
+
+
+.float-input.disabled-field 
+    background: #F6F6F6
+
+
+.float-input .check-container 
+    display: flex
+    align-items: center
+    justify-content: space-around
+    position: relative
+    cursor: pointer
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    padding: 12px
+    // border: 1px solid #E1DFE1
+    padding: 10px
+    border-radius: 4px
+
+
+.float-input.disabled-field .check-container 
+    cursor: default
+
+
+.float-input .check-container .text 
+    // font-family: 'SimplyCricket-Demibold', Helvetica, sans-serif
+    font-size: 14px
+    color: #6E6F72
+
+
+.promo-text 
+    padding-right: 100px
+
+
+.float-input .check-container input 
+    position: absolute
+    visibility: hidden
+    width: 100%
+    height: 100%
+
+
+.float-input .check-container input ~ .check 
+    position: relative
+    height: 26px
+    width: 26px
+    border: 1px solid #E1DFE1
+    border-radius: 4px
+    background-color: white
+
+
+.float-input .check-container input ~ .check::after 
+    content: ""
+    position: absolute
+    visibility: hidden
+    left: 8px
+    top: 3px
+    width: 8px
+    height: 15px
+    border: solid white
+    border-width: 0 2px 2px 0
+    transform: rotate(45deg)
+
+
+.float-input .check-container input:checked ~ .check     
+    background-color: #184163
+
+
+.float-input .check-container input:checked ~ .check::after 
+    visibility: visible
+
+
+.skim-text 
+    // font-family: 'SimplyCricket-Book', Helvetica, sans-serif !important
+    font-size: 18px !important
+    color: #404041 !important
+
+
+.skim-border 
+    border: 1px solid #404041 !important
+
+
+/* iPad */
+// @media only screen 
+// and (min-device-width : 768px) 
+// and (max-device-width : 1023px) 
+//     .float-input .check-container .text 
+//         padding-right: 10px
+    
+
+//     .verify-check 
+//         font-size: 8px !important
+    
+

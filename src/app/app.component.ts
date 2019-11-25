@@ -241,7 +241,8 @@ export class AppComponent implements OnInit {
       email: new FormControl('', [
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\\.[a-zA-Z]{2,15}$')
-      ])
+      ]),
+      terms: new FormControl(false, Validators.requiredTrue),
     });
   }
 

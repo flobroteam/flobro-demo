@@ -246,7 +246,7 @@
           </div>
           <div class="row justify-content-center">
             <h4 class="col-12 text-center">My Physique Objective Is To: <span
-                class="fbf-blue">{{profile.getObjectivesString}} lbs per week </span></h4>
+                class="fbf-blue">{{profile.getObjectivesString}}</span></h4>
             <div class="col-3 col-lg-1 objective-height">
               <ng5-slider [(value)]="profile.objectives" [options]="objectiveOptions"></ng5-slider>
             </div>
@@ -270,7 +270,7 @@
       <div class="col-12 text-center">
         <span class="major-title-txt">TRAINING</span>
       </div>
-      <div class="col-12 col-lg-6">
+      <div class="col-12">
         <p>The second phase, Training, makes up one half of your generated fitness plan. It’s the vehicle of the My
           Fitbody Program that drives you to your fitness goals.</p>
         <p>In this phase the program collects the key factors required to craft a personalized exercise regime that
@@ -284,9 +284,9 @@
         <p>Contact Us: <a> Live Chat</a> </p>
         <p>If you need assistance or have questions.</p>
       </div>
-      <div class="col-12 col-lg-6">
+      <!-- <div class="col-12 col-lg-6">
         <img src="https://placekitten.com/g/300/300" />
-      </div>
+      </div> -->
     </div>
 
     <br />
@@ -667,7 +667,7 @@
       <div class="col-12">
         <form [formGroup]="custInfoForm" autocomplete="off" novalidate>
           <div class="row justify-content-center">
-            <div class="col-12 col-lg-7 mt-2">
+            <div class="col-12 col-lg-8 mt-2">
               <ui-input
                 [placeHolderText]="'First Name'"
                 [inputId]="'firstName'"
@@ -681,7 +681,7 @@
                 [theFormGroup]="custInfoForm">
               </ui-field-error>
             </div>
-            <div class="col-12 col-lg-7 mt-2">
+            <div class="col-12 col-lg-8 mt-2">
                 <ui-input
                   [placeHolderText]="'Last Name'"
                   [inputId]="'lastName'"
@@ -695,7 +695,7 @@
                   [theFormGroup]="custInfoForm">
                 </ui-field-error>
               </div>
-              <div class="col-12 col-lg-7 mt-2">
+              <div class="col-12 col-lg-8 mt-2">
                   <ui-input
                     [placeHolderText]="'Email'"
                     [inputId]="'email'"
@@ -708,7 +708,20 @@
                     [inputId]="'email'"
                     [theFormGroup]="custInfoForm">
                   </ui-field-error>
-                </div>
+              </div>
+              <div class="col-12 col-lg-8 mt-2">
+                  <ui-check
+                      [placeHolderText]="'I acknowledge acceptance of FloBro Fitness terns of service, privacy policy, refund policy & disclaimer.'"
+                      [inputId]="'terms'"
+                      [theFormGroup]="custInfoForm">
+                  </ui-check>
+                  <ui-field-error
+                    [displayError]="isFormInvalid('terms')"
+                    [errorMsg]="'Please accept the terms and condition to proceed.'"
+                    [inputId]="'terms'"
+                    [theFormGroup]="custInfoForm">
+                  </ui-field-error>
+              </div>
           </div>
         </form>
       </div>

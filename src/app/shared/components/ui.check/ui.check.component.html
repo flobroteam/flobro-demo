@@ -1,0 +1,13 @@
+<div class="float-input" [formGroup]="theFormGroup" [ngClass]="{'disabled-field': disabledFlag}">
+    <label class="check-container m-0 {{borderClasses}}">
+        <input type="checkbox"
+            class="input-text"
+            formControlName="{{inputId}}"
+            name="{{inputId}}"
+            [readOnly]="disabledFlag"
+            (click)="disabledFlag ? $event.preventDefault() : true">
+        <span class="check {{borderClasses}}"></span>
+        <span class="text {{additionalClasses}}">{{placeHolderText}}</span>
+    </label>
+</div>
+    

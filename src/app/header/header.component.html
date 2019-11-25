@@ -1,25 +1,28 @@
 <div class="fluid-container text-center">
     <div class="row title">
+        <div class="col-12">
+            <img src="assets/img/FLOBROLOGO-white.gif" alt="image" height="65px">
+        </div>
         <h1 class="col-12">MY FITBODY PROGRAM</h1>
         <p class="col-12">"THE FASTEST WAY TO REACH YOUR FITNESS GOALS GUARENTEED!"</p>
     </div>
     <div class="row sections">
-        <div class="col-6 col-lg-3 py-2" [ngClass]="{'active': trainingSection}"
+        <div class="col-6 col-lg-3 py-2 active"
             (click)="handleOnClick('P')">
             <fa-icon  [icon]="['fas', 'user']" size="2x"></fa-icon>
             <div>BODY PROFILE</div>
         </div>
-        <div class="col-6 col-lg-3 py-2" [ngClass]="{'active': nutritionSection}"
+        <div class="col-6 col-lg-3 py-2" [ngClass]="{'active': trainingSection}"
             (click)="trainingSection && handleOnClick('T')">
             <fa-icon [icon]="['fas', 'dumbbell']" size="2x"></fa-icon>
             <div>TRAINING</div>
         </div>
-        <div class="col-6 col-lg-3 py-2" [ngClass]="{'active': confirmSection}"
+        <div class="col-6 col-lg-3 py-2" [ngClass]="{'active': nutritionSection}"
             (click)="nutritionSection && handleOnClick('N')">
             <fa-icon [icon]="['fas', 'utensils']" size="2x"></fa-icon>
             <div>NUTRITION</div>
         </div>
-        <div class="col-6 col-lg-3 py-2"
+        <div class="col-6 col-lg-3 py-2" [ngClass]="{'active': confirmSection}"
             (click)="handleOnClick('C')">
             <fa-icon [icon]="['fas', 'clipboard-list']" size="2x"></fa-icon>
             <div>CONFIRM</div>

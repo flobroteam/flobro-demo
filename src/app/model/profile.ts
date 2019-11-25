@@ -87,6 +87,12 @@ export class Profile {
     }
 
     public get getObjectivesString() {
-        return (this.objectives > 0 ? 'Gain ' : 'Lose ') + this.objectives; 
+        if (this.objectives > 0) {
+            return 'Gain ' + this.objectives + ' lbs per week';
+        } else if (this.objectives < 0) {
+            return 'Lose ' + this.objectives + ' lbs per week';
+        } else {
+            return 'Maintain weight';
+        }
     }
 }

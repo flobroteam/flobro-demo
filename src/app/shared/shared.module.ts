@@ -5,12 +5,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ToggleButtonComponent} from './components/toggle.button/toggle.button.component';
 import {UiInputComponent} from './components/ui.input/ui.input.component';
 import {UiFieldErrorComponent} from './components/ui.field.error/ui.field.error.component';
+import {UiCheckComponent} from './components/ui.check/ui.check.component';
 
 @NgModule({
   declarations: [
     ToggleButtonComponent,
     UiInputComponent,
-    UiFieldErrorComponent
+    UiFieldErrorComponent,
+    UiCheckComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import {UiFieldErrorComponent} from './components/ui.field.error/ui.field.error.
   exports: [
     ToggleButtonComponent,
     UiInputComponent,
-    UiFieldErrorComponent
+    UiFieldErrorComponent,
+    UiCheckComponent
   ],
   providers: [],
   entryComponents: [
