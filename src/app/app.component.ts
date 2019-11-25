@@ -1,17 +1,18 @@
-import { Component, ɵConsole, ViewChild, ElementRef } from '@angular/core';
+import { Component, ɵConsole, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { Profile } from './model/profile';
 
 import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'flobro-demo';
   public capi: boolean = true;
 
@@ -206,8 +207,11 @@ export class AppComponent {
   public profileSection: boolean = true;
   public trainingSection: boolean = false;
   public nutritionSection: boolean = false;
+  public confirmSection: boolean = false;
 
   public images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+  public custInfoForm: FormGroup;
 
   constructor(
     private httpClient: HttpClient,
@@ -218,17 +222,32 @@ export class AppComponent {
       config.pauseOnHover = true;
   }
 
+  ngOnInit() {
+    this.setupForm();
+  }
+
   public onGenderToggle(gender: boolean) {
     this.profile.gender = gender;
   }
-
 
   public onPhysicalSetBackToggle(hasSetback: boolean) {
     this.profile.physicalSetback = hasSetback;
   }
 
+  public setupForm() {
+    this.custInfoForm = new FormGroup({
+      firstName: new FormControl(''),
+      lastName: new FormControl(''),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\\.[a-zA-Z]{2,15}$')
+      ])
+    });
+  }
 
-
+  public isFormInvalid(field: string) {
+    return (this.custInfoForm.get(field).invalid && this.custInfoForm.get(field).touched);
+  }
 
   public onSelect(index: number, type: string) {
     switch (type) {
@@ -406,6 +425,14 @@ export class AppComponent {
 
     setTimeout(() => {
       document.getElementById('nutritionSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 1000);
+  }
+
+  public nutritionSectionComplete() {
+    this.confirmSection = true;
+
+    setTimeout(() => {
+      document.getElementById('confirmSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 1000);
   }
 

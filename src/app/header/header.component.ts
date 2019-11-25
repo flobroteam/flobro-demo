@@ -49,6 +49,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @Input() public profileSection: boolean;
   @Input() public trainingSection: boolean;
   @Input() public nutritionSection: boolean;
+  @Input() public confirmSection: boolean;
 
   constructor() { }
 

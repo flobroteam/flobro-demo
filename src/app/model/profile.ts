@@ -86,6 +86,6 @@ export class Profile {
     }
 
     public get getObjectivesString() {
-        return (this.objectives > 0 ? 'Gain ' : 'Loose ') + this.objectives; 
+        return (this.objectives > 0 ? 'Gain ' : 'Lose ') + this.objectives; 
     }
 }
