@@ -72,8 +72,8 @@ export class AppComponent implements OnInit {
     ];
 
     public objectiveOptions: Options = {
-        floor: -3,
-        ceil: 3,
+        floor: -4,
+        ceil: 4,
         vertical: true
     }
 
