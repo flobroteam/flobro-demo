@@ -30,9 +30,9 @@
 
   <br />
   <!-- First Section -->
-  <div class="row">
+  <div class="row my-4">
     <div class="col-12">
-      <span class="title-txt">USER PROFILE</span>
+      <span class="title-txt"><span>1</span> USER PROFILE</span>
       <div class="row justify-content-center">
         <div class="col-12">
           <span class="subtitle-txt">Personal Stats</span>
@@ -111,9 +111,9 @@
 
   <br />
   <!-- Second Section -->
-  <div class="row">
+  <div class="row my-4">
     <div class="col-12">
-      <span class="title-txt">CURRENT ACTIVITY OUTPUT</span>
+      <span class="title-txt"><span>2</span> CURRENT ACTIVITY OUTPUT</span>
       <div class="row justify-content-center">
         <div class="col-12">
           <span class="subtitle-txt">USER ACTIVITY LEVEL</span>
@@ -150,9 +150,9 @@
 
   <br />
   <!-- Third Section -->
-  <div class="row">
+  <div class="row my-4">
     <div class="col-12">
-      <span class="title-txt">REPOSE ASSESSMENT</span>
+      <span class="title-txt"><span>3</span> REPOSE ASSESSMENT</span>
       <div class="row justify-content-center">
         <div class="col-12">
           <span class="subtitle-txt">SLEEP GAUGE</span>
@@ -178,9 +178,9 @@
 
   <br />
   <!-- Fourth Section -->
-  <div class="row">
+  <div class="row my-4">
     <div class="col-12">
-      <span class="title-txt">PROBLEMATIC AREAS-PT I</span>
+      <span class="title-txt"><span>4</span> PROBLEMATIC AREAS-PT I</span>
       <div class="row justify-content-center">
         <div class="col-12">
           <span class="subtitle-txt">INJURY ASSESSMENT</span>
@@ -228,9 +228,9 @@
 
   <br />
   <!-- Fith Section -->
-  <div class="row justify-content-center">
+  <div class="row justify-content-center my-4">
     <div class="col-12">
-      <span class="title-txt">SET FITNESS GOAL-PT I</span>
+      <span class="title-txt"><span>5</span> SET FITNESS GOAL-PT I</span>
       <div class="row justify-content-center">
         <div class="col-12">
           <span class="subtitle-txt">PHYSIQUE OBJECTIVES</span>
@@ -266,7 +266,7 @@
       
      -->
   <ng-container *ngIf="trainingSection">
-    <div class="row" id="trainingSection">
+    <div class="row my-4" id="trainingSection">
       <div class="col-12 text-center">
         <span class="major-title-txt">TRAINING</span>
       </div>
@@ -291,9 +291,9 @@
 
     <br />
     <!-- Sixth Section -->
-    <div class="row">
+    <div class="row my-4">
       <div class="col-12">
-        <span class="title-txt">WORKOUT SCHEDULE</span>
+        <span class="title-txt"><span>6</span> WORKOUT SCHEDULE</span>
         <div class="row justify-content-center">
           <div class="col-12">
             <span class="subtitle-txt">TRAINING FREQUENCY</span>
@@ -341,9 +341,9 @@
 
     <br />
     <!-- Seventh Section -->
-    <div class="row">
+    <div class="row my-4">
       <div class="col-12">
-        <span class="title-txt">EXPERIENCE LEVEL</span>
+        <span class="title-txt"><span>7</span> EXPERIENCE LEVEL</span>
         <div class="row justify-content-center">
           <div class="col-12">
             <span class="subtitle-txt">TRAINING SKILL</span>
@@ -372,9 +372,9 @@
 
     <br />
     <!-- Eigth Section -->
-    <div class="row">
+    <div class="row my-4">
       <div class="col-12">
-        <span class="title-txt">SET FITNESS GOAL-PT II</span>
+        <span class="title-txt"><span>8</span> SET FITNESS GOAL-PT II</span>
         <div class="row justify-content-center">
           <div class="col-12">
             <span class="subtitle-txt">TRAINING OBJECTIVES</span>
@@ -386,11 +386,11 @@
             <h4 class="fbf-blue">What Is Your Training Objective For The Specified Muscle Group?</h4>
           </div>
           <ng-container *ngFor="let item of goalTypes; let i = index">
-            <div class="col-12 col-lg-11 my-3">
+            <div class="col-12 col-lg-11 my-5">
               <div class="row justify-content-center">
                 <h4 class="col-12">My Training Objective For {{item.type}} Is To: <span
                     class="fbf-blue">{{getGoalTypeByIndex(i)}}</span></h4>
-                <div class="col-12 col-lg-2">
+                <div class="col-12 col-lg-2 text-center">
                   <h4 class="fbf-blue">{{item.type}}</h4>
                 </div>
 
@@ -405,6 +405,14 @@
                   <toggle-button [on]="item.strength" (toggled)="onSelect(i, 'GOAL_S')"></toggle-button>
                 </div>
                 <div class="col-4 col-lg-2">Endurance</div>
+
+                <div class="col-lg-12">
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-lg-3 text-center" *ngFor="let imgSrc of item.imgNames">
+                      <img src="assets/img/muscles/{{imgSrc}}" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </ng-container>
@@ -415,9 +423,9 @@
 
     <br />
     <!-- Ninth Section -->
-    <div class="row">
+    <div class="row my-4">
       <div class="col-12">
-        <span class="title-txt">PROBLEMATIC AREAS-PT II</span>
+        <span class="title-txt"><span>9</span> PROBLEMATIC AREAS-PT II</span>
         <div class="row justify-content-center">
           <div class="col-12">
             <span class="subtitle-txt">PRIORITIZED MUSCLE GROUPS</span>
@@ -474,8 +482,8 @@
     <br />
     <!-- Tenth Section -->
     <div class="row justify-content-center">
-      <div class="col-12">
-        <span class="title-txt">TRAINING STYLE</span>
+      <div class="col-12 my-4">
+        <span class="title-txt"><span>10</span> TRAINING STYLE</span>
         <div class="row justify-content-center">
           <div class="col-12">
             <span class="subtitle-txt">EXERCISE REGIME</span>
@@ -520,11 +528,11 @@
 
      -->
   <ng-container *ngIf="nutritionSection">
-    <div class="row" id="nutritionSection">
+    <div class="row my-4" id="nutritionSection">
       <div class="col-12 text-center">
         <span class="major-title-txt">NUTRITION</span>
       </div>
-      <div class="col-12 col-lg-6">
+      <div class="col-12">
         <p>The final phase, Nutrition, is the most favored segment of the My Fitbody Program. Nutrition is the fuel that
           helps power the drive to your fitness goals.</p>
         <p>In this phase the program engages users to specify their dietary needs thus identifying what works and tastes
@@ -544,9 +552,9 @@
 
     <br />
     <!-- Eleventh Section -->
-    <div class="row">
+    <div class="row my-4">
       <div class="col-12">
-        <span class="title-txt">Eating Schedule</span>
+        <span class="title-txt"><span>11</span> Eating Schedule</span>
         <div class="row justify-content-center">
           <div class="col-12">
             <span class="subtitle-txt">MEAL FREQUENCY</span>
@@ -570,9 +578,9 @@
 
     <br />
     <!-- Twelvth Section -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center my-4">
       <div class="col-12">
-        <span class="title-txt">Diet Preference</span>
+        <span class="title-txt"><span>12</span> Diet Preference</span>
         <div class="row justify-content-center">
           <div class="col-12">
             <span class="subtitle-txt">MACRO COUNTING DIETING</span>
@@ -600,44 +608,19 @@
             </div>
           </div>
           <!-- <div class="col-12 col-lg-8">
-            <ngb-carousel *ngIf="images">
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img [src]="images[0]" alt="Random first slide">
-                </div>
-                <div class="carousel-caption">
-                  <h3>10 seconds between slides...</h3>
-                  <p>This carousel uses customized default values.</p>
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img [src]="images[1]" alt="Random second slide">
-                </div>
-                <div class="carousel-caption">
-                  <h3>No mouse events...</h3>
-                  <p>This carousel doesn't pause or resume on mouse events</p>
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img [src]="images[2]"  alt="Random third slide">
-                </div>
-                <div class="carousel-caption">
-                  <h3>No keyboard...</h3>
-                  <p>This carousel uses customized default values.</p>
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img [src]="images[3]" alt="Random fourth slide">
-                </div>
-                <div class="carousel-caption">
-                  <h3>And no wrap after last slide.</h3>
-                  <p>This carousel uses customized default values.</p>
-                </div>
-              </ng-template>
-            </ngb-carousel>      
+            <ngb-carousel>
+              <ng-container *ngFor="let item of macroTypes; let i = index">
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="item.imgSrc" alt="Random first slide">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>10 seconds between slides...</h3>
+                    <p>This carousel uses customized default values.</p>
+                  </div>
+                </ng-template>
+              </ng-container>
+            </ngb-carousel>
           </div> -->
         </div>
       </div>
@@ -648,7 +631,7 @@
   </ng-container>
 
   <ng-container *ngIf="confirmSection">
-    <div class="row justify-content-center text-center" id="confirmSection">
+    <div class="row justify-content-center text-center my-4" id="confirmSection">
       <div class="col-12 text-center">
         <h1>Confirm</h1>
       </div>
@@ -668,60 +651,39 @@
         <form [formGroup]="custInfoForm" autocomplete="off" novalidate>
           <div class="row justify-content-center">
             <div class="col-12 col-lg-8 mt-2">
-              <ui-input
-                [placeHolderText]="'First Name'"
-                [inputId]="'firstName'"
-                [inputType]="'text'"
+              <ui-input [placeHolderText]="'First Name'" [inputId]="'firstName'" [inputType]="'text'"
                 [theFormGroup]="custInfoForm">
               </ui-input>
-              <ui-field-error
-                [displayError]="isFormInvalid('firstName')"
-                [errorMsg]="'Please enter your first name.'"
-                [inputId]="'firstName'"
-                [theFormGroup]="custInfoForm">
+              <ui-field-error [displayError]="isFormInvalid('firstName')" [errorMsg]="'Please enter your first name.'"
+                [inputId]="'firstName'" [theFormGroup]="custInfoForm">
               </ui-field-error>
             </div>
             <div class="col-12 col-lg-8 mt-2">
-                <ui-input
-                  [placeHolderText]="'Last Name'"
-                  [inputId]="'lastName'"
-                  [inputType]="'text'"
-                  [theFormGroup]="custInfoForm">
-                </ui-input>
-                <ui-field-error
-                  [displayError]="isFormInvalid('lastName')"
-                  [errorMsg]="'Please enter your last name.'"
-                  [inputId]="'lastName'"
-                  [theFormGroup]="custInfoForm">
-                </ui-field-error>
-              </div>
-              <div class="col-12 col-lg-8 mt-2">
-                  <ui-input
-                    [placeHolderText]="'Email'"
-                    [inputId]="'email'"
-                    [inputType]="'text'"
-                    [theFormGroup]="custInfoForm">
-                  </ui-input>
-                  <ui-field-error
-                    [displayError]="isFormInvalid('email')"
-                    [errorMsg]="'Please enter a valid email.'"
-                    [inputId]="'email'"
-                    [theFormGroup]="custInfoForm">
-                  </ui-field-error>
-              </div>
-              <div class="col-12 col-lg-8 mt-2">
-                  <ui-check
-                      [placeHolderText]="'I acknowledge acceptance of FloBro Fitness terns of service, privacy policy, refund policy & disclaimer.'"
-                      [inputId]="'terms'"
-                      [theFormGroup]="custInfoForm">
-                  </ui-check>
-                  <ui-field-error
-                    [displayError]="isFormInvalid('terms')"
-                    [errorMsg]="'Please accept the terms and condition to proceed.'"
-                    [inputId]="'terms'"
-                    [theFormGroup]="custInfoForm">
-                  </ui-field-error>
-              </div>
+              <ui-input [placeHolderText]="'Last Name'" [inputId]="'lastName'" [inputType]="'text'"
+                [theFormGroup]="custInfoForm">
+              </ui-input>
+              <ui-field-error [displayError]="isFormInvalid('lastName')" [errorMsg]="'Please enter your last name.'"
+                [inputId]="'lastName'" [theFormGroup]="custInfoForm">
+              </ui-field-error>
+            </div>
+            <div class="col-12 col-lg-8 mt-2">
+              <ui-input [placeHolderText]="'Email'" [inputId]="'email'" [inputType]="'text'"
+                [theFormGroup]="custInfoForm">
+              </ui-input>
+              <ui-field-error [displayError]="isFormInvalid('email')" [errorMsg]="'Please enter a valid email.'"
+                [inputId]="'email'" [theFormGroup]="custInfoForm">
+              </ui-field-error>
+            </div>
+            <div class="col-12 col-lg-8 mt-2">
+              <ui-check
+                [placeHolderText]="'I acknowledge acceptance of FloBro Fitness terns of service, privacy policy, refund policy & disclaimer.'"
+                [inputId]="'terms'" [theFormGroup]="custInfoForm">
+              </ui-check>
+              <ui-field-error [displayError]="isFormInvalid('terms')"
+                [errorMsg]="'Please accept the terms and condition to proceed.'" [inputId]="'terms'"
+                [theFormGroup]="custInfoForm">
+              </ui-field-error>
+            </div>
           </div>
         </form>
       </div>
