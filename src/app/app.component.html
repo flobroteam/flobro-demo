@@ -2,7 +2,7 @@
 </app-header>
 <div class="container">
 
-  <!-- 
+  <!--
 
       BODY PROFILE
 
@@ -54,7 +54,7 @@
             <div class="col-12">
               <h4 class="fbf-blue">How old are you?</h4>
               <div class="row justify-content-center">
-                <h4 class="col-12 text-center">I Am: <span class="fbf-blue">{{profile.age}} Years Old</span></h4>
+                <h4 class="col-12 text-center">I Am: <span class="fbf-blue">{{profile.age}}</span> Years Old</h4>
                 <div class="col-12 col-lg-4">
                   <ng5-slider [(value)]="profile.age" [options]="ageOptions"></ng5-slider>
                 </div>
@@ -63,7 +63,9 @@
             <div class="col-12">
               <h4 class="fbf-blue">How tall are you?</h4>
               <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Height Is: <span class="fbf-blue">{{profile.getHeightString}}</span>
+                <h4 class="col-12 text-center">My Height Is:
+                    <span class="fbf-blue">{{profile.getHeightFtString}}</span> ft.
+                    <span class="fbf-blue">{{profile.getHeightFtString}}</span> in.
                 </h4>
                 <div class="col-12 col-lg-4">
                   <ng5-slider [(value)]="profile.height" [options]="heightOptions"></ng5-slider>
@@ -73,7 +75,7 @@
             <div class="col-12">
               <h4 class="fbf-blue">How much do you weigh?</h4>
               <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Weight Is: <span class="fbf-blue">{{profile.weight}} lbs</span></h4>
+                <h4 class="col-12 text-center">My Weight Is: <span class="fbf-blue">{{profile.weight}}</span> lbs</h4>
                 <div class="col-12 col-lg-4">
                   <ng5-slider [(value)]="profile.weight" [options]="weightOptions"></ng5-slider>
                 </div>
@@ -83,7 +85,7 @@
               <h4 class="fbf-blue">What is your body fat %?</h4>
               <div class="row justify-content-center">
                 <h4 class="col-12 text-center">My Body Fat Percentage Is: <span
-                    class="fbf-blue">{{profile.fatPercentage}} %</span></h4>
+                    class="fbf-blue">{{profile.fatPercentage}}</span> %</h4>
                 <div class="col-12 col-lg-4">
                   <ng5-slider [(value)]="profile.fatPercentage" [options]="fatPercentageOptions"></ng5-slider>
                 </div>
@@ -165,7 +167,7 @@
             </div>
           </div>
           <div class="row justify-content-center">
-            <h4 class="col-12 text-center">I Sleep: <span class="fbf-blue">{{profile.sleepTime}} hours</span>, On
+            <h4 class="col-12 text-center">I Sleep: <span class="fbf-blue">{{profile.sleepTime}}</span> hours, On
               Average, Each Day</h4>
             <div class="col-12 col-lg-4">
               <ng5-slider [(value)]="profile.sleepTime" [options]="sleepTimeOptions"></ng5-slider>
@@ -260,10 +262,10 @@
   </div>
 
 
-  <!-- 
+  <!--
 
       TRAINING
-      
+
      -->
   <ng-container *ngIf="trainingSection">
     <div class="row my-4" id="trainingSection">
@@ -325,7 +327,7 @@
                       {{item.type}}
                     </div>
                     <div class="col-12">
-                      Sessions: {{item.sessions}}
+                      Sessions: <span class="fbf-blue">{{item.sessions}}</span>
                     </div>
                     <div class="col-12 col-lg-6">
                       <toggle-button [on]="item.multipleDays" (toggled)="onSelect(i, 'FREQUENCY')"></toggle-button>
@@ -387,32 +389,63 @@
           </div>
           <ng-container *ngFor="let item of goalTypes; let i = index">
             <div class="col-12 col-lg-11 my-5">
-              <div class="row justify-content-center">
+              <div class="row justify-content-center align-items-center">
                 <h4 class="col-12">My Training Objective For {{item.type}} Is To: <span
                     class="fbf-blue">{{getGoalTypeByIndex(i)}}</span></h4>
-                <div class="col-12 col-lg-2 text-center">
-                  <h4 class="fbf-blue">{{item.type}}</h4>
+
+                <div class="col-12 col-lg-4 mb3">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h4 class="fbf-blue">{{item.type}}</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <img src="assets/img/muscles/{{item.imgSrc}}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-7">
+                    <div class="row">
+                        <div class="col-4 col-lg-3 text-right">Build Mass</div>
+                        <div class="col-3 col-lg-2">
+                            <toggle-button [on]="item.muscularity" (toggled)="onSelect(i, 'GOAL_M')"></toggle-button>
+                        </div>
+                        <div class="col-4 col-lg-3">Shape/Tone</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 col-lg-3 text-right">Strength</div>
+                        <div class="col-3 col-lg-2">
+                            <toggle-button [on]="item.strength" (toggled)="onSelect(i, 'GOAL_S')"></toggle-button>
+                        </div>
+                        <div class="col-4 col-lg-3">Endurance</div>
+                    </div>
                 </div>
 
-                <div class="col-4 col-lg-2 text-right">Build Mass</div>
+
+                <!-- <div class="col-12 col-lg-2 text-center">
+                  <h4 class="fbf-blue">{{item.type}}</h4>
+                </div> -->
+
+                <!-- <div class="col-4 col-lg-2 text-right">Build Mass</div>
                 <div class="col-3 col-lg-1">
                   <toggle-button [on]="item.muscularity" (toggled)="onSelect(i, 'GOAL_M')"></toggle-button>
                 </div>
-                <div class="col-4 col-lg-2">Shape/Tone</div>
+                <div class="col-4 col-lg-2">Shape/Tone</div> -->
 
-                <div class="col-4 col-lg-2 text-right">Strength</div>
+                <!-- <div class="col-4 col-lg-2 text-right">Strength</div>
                 <div class="col-3 col-lg-1">
                   <toggle-button [on]="item.strength" (toggled)="onSelect(i, 'GOAL_S')"></toggle-button>
                 </div>
-                <div class="col-4 col-lg-2">Endurance</div>
+                <div class="col-4 col-lg-2">Endurance</div> -->
 
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                   <div class="row justify-content-center">
                     <div class="col-12 col-lg-3 text-center" *ngFor="let imgSrc of item.imgNames">
                       <img src="assets/img/muscles/{{imgSrc}}" />
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </ng-container>
@@ -522,8 +555,8 @@
   </ng-container>
 
 
-  <!-- 
-      
+  <!--
+
     NUTRITION
 
      -->
@@ -676,7 +709,7 @@
             </div>
             <div class="col-12 col-lg-8 mt-2">
               <ui-check
-                [placeHolderText]="'I acknowledge acceptance of FloBro Fitness terns of service, privacy policy, refund policy & disclaimer.'"
+                [placeHolderText]="'I acknowledge acceptance of FloBro Fitness Terms of Service, Privacy Policy, Refund Policy & Disclaimer.'"
                 [inputId]="'terms'" [theFormGroup]="custInfoForm">
               </ui-check>
               <ui-field-error [displayError]="isFormInvalid('terms')"

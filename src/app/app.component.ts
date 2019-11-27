@@ -103,19 +103,19 @@ export class AppComponent implements OnInit {
     ]
 
     public goalTypes: any[] = [
-        { type: 'Calves', muscularity: false, strength: false, imgNames: ['muscles-19.jpg'] },
-        { type: 'Quadriceps', muscularity: false, strength: false, imgNames: ['muscles-18.jpg'] },
-        { type: 'Hamstrings', muscularity: false, strength: false, imgNames: ['muscles-15.jpg'] },
-        { type: 'Back', muscularity: false, strength: false, imgNames: ['muscles-03.jpg', 'muscles-04.jpg'] },
-        { type: 'Trapezius', muscularity: false, strength: false, imgNames: ['muscles-06.jpg'] },
-        { type: 'Chest', muscularity: false, strength: false, imgNames: ['muscles-01.jpg', 'muscles-02.jpg'] },
-        { type: 'Deltoids', muscularity: false, strength: false, imgNames: ['muscles-06.jpg', 'muscles-07.jpg', 'muscles-08.jpg'] },
-        { type: 'Triceps', muscularity: false, strength: false, imgNames: ['muscles-11.jpg'] },
-        { type: 'Biceps', muscularity: false, strength: false, imgNames: ['muscles-09.jpg'] },
-        { type: 'Forearms', muscularity: false, strength: false, imgNames: ['muscles-10.jpg'] },
-        { type: 'Glutes', muscularity: false, strength: false, imgNames: ['muscles-14.jpg'] },
-        { type: 'Abductors', muscularity: false, strength: false, imgNames: ['muscles-17.jpg'] },
-        { type: 'Adductors', muscularity: false, strength: false, imgNames: ['muscles-16.jpg'] }
+        { type: 'Calves', muscularity: false, strength: false, imgSrc: 'muscles-19.jpg' },
+        { type: 'Quadriceps', muscularity: false, strength: false, imgSrc: 'muscles-18.jpg' },
+        { type: 'Hamstrings', muscularity: false, strength: false, imgSrc: 'muscles-15.jpg' },
+        { type: 'Back', muscularity: false, strength: false, imgSrc: 'muscles-23.jpg' },
+        { type: 'Trapezius', muscularity: false, strength: false, imgSrc: 'muscles-06.jpg' },
+        { type: 'Chest', muscularity: false, strength: false, imgSrc: 'muscles-22.jpg' },
+        { type: 'Deltoids', muscularity: false, strength: false, imgSrc: 'muscles-06.jpg' },
+        { type: 'Triceps', muscularity: false, strength: false, imgSrc: 'muscles-11.jpg' },
+        { type: 'Biceps', muscularity: false, strength: false, imgSrc: 'muscles-09.jpg' },
+        { type: 'Forearms', muscularity: false, strength: false, imgSrc: 'muscles-10.jpg' },
+        { type: 'Glutes', muscularity: false, strength: false, imgSrc: 'muscles-14.jpg' },
+        { type: 'Abductors', muscularity: false, strength: false, imgSrc: 'muscles-17.jpg' },
+        { type: 'Adductors', muscularity: false, strength: false, imgSrc: 'muscles-16.jpg' }
     ]
 
     public mucleWeakneses: boolean = false;

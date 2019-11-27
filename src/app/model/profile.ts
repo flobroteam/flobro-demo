@@ -63,10 +63,12 @@ export class Profile {
         };
     }
 
-    public get getHeightString() {
-        let firstVal = Math.trunc(this.height / 12);
-        let secondVal = this.height % 12;
-        return firstVal + ' ft. ' + secondVal + ' in.';
+    public get getHeightFtString() {
+        return Math.trunc(this.height / 12);
+    }
+
+    public get getHeightInString() {
+        return this.height % 12;
     }
 
     public get getTraining(): any {
