@@ -97,25 +97,25 @@ export class AppComponent implements OnInit {
 
 
     public levelTypes: any[] = [
-        { type: 'Beginner Novice, little to no exercise experience, less than 1 yr', shortDec: 'Beginner', selected: true },
-        { type: 'Intermediate Proficient & skilled in exercise practices, 2-4 yrs experience', shortDec: 'Intermediate', selected: false },
-        { type: 'Advance Seasoned, well-skilled in exercise practices, +5 yrs experience', shortDec: 'Advance', selected: false }
+        { description: 'Little to no exercise experience, less than 1 yr', shortDec: 'Beginner Novice', selected: true },
+        { description: 'Proficient & skilled in exercise practices, 2-4 yrs experience', shortDec: 'Intermediate', selected: false },
+        { description: 'Well-skilled in exercise practices, +5 yrs experience', shortDec: 'Advance Seasoned', selected: false }
     ]
 
     public goalTypes: any[] = [
         { type: 'Calves', muscularity: false, strength: false, imgSrc: 'muscles-19.jpg' },
-        { type: 'Quadriceps', muscularity: false, strength: false, imgSrc: 'muscles-18.jpg' },
-        { type: 'Hamstrings', muscularity: false, strength: false, imgSrc: 'muscles-15.jpg' },
-        { type: 'Back', muscularity: false, strength: false, imgSrc: 'muscles-23.jpg' },
-        { type: 'Trapezius', muscularity: false, strength: false, imgSrc: 'muscles-06.jpg' },
-        { type: 'Chest', muscularity: false, strength: false, imgSrc: 'muscles-22.jpg' },
-        { type: 'Deltoids', muscularity: false, strength: false, imgSrc: 'muscles-06.jpg' },
-        { type: 'Triceps', muscularity: false, strength: false, imgSrc: 'muscles-11.jpg' },
-        { type: 'Biceps', muscularity: false, strength: false, imgSrc: 'muscles-09.jpg' },
-        { type: 'Forearms', muscularity: false, strength: false, imgSrc: 'muscles-10.jpg' },
-        { type: 'Glutes', muscularity: false, strength: false, imgSrc: 'muscles-14.jpg' },
-        { type: 'Abductors', muscularity: false, strength: false, imgSrc: 'muscles-17.jpg' },
-        { type: 'Adductors', muscularity: false, strength: false, imgSrc: 'muscles-16.jpg' }
+        { type: 'Quadriceps', muscularity: false, strength: false, imgSrc: 'QuadricepsHighlight.png' },
+        { type: 'Hamstrings', muscularity: false, strength: false, imgSrc: 'HamstringsHighlight.png' },
+        { type: 'Back', muscularity: false, strength: false, imgSrc: 'FullBackHighlight.png' },
+        { type: 'Trapezius', muscularity: false, strength: false, imgSrc: 'TrapeziusHighlight.png' },
+        { type: 'Chest', muscularity: false, strength: false, imgSrc: 'FullChestHighlight.png' },
+        { type: 'Deltoids', muscularity: false, strength: false, imgSrc: 'FrontDeltHighlight.png' },
+        { type: 'Triceps', muscularity: false, strength: false, imgSrc: 'TricepHighlight.png' },
+        { type: 'Biceps', muscularity: false, strength: false, imgSrc: 'BicepHighlight.png' },
+        { type: 'Forearms', muscularity: false, strength: false, imgSrc: 'ForearmHighlight.png' },
+        { type: 'Glutes', muscularity: false, strength: false, imgSrc: 'GlutesHighlight.png' },
+        { type: 'Abductors', muscularity: false, strength: false, imgSrc: 'AbductorsHighlight.png' },
+        { type: 'Adductors', muscularity: false, strength: false, imgSrc: 'AdductorsHighlight.png' }
     ]
 
     public mucleWeakneses: boolean = false;
@@ -190,7 +190,7 @@ export class AppComponent implements OnInit {
 
     public mealOptions: Options = {
         floor: 0,
-        ceil: 6
+        ceil: 8
     }
 
     public macroTypes: any[] = [

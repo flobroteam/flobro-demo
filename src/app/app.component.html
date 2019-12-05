@@ -2,645 +2,696 @@
 </app-header>
 <div class="container">
 
-  <!--
+    <!--
 
       BODY PROFILE
 
      -->
-  <div class="row profile" id="profileSection">
-    <div class="col-12 text-center">
-      <span class="major-title-txt">BODY PROFILE</span>
-    </div>
-    <div class="col-12">
-      <p>The first phase, Body Profile, is the most important segment of the My Fitbody Program. It's the building block
-        that sets the foundation for the formulation of your ideal fitness plan.</p>
-      <p>In this phase the program gathers key factors that varies amongst individuals to eliminate guess work and to
-        increase its accuracy.</p>
-      <p>Variables such as age, sex, weight, height, body type and a few others are all considered in how your set
-        fitness goal can be efficiently attained.</p>
-      <p>The Body Profile phase plays the ultimate role in the integration process of the My Fitbody Program. Complete
-        the segment below and get one step closer to your ideal fitness plan.</p>
-      <p>Contact Us: <a> Live Chat</a> </p>
-      <p>If you need assistance or have questions.</p>
-    </div>
-    <!-- <div class="col-12 col-lg-6">
+    <div class="row profile" id="profileSection">
+        <div class="col-12 text-center">
+            <span class="major-title-txt">BODY PROFILE</span>
+        </div>
+        <div class="col-12">
+            <p>The first phase, Body Profile, is the most important segment of the My Fitbody Program. It's the building
+                block
+                that sets the foundation for the formulation of your ideal fitness plan.</p>
+            <p>In this phase the program gathers key factors that varies amongst individuals to eliminate guess work and
+                to
+                increase its accuracy.</p>
+            <p>Variables such as age, sex, weight, height, body type and a few others are all considered in how your set
+                fitness goal can be efficiently attained.</p>
+            <p>The Body Profile phase plays the ultimate role in the integration process of the My Fitbody Program.
+                Complete
+                the segment below and get one step closer to your ideal fitness plan.</p>
+            <p>Contact Us: <a> Live Chat</a> </p>
+            <p>If you need assistance or have questions.</p>
+        </div>
+        <!-- <div class="col-12 col-lg-6">
       <img src="https://placekitten.com/g/300/300" />
     </div> -->
-  </div>
+    </div>
 
-  <br />
-  <!-- First Section -->
-  <div class="row my-4">
-    <div class="col-12">
-      <span class="title-txt"><span>1</span> USER PROFILE</span>
-      <div class="row justify-content-center">
+    <br />
+    <!-- First Section -->
+    <div class="row my-4">
         <div class="col-12">
-          <span class="subtitle-txt ml-2">Personal Stats</span>
-          <p class="subtitle-description-txt ml-2">Complete the user stats form as accurately as possible.</p>
+            <span class="title-txt"><span>1</span> USER PROFILE</span>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <span class="subtitle-txt ml-2">Personal Stats</span>
+                    <p class="subtitle-description-txt ml-2">Complete the user stats form as accurately as possible.</p>
+                </div>
+                <div class="col-12 col-lg-11">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="fbf-blue">What is your gender?</h4>
+                            <div class="row justify-content-center">
+                                <h4 class="col-12 text-center">My Sex Is: <span
+                                        class="fbf-blue">{{profile.getGenderString}}</span></h4>
+                                <div class="col-4 col-lg-2 text-right">Female</div>
+                                <div class="col-3 col-lg-1">
+                                    <toggle-button [on]="profile.gender" (toggled)="onGenderToggle($event)">
+                                    </toggle-button>
+                                </div>
+                                <div class="col-4 col-lg-2">Male</div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h4 class="fbf-blue">How old are you?</h4>
+                            <div class="row justify-content-center">
+                                <h4 class="col-12 text-center">I Am: <span class="fbf-blue">{{profile.age}}</span> Years
+                                    Old</h4>
+                                <div class="col-12 col-lg-4">
+                                    <ng5-slider [(value)]="profile.age" [options]="ageOptions"></ng5-slider>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h4 class="fbf-blue">How tall are you?</h4>
+                            <div class="row justify-content-center">
+                                <h4 class="col-12 text-center">My Height Is:
+                                    <span class="fbf-blue">{{profile.getHeightFtString}}</span> ft.
+                                    <span class="fbf-blue">{{profile.getHeightInString}}</span> in.
+                                </h4>
+                                <div class="col-12 col-lg-4">
+                                    <ng5-slider [(value)]="profile.height" [options]="heightOptions"></ng5-slider>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h4 class="fbf-blue">How much do you weigh?</h4>
+                            <div class="row justify-content-center">
+                                <h4 class="col-12 text-center">My Weight Is: <span
+                                        class="fbf-blue">{{profile.weight}}</span> lbs</h4>
+                                <div class="col-12 col-lg-4">
+                                    <ng5-slider [(value)]="profile.weight" [options]="weightOptions"></ng5-slider>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h4 class="fbf-blue">What is your body fat %?</h4>
+                            <div class="row justify-content-center">
+                                <h4 class="col-12 text-center">My Body Fat Percentage Is: <span
+                                        class="fbf-blue">{{profile.fatPercentage}}</span> %</h4>
+                                <div class="col-12 col-lg-4">
+                                    <ng5-slider [(value)]="profile.fatPercentage" [options]="fatPercentageOptions">
+                                    </ng5-slider>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h4 class="fbf-blue">What is your body type?</h4>
+                            <div class="row">
+                                <h4 class="col-12 text-center">My Body Type Is: <span
+                                        class="fbf-blue">{{getBodyTypeString}}</span></h4>
+                            </div>
+                            <div class="row justify-content-center text-center">
+                                <ng-container *ngFor="let item of bodyTypes; let i = index">
+                                    <div class="col-7 col-lg-3 py-2 mx-2 my-1 fake-btn"
+                                        [ngClass]="{'selected': item.selected}" (click)="onSelect(i, 'TYPE')">
+                                        <h5>{{item.type}}</h5>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-12 col-lg-11">
-          <div class="row">
-            <div class="col-12">
-              <h4 class="fbf-blue">What is your gender?</h4>
-              <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Sex Is: <span class="fbf-blue">{{profile.getGenderString}}</span></h4>
-                <div class="col-4 col-lg-2 text-right">Female</div>
-                <div class="col-3 col-lg-1">
-                  <toggle-button [on]="profile.gender" (toggled)="onGenderToggle($event)"></toggle-button>
-                </div>
-                <div class="col-4 col-lg-2">Male</div>
-              </div>
-            </div>
-            <div class="col-12">
-              <h4 class="fbf-blue">How old are you?</h4>
-              <div class="row justify-content-center">
-                <h4 class="col-12 text-center">I Am: <span class="fbf-blue">{{profile.age}}</span> Years Old</h4>
-                <div class="col-12 col-lg-4">
-                  <ng5-slider [(value)]="profile.age" [options]="ageOptions"></ng5-slider>
-                </div>
-              </div>
-            </div>
-            <div class="col-12">
-              <h4 class="fbf-blue">How tall are you?</h4>
-              <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Height Is:
-                    <span class="fbf-blue">{{profile.getHeightFtString}}</span> ft.
-                    <span class="fbf-blue">{{profile.getHeightFtString}}</span> in.
-                </h4>
-                <div class="col-12 col-lg-4">
-                  <ng5-slider [(value)]="profile.height" [options]="heightOptions"></ng5-slider>
-                </div>
-              </div>
-            </div>
-            <div class="col-12">
-              <h4 class="fbf-blue">How much do you weigh?</h4>
-              <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Weight Is: <span class="fbf-blue">{{profile.weight}}</span> lbs</h4>
-                <div class="col-12 col-lg-4">
-                  <ng5-slider [(value)]="profile.weight" [options]="weightOptions"></ng5-slider>
-                </div>
-              </div>
-            </div>
-            <div class="col-12">
-              <h4 class="fbf-blue">What is your body fat %?</h4>
-              <div class="row justify-content-center">
-                <h4 class="col-12 text-center">My Body Fat Percentage Is: <span
-                    class="fbf-blue">{{profile.fatPercentage}}</span> %</h4>
-                <div class="col-12 col-lg-4">
-                  <ng5-slider [(value)]="profile.fatPercentage" [options]="fatPercentageOptions"></ng5-slider>
-                </div>
-              </div>
-            </div>
-            <div class="col-12">
-              <h4 class="fbf-blue">What is your body type?</h4>
-              <div class="row">
-                <h4 class="col-12 text-center">My Body Type Is: <span class="fbf-blue">{{getBodyTypeString}}</span></h4>
-              </div>
-              <div class="row justify-content-center text-center">
-                <ng-container *ngFor="let item of bodyTypes; let i = index">
-                  <div class="col-7 col-lg-3 py-2 mx-2 my-1 fake-btn" [ngClass]="{'selected': item.selected}"
-                    (click)="onSelect(i, 'TYPE')">
-                    <h5>{{item.type}}</h5>
-                  </div>
-                </ng-container>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <br />
-  <!-- Second Section -->
-  <div class="row my-4">
-    <div class="col-12">
-      <span class="title-txt"><span>2</span> CURRENT ACTIVITY OUTPUT</span>
-      <div class="row justify-content-center">
+    <br />
+    <!-- Second Section -->
+    <div class="row my-4">
         <div class="col-12">
-          <span class="subtitle-txt ml-2">USER ACTIVITY LEVEL</span>
-          <p class="subtitle-description-txt ml-2">Select the activity level that best describes your current physical life.
-          </p>
-        </div>
-        <div class="col-12 col-lg-11">
-          <div class="row">
-            <div class="col-12">
-              <h4 class="fbf-blue">How Active Is Your Job & Daily Routine?</h4>
-            </div>
-            <h4 class="col-12 text-center">My Activity Level Is Best Described As: <span
-                class="fbf-blue">{{getActivityTypeString}}</span></h4>
-          </div>
-          <ng-container *ngFor="let item of activityTypes; let i = index">
-            <div class="row justify-content-center my-2">
-              <div class="col-11 col-lg-5 fake-btn py-2" [ngClass]="{'selected': item.selected}"
-                (click)="onSelect(i, 'ACTIVITY')">
-                <div class="row">
-                  <div class="col-5">
-                    <h5>{{item.type}}</h5>
-                  </div>
-                  <div class="col-7">
-                    <h6>{{item.description}}</h6>
-                  </div>
+            <span class="title-txt"><span>2</span> CURRENT ACTIVITY OUTPUT</span>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <span class="subtitle-txt ml-2">USER ACTIVITY LEVEL</span>
+                    <p class="subtitle-description-txt ml-2">Select the activity level that best describes your current
+                        physical life.
+                    </p>
                 </div>
-              </div>
-            </div>
-          </ng-container>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <br />
-  <!-- Third Section -->
-  <div class="row my-4">
-    <div class="col-12">
-      <span class="title-txt"><span>3</span> REPOSE ASSESSMENT</span>
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <span class="subtitle-txt ml-2">SLEEP GAUGE</span>
-          <p class="subtitle-description-txt ml-2">Specify, on average, the total daily time you spend asleep.</p>
-        </div>
-        <div class="col-12 col-lg-11">
-          <div class="row">
-            <div class="col">
-              <h4 class="fbf-blue">How Much Time Do You Spend At Rest?</h4>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <h4 class="col-12 text-center">I Sleep: <span class="fbf-blue">{{profile.sleepTime}}</span> hours, On
-              Average, Each Day</h4>
-            <div class="col-12 col-lg-4">
-              <ng5-slider [(value)]="profile.sleepTime" [options]="sleepTimeOptions"></ng5-slider>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <br />
-  <!-- Fourth Section -->
-  <div class="row my-4">
-    <div class="col-12">
-      <span class="title-txt"><span>4</span> PROBLEMATIC AREAS-PT I</span>
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <span class="subtitle-txt ml-2">INJURY ASSESSMENT</span>
-          <p class="subtitle-description-txt ml-2">Specify, which body parts, if any, you're currently experiencing physical
-            setbacks with because of
-            past/current injuries.</p>
-        </div>
-        <div class="col-12 col-lg-11">
-          <div class="row">
-            <div class="col">
-              <h4 class="fbf-blue">Have You Sustained Any Injuries That Currently Pose A Physical Setback For You? If
-                You Have, Specify
-                What Body Parts.</h4>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <h4 class="col-12 text-center">Presently, I: <span
-                class="fbf-blue">{{profile.getPhysicalSetbackString}}</span> Have Physical Set Backs From Past Injuries.
-            </h4>
-            <div class="col-4 col-lg-1 text-right">Do Not</div>
-            <div class="col-3 col-lg-1">
-              <toggle-button [on]="profile.physicalSetback" (toggled)="onPhysicalSetBackToggle($event)"></toggle-button>
-            </div>
-            <div class="col-4 col-lg-1">Do</div>
-          </div>
-          <ng-container *ngIf="profile.physicalSetback">
-            <div class="row justify-content-center my-2" *ngFor="let item of setbackTypes; let i = index">
-              <div class="col-12 col-lg-5 fake-btn py-2" [ngClass]="{'selected': item.selected}"
-                (click)="onSelect(i, 'SETBACK')">
-                <div class="row">
-                  <div class="col-5">
-                    <h5>{{item.type}}</h5>
-                  </div>
-                  <div class="col-7">
-                    <h6>{{item.description}}</h6>
-                  </div>
+                <div class="col-12 col-lg-11">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="fbf-blue">How Active Is Your Job & Daily Routine?</h4>
+                        </div>
+                        <h4 class="col-12 text-center">My Activity Level Is Best Described As: <span
+                                class="fbf-blue">{{getActivityTypeString}}</span></h4>
+                    </div>
+                    <ng-container *ngFor="let item of activityTypes; let i = index">
+                        <div class="row justify-content-center my-2">
+                            <div class="col-11 col-lg-5 fake-btn py-2" [ngClass]="{'selected': item.selected}"
+                                (click)="onSelect(i, 'ACTIVITY')">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <h5>{{item.type}}</h5>
+                                    </div>
+                                    <div class="col-7">
+                                        <h6>{{item.description}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
                 </div>
-              </div>
             </div>
-          </ng-container>
         </div>
-      </div>
     </div>
-  </div>
 
-  <br />
-  <!-- Fith Section -->
-  <div class="row justify-content-center my-4">
-    <div class="col-12">
-      <span class="title-txt"><span>5</span> SET FITNESS GOAL-PT I</span>
-      <div class="row justify-content-center">
+    <br />
+    <!-- Third Section -->
+    <div class="row my-4">
         <div class="col-12">
-          <span class="subtitle-txt ml-2">PHYSIQUE OBJECTIVES</span>
-          <p class="subtitle-description-txt ml-2">Specify, which body parts, if any, you're currently experiencing physical
-            setbacks with because of
-            past/current injuries.</p>
-        </div>
-        <div class="col-12 col-lg-11">
-          <div class="row">
-            <div class="col-12">
-              <h4 class="fbf-blue">What Is Your Physique Objective?</h4>
+            <span class="title-txt"><span>3</span> REPOSE ASSESSMENT</span>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <span class="subtitle-txt ml-2">SLEEP GAUGE</span>
+                    <p class="subtitle-description-txt ml-2">Specify, on average, the total daily time you spend asleep.
+                    </p>
+                </div>
+                <div class="col-12 col-lg-11">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="fbf-blue">How Much Time Do You Spend At Rest?</h4>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <h4 class="col-12 text-center">I Sleep: <span class="fbf-blue">{{profile.sleepTime}}</span>
+                            hours, On
+                            Average, Each Day</h4>
+                        <div class="col-12 col-lg-4">
+                            <ng5-slider [(value)]="profile.sleepTime" [options]="sleepTimeOptions"></ng5-slider>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="row justify-content-center">
-            <h4 class="col-12 text-center">My Physique Objective Is To: <span
-                class="fbf-blue">{{profile.getObjectivesString}}</span></h4>
-            <div class="col-3 col-lg-1 objective-height">
-              <ng5-slider [(value)]="profile.objectives" [options]="objectiveOptions"></ng5-slider>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-    <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="profileSectionComplete()">
-      <h5>Save and Continue</h5>
+
+    <br />
+    <!-- Fourth Section -->
+    <div class="row my-4">
+        <div class="col-12">
+            <span class="title-txt"><span>4</span> PROBLEMATIC AREAS-PT I</span>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <span class="subtitle-txt ml-2">INJURY ASSESSMENT</span>
+                    <p class="subtitle-description-txt ml-2">Specify, which body parts, if any, you're currently
+                        experiencing physical
+                        setbacks with because of
+                        past/current injuries.</p>
+                </div>
+                <div class="col-12 col-lg-11">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="fbf-blue">Have You Sustained Any Injuries That Currently Pose A Physical Setback
+                                For You? If
+                                You Have, Specify
+                                What Body Parts.</h4>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <h4 class="col-12 text-center">Presently, I: <span
+                                class="fbf-blue">{{profile.getPhysicalSetbackString}}</span> Have Physical Set Backs
+                            From Past Injuries.
+                        </h4>
+                        <div class="col-4 col-lg-1 text-right">Do Not</div>
+                        <div class="col-3 col-lg-1">
+                            <toggle-button [on]="profile.physicalSetback" (toggled)="onPhysicalSetBackToggle($event)">
+                            </toggle-button>
+                        </div>
+                        <div class="col-4 col-lg-1">Do</div>
+                    </div>
+                    <ng-container *ngIf="profile.physicalSetback">
+                        <div class="row justify-content-center my-2" *ngFor="let item of setbackTypes; let i = index">
+                            <div class="col-12 col-lg-5 fake-btn py-2" [ngClass]="{'selected': item.selected}"
+                                (click)="onSelect(i, 'SETBACK')">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <h5>{{item.type}}</h5>
+                                    </div>
+                                    <div class="col-7">
+                                        <h6>{{item.description}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <br />
+    <!-- Fith Section -->
+    <div class="row justify-content-center my-4">
+        <div class="col-12">
+            <span class="title-txt"><span>5</span> SET FITNESS GOAL-PT I</span>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <span class="subtitle-txt ml-2">PHYSIQUE OBJECTIVES</span>
+                    <p class="subtitle-description-txt ml-2">Specify, which body parts, if any, you're currently
+                        experiencing physical
+                        setbacks with because of
+                        past/current injuries.</p>
+                </div>
+                <div class="col-12 col-lg-11">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="fbf-blue">What Is Your Physique Objective?</h4>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <h4 class="col-12 text-center">My Physique Objective Is To: <span
+                                class="fbf-blue">{{profile.getObjectivesString}}</span></h4>
+                        <div class="col-3 col-lg-1 objective-height">
+                            <ng5-slider [(value)]="profile.objectives" [options]="objectiveOptions"></ng5-slider>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="profileSectionComplete()">
+            <h5>Save and Continue</h5>
+        </div>
+    </div>
 
 
-  <!--
+    <!--
 
       TRAINING
 
      -->
-  <ng-container *ngIf="trainingSection">
-    <div class="row my-4" id="trainingSection">
-      <div class="col-12 text-center">
-        <span class="major-title-txt">TRAINING</span>
-      </div>
-      <div class="col-12">
-        <p>The second phase, Training, makes up one half of your generated fitness plan. It’s the vehicle of the My
-          Fitbody Program that drives you to your fitness goals.</p>
-        <p>In this phase the program collects the key factors required to craft a personalized exercise regime that
-          meets
-          your individual needs in the most optimal and efficient manner.</p>
-        <p>Factors such as training frequency, experience level, fitness goal, problematic areas and training style are
-          all necessary ingredients used in conjunction with data collected from the Body Profile segment, to formulate
-          the perfect workout plan.</p>
-        <p>The Training phase plays a crucial role in the integration process of the My Fitbody Program. Complete the
-          segment below to get one step closer to your ideal fitness plan.</p>
-        <p>Contact Us: <a> Live Chat</a> </p>
-        <p>If you need assistance or have questions.</p>
-      </div>
-      <!-- <div class="col-12 col-lg-6">
+    <ng-container *ngIf="trainingSection">
+        <div class="row my-4" id="trainingSection">
+            <div class="col-12 text-center">
+                <span class="major-title-txt">TRAINING</span>
+            </div>
+            <div class="col-12">
+                <p>The second phase, Training, makes up one half of your generated fitness plan. It’s the vehicle of the
+                    My
+                    Fitbody Program that drives you to your fitness goals.</p>
+                <p>In this phase the program collects the key factors required to craft a personalized exercise regime
+                    that
+                    meets
+                    your individual needs in the most optimal and efficient manner.</p>
+                <p>Factors such as training frequency, experience level, fitness goal, problematic areas and training
+                    style are
+                    all necessary ingredients used in conjunction with data collected from the Body Profile segment, to
+                    formulate
+                    the perfect workout plan.</p>
+                <p>The Training phase plays a crucial role in the integration process of the My Fitbody Program.
+                    Complete the
+                    segment below to get one step closer to your ideal fitness plan.</p>
+                <p>Contact Us: <a> Live Chat</a> </p>
+                <p>If you need assistance or have questions.</p>
+            </div>
+            <!-- <div class="col-12 col-lg-6">
         <img src="https://placekitten.com/g/300/300" />
       </div> -->
-    </div>
-
-    <br />
-    <!-- Sixth Section -->
-    <div class="row my-4">
-      <div class="col-12">
-        <span class="title-txt"><span>6</span> WORKOUT SCHEDULE</span>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <span class="subtitle-txt ml-2">TRAINING FREQUENCY</span>
-            <p class="subtitle-description-txt ml-2">Specify the available training days you prefer in a 7 day week, with 6
-              days being the maximum. Afterward,
-              select the number of training sessions you prefer for each particular day, with 2 sessions being the
-              maximum.</p>
-          </div>
-          <div class="col-12 col-lg-11">
-            <div class="row">
-              <div class="col">
-                <h4 class="fbf-blue">How Many Training Sessions Do Your Prefer In 6 Day Week?</h4>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <h4 class="col-12 text-center">I Prefer A Total Of: <span class="fbf-blue">{{frequency.sessions}}</span>
-                Training Sessions Per Week</h4>
-              <h4 class="col-12 text-center">Days: <span class="fbf-blue">{{frequency.days}}</span></h4>
-              <div class="col-12 col-lg-4">
-                <ng5-slider [(value)]="frequency.days" (userChange)="handleUserChange('FREQUENCY')"
-                  [options]="frequencyOptions"></ng5-slider>
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <ng-container *ngFor="let item of frequencyTypes; let i = index">
-                <div class="col-3 col-lg-2" *ngIf="item.selected">
-                  <div class="row justify-content-center">
-                    <div class="col-12">
-                      {{item.type}}
-                    </div>
-                    <div class="col-12">
-                      Sessions: <span class="fbf-blue">{{item.sessions}}</span>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                      <toggle-button [on]="item.multipleDays" (toggled)="onSelect(i, 'FREQUENCY')"></toggle-button>
-                    </div>
-                  </div>
-                </div>
-              </ng-container>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <br />
-    <!-- Seventh Section -->
-    <div class="row my-4">
-      <div class="col-12">
-        <span class="title-txt"><span>7</span> EXPERIENCE LEVEL</span>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <span class="subtitle-txt ml-2">TRAINING SKILL</span>
-            <p class="subtitle-description-txt ml-2">Select the experience level that best describes your exercise
-              skill/competence.</p>
-          </div>
-          <div class="col-12 col-lg-11">
-            <div class="row">
-              <div class="col-12">
-                <h4 class="fbf-blue">What Is Your Present Training Experience Level?</h4>
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <h4 class="col-12 text-center">My Experience Level Is: <span class="fbf-blue">{{getSkill}}</span></h4>
-              <ng-container *ngFor="let item of levelTypes; let i = index">
-                <div class="col-11 col-lg-3 py-2 mx-2 my-1 fake-btn" [ngClass]="{'selected': item.selected}"
-                  (click)="onSelect(i, 'LEVEL')">
-                  <h5>{{item.type}}</h5>
+        <br />
+        <!-- Sixth Section -->
+        <div class="row my-4">
+            <div class="col-12">
+                <span class="title-txt"><span>6</span> WORKOUT SCHEDULE</span>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <span class="subtitle-txt ml-2">TRAINING FREQUENCY</span>
+                        <p class="subtitle-description-txt ml-2">Specify the available training days you prefer in a 7
+                            day week, with 6
+                            days being the maximum. Afterward,
+                            select the number of training sessions you prefer for each particular day, with 2 sessions
+                            being the
+                            maximum.</p>
+                    </div>
+                    <div class="col-12 col-lg-11">
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="fbf-blue">How Many Training Sessions Do Your Prefer In 6 Day Week?</h4>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <h4 class="col-12 text-center">I Prefer A Total Of: <span
+                                    class="fbf-blue">{{frequency.sessions}}</span>
+                                Training Sessions Per Week</h4>
+                            <h4 class="col-12 text-center">Days: <span class="fbf-blue">{{frequency.days}}</span></h4>
+                            <div class="col-12 col-lg-4">
+                                <ng5-slider [(value)]="frequency.days" (userChange)="handleUserChange('FREQUENCY')"
+                                    [options]="frequencyOptions"></ng5-slider>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center text-center">
+                            <ng-container *ngFor="let item of frequencyTypes; let i = index">
+                                <div class="col-3 col-lg-2" *ngIf="item.selected">
+                                    <div class="row justify-content-center">
+                                        <div class="col-12">
+                                            {{item.type}}
+                                        </div>
+                                        <div class="col-12">
+                                            Sessions: <span class="fbf-blue">{{item.sessions}}</span>
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <toggle-button [on]="item.multipleDays"
+                                                (toggled)="onSelect(i, 'FREQUENCY')"></toggle-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
                 </div>
-              </ng-container>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <br />
-    <!-- Eigth Section -->
-    <div class="row my-4">
-      <div class="col-12">
-        <span class="title-txt"><span>8</span> SET FITNESS GOAL-PT II</span>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <span class="subtitle-txt ml-2">TRAINING OBJECTIVES</span>
-            <p class="subtitle-description-txt ml-2">Choose your desired goal for each muscle group from the list of below.
-              Your choice plays a crucial role in
-              the formulation of your personal fitness plan and will be factored into your training regime.</p>
-          </div>
-          <div class="col-11">
-            <h4 class="fbf-blue">What Is Your Training Objective For The Specified Muscle Group?</h4>
-          </div>
-          <ng-container *ngFor="let item of goalTypes; let i = index">
-            <div class="col-12 col-lg-11 my-5">
-              <div class="row justify-content-center align-items-center">
-                <h4 class="col-12">My Training Objective For {{item.type}} Is To: <span
-                    class="fbf-blue">{{getGoalTypeByIndex(i)}}</span></h4>
-
-                <div class="col-12 col-lg-4 mb3">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h4 class="fbf-blue">{{item.type}}</h4>
-                        </div>
+        <br />
+        <!-- Seventh Section -->
+        <div class="row my-4">
+            <div class="col-12">
+                <span class="title-txt"><span>7</span> EXPERIENCE LEVEL</span>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <span class="subtitle-txt ml-2">TRAINING SKILL</span>
+                        <p class="subtitle-description-txt ml-2">Select the experience level that best describes your
+                            exercise
+                            skill/competence.</p>
                     </div>
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <img src="assets/img/muscles/{{item.imgSrc}}" />
+                    <div class="col-12 col-lg-11">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4 class="fbf-blue">What Is Your Present Training Experience Level?</h4>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center text-center">
+                            <h4 class="col-12 text-center">My Experience Level Is: <span
+                                    class="fbf-blue">{{getSkill}}</span></h4>
+                            <ng-container *ngFor="let item of levelTypes; let i = index">
+                                <div class="col-11 col-lg-3 py-2 mx-2 my-1 fake-btn"
+                                    [ngClass]="{'selected': item.selected}" (click)="onSelect(i, 'LEVEL')">
+                                    <h5>{{item.shortDec}}</h5>
+                                    <h6>{{item.description}}</h6>
+                                </div>
+                            </ng-container>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-7">
-                    <div class="row">
-                        <div class="col-4 col-lg-3 text-right">Build Mass</div>
-                        <div class="col-3 col-lg-2">
-                            <toggle-button [on]="item.muscularity" (toggled)="onSelect(i, 'GOAL_M')"></toggle-button>
-                        </div>
-                        <div class="col-4 col-lg-3">Shape/Tone</div>
+            </div>
+        </div>
+
+        <br />
+        <!-- Eigth Section -->
+        <div class="row my-4">
+            <div class="col-12">
+                <span class="title-txt"><span>8</span> SET FITNESS GOAL-PT II</span>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <span class="subtitle-txt ml-2">TRAINING OBJECTIVES</span>
+                        <p class="subtitle-description-txt ml-2">Choose your desired goal for each muscle group from the
+                            list of below.
+                            Your choice plays a crucial role in
+                            the formulation of your personal fitness plan and will be factored into your training
+                            regime.</p>
                     </div>
-                    <div class="row">
-                        <div class="col-4 col-lg-3 text-right">Strength</div>
-                        <div class="col-3 col-lg-2">
-                            <toggle-button [on]="item.strength" (toggled)="onSelect(i, 'GOAL_S')"></toggle-button>
-                        </div>
-                        <div class="col-4 col-lg-3">Endurance</div>
+                    <div class="col-11">
+                        <h4 class="fbf-blue">What Is Your Training Objective For The Specified Muscle Group?</h4>
                     </div>
-                </div>
+                    <ng-container *ngFor="let item of goalTypes; let i = index">
+                        <div class="col-12 col-lg-11 my-5">
+                            <div class="row justify-content-center align-items-center">
+                                <h4 class="col-12">My Training Objective For {{item.type}} Is To:
+                                    <span class="fbf-blue">{{getGoalTypeByIndex(i)}}</span>
+                                </h4>
+
+                                <h5 class="col-12 text-center">Mucle Group:
+                                    <span class="fbf-blue">{{item.type}}</span>
+                                </h5>
+                                <div class="col-12 col-lg-4">
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <img src="assets/img/muscleGroupGraphics/{{item.imgSrc}}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-7">
+                                    <div class="row justify-content-center my-4">
+                                        <h5 class="col-12 text-center">Muscularity Objective</h5>
+                                        <div class="col-4 col-lg-3 text-right">Build Mass</div>
+                                        <div class="col-3 col-lg-2">
+                                            <toggle-button [on]="item.muscularity" (toggled)="onSelect(i, 'GOAL_M')">
+                                            </toggle-button>
+                                        </div>
+                                        <div class="col-4 col-lg-3">Shape/Tone</div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <h5 class="col-12 text-center">Performance Objective</h5>
+                                        <div class="col-4 col-lg-3 text-right">Strength</div>
+                                        <div class="col-3 col-lg-2">
+                                            <toggle-button [on]="item.strength" (toggled)="onSelect(i, 'GOAL_S')">
+                                            </toggle-button>
+                                        </div>
+                                        <div class="col-4 col-lg-3">Endurance</div>
+                                    </div>
+                                </div>
 
 
-                <!-- <div class="col-12 col-lg-2 text-center">
+                                <!-- <div class="col-12 col-lg-2 text-center">
                   <h4 class="fbf-blue">{{item.type}}</h4>
                 </div> -->
 
-                <!-- <div class="col-4 col-lg-2 text-right">Build Mass</div>
+                                <!-- <div class="col-4 col-lg-2 text-right">Build Mass</div>
                 <div class="col-3 col-lg-1">
                   <toggle-button [on]="item.muscularity" (toggled)="onSelect(i, 'GOAL_M')"></toggle-button>
                 </div>
                 <div class="col-4 col-lg-2">Shape/Tone</div> -->
 
-                <!-- <div class="col-4 col-lg-2 text-right">Strength</div>
+                                <!-- <div class="col-4 col-lg-2 text-right">Strength</div>
                 <div class="col-3 col-lg-1">
                   <toggle-button [on]="item.strength" (toggled)="onSelect(i, 'GOAL_S')"></toggle-button>
                 </div>
                 <div class="col-4 col-lg-2">Endurance</div> -->
 
-                <!-- <div class="col-lg-12">
+                                <!-- <div class="col-lg-12">
                   <div class="row justify-content-center">
                     <div class="col-12 col-lg-3 text-center" *ngFor="let imgSrc of item.imgNames">
                       <img src="assets/img/muscles/{{imgSrc}}" />
                     </div>
                   </div>
                 </div> -->
-              </div>
-            </div>
-          </ng-container>
+                            </div>
+                        </div>
+                    </ng-container>
 
-        </div>
-      </div>
-    </div>
-
-    <br />
-    <!-- Ninth Section -->
-    <div class="row my-4">
-      <div class="col-12">
-        <span class="title-txt"><span>9</span> PROBLEMATIC AREAS-PT II</span>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <span class="subtitle-txt ml-2">PRIORITIZED MUSCLE GROUPS</span>
-            <p class="subtitle-description-txt ml-2">Specify, which muscle groups, if any, you consider to be a weakness in
-              regards to muscularity or
-              performance objective. Afterward, using the number scale, rate the weakness of the specified muscle, from
-              minor to major, with the lowest value, '1', representing very minor.</p>
-          </div>
-          <div class="col-11">
-              <h4 class="fbf-blue">What Is Your Present Training Experience Level?</h4>
-          </div>
-          <div class="col-12">
-            <div class="row justify-content-center">
-              <h4 class="col-12 text-center">Presently, I: <span class="fbf-blue">{{getMucleWeaknesesString}}</span>
-                Have Muscle Groups I Consider A Weakness In My Physique.</h4>
-              <div class="col-4 col-lg-2 text-right">Do Not</div>
-              <div class="col-3 col-lg-1">
-                <toggle-button [on]="mucleWeakneses" (toggled)="onToggled()"></toggle-button>
-              </div>
-              <div class="col-4 col-lg-2">Do</div>
-            </div>
-          </div>
-          <div class="col-12" *ngIf="mucleWeakneses">
-
-            <ng-container *ngFor="let item of muscleTypes; let i = index">
-              <div class="row my-2 justify-content-center">
-                <div class="col-12 col-lg-6">
-                  <div class="row justify-content-center py-2 fake-btn" [ngClass]="{'selected': item.selected}"
-                    (click)="onSelect(i, 'MUSCLE')">
-                    <div class="col-4 col-lg-2">
-                      <h5>{{item.type}}</h5>
-                    </div>
-                    <div class="col-8 col-lg-10">
-                      <h5>{{item.description}}</h5>
-                    </div>
-                  </div>
-                  <ng-container *ngIf="item.selected">
-                    <div class="row justify-content-center" *ngFor="let subitem of item.subitems; let i = index">
-                      <div class="col-12 col-lg-9">
-                        <h4>{{subitem.subtype}}</h4>
-                        <ng5-slider [(value)]="subitem.sessions" [options]="mucleOptions"></ng5-slider>
-                      </div>
-                    </div>
-                  </ng-container>
                 </div>
-              </div>
-            </ng-container>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <br />
-    <!-- Tenth Section -->
-    <div class="row justify-content-center">
-      <div class="col-12 my-4">
-        <span class="title-txt"><span>10</span> TRAINING STYLE</span>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <span class="subtitle-txt ml-2">EXERCISE REGIME</span>
-            <p class="subtitle-description-txt ml-2">Select each equipment to identify the training arsenal you have access
-              to and/or prefer to work with.</p>
-          </div>
-          <div class="col-12 col-lg-11">
-            <div class="row">
-              <div class="col-12">
-                <h4 class="fbf-blue ml-4">Which training equipment do you have access to & prefer to utilize for your
-                  workouts?</h4>
-              </div>
             </div>
-            <div class="row justify-content-center text-center">
-              <h4 class="col-12 text-center">I Prefer My Training Arsenal To Encompass: <span
-                  class="fbf-blue">{{getTraningStylesString}}</span>, Exercises</h4>
-              <div class="col-12 col-lg-8">
-                <div class="row justify-content-center text-center">
-                  <ng-container *ngFor="let item of trainingTypes; let i = index">
-                    <div class="col-5 col-lg-4 py-2 my-1 mx-2 fake-btn" [ngClass]="{'selected': item.selected}"
-                      (click)="onSelect(i, 'TRAINING')">
-                      <h5>{{item.type}}</h5>
+        </div>
+
+        <br />
+        <!-- Ninth Section -->
+        <div class="row my-4">
+            <div class="col-12">
+                <span class="title-txt"><span>9</span> PROBLEMATIC AREAS-PT II</span>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <span class="subtitle-txt ml-2">PRIORITIZED MUSCLE GROUPS</span>
+                        <p class="subtitle-description-txt ml-2">Specify, which muscle groups, if any, you consider to
+                            be a weakness in
+                            regards to muscularity or
+                            performance objective. Afterward, using the number scale, rate the weakness of the specified
+                            muscle, from
+                            minor to major, with the lowest value, '1', representing very minor.</p>
                     </div>
-                  </ng-container>
+                    <div class="col-11">
+                        <h4 class="fbf-blue">What Is Your Present Training Experience Level?</h4>
+                    </div>
+                    <div class="col-12">
+                        <div class="row justify-content-center">
+                            <h4 class="col-12 text-center">Presently, I: <span
+                                    class="fbf-blue">{{getMucleWeaknesesString}}</span>
+                                Have Muscle Groups I Consider A Weakness In My Physique.</h4>
+                            <div class="col-4 col-lg-2 text-right">Do Not</div>
+                            <div class="col-3 col-lg-1">
+                                <toggle-button [on]="mucleWeakneses" (toggled)="onToggled()"></toggle-button>
+                            </div>
+                            <div class="col-4 col-lg-2">Do</div>
+                        </div>
+                    </div>
+                    <div class="col-12" *ngIf="mucleWeakneses">
+
+                        <ng-container *ngFor="let item of muscleTypes; let i = index">
+                            <div class="row my-2 justify-content-center">
+                                <div class="col-12 col-lg-6">
+                                    <div class="row justify-content-center py-2 fake-btn"
+                                        [ngClass]="{'selected': item.selected}" (click)="onSelect(i, 'MUSCLE')">
+                                        <div class="col-4 col-lg-2">
+                                            <h5>{{item.type}}</h5>
+                                        </div>
+                                        <div class="col-8 col-lg-10">
+                                            <h5>{{item.description}}</h5>
+                                        </div>
+                                    </div>
+                                    <ng-container *ngIf="item.selected">
+                                        <div class="row justify-content-center"
+                                            *ngFor="let subitem of item.subitems; let i = index">
+                                            <div class="col-12 col-lg-9">
+                                                <h4>{{subitem.subtype}}</h4>
+                                                <ng5-slider [(value)]="subitem.sessions" [options]="mucleOptions">
+                                                </ng5-slider>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+
                 </div>
-              </div>
             </div>
-
-          </div>
         </div>
-      </div>
-      <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="trainingSectionComplete()">
-        <h5>Save and Continue</h5>
-      </div>
-    </div>
-  </ng-container>
+
+        <br />
+        <!-- Tenth Section -->
+        <div class="row justify-content-center">
+            <div class="col-12 my-4">
+                <span class="title-txt"><span>10</span> TRAINING STYLE</span>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <span class="subtitle-txt ml-2">EXERCISE REGIME</span>
+                        <p class="subtitle-description-txt ml-2">Select each equipment to identify the training arsenal
+                            you have access
+                            to and/or prefer to work with.</p>
+                    </div>
+                    <div class="col-12 col-lg-11">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4 class="fbf-blue ml-4">Which training equipment do you have access to & prefer to
+                                    utilize for your
+                                    workouts?</h4>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center text-center">
+                            <h4 class="col-12 text-center">I Prefer My Training Arsenal To Encompass: <span
+                                    class="fbf-blue">{{getTraningStylesString}}</span>, Exercises</h4>
+                            <div class="col-12 col-lg-8">
+                                <div class="row justify-content-center text-center">
+                                    <ng-container *ngFor="let item of trainingTypes; let i = index">
+                                        <div class="col-5 col-lg-4 py-2 my-1 mx-2 fake-btn"
+                                            [ngClass]="{'selected': item.selected}" (click)="onSelect(i, 'TRAINING')">
+                                            <h5>{{item.type}}</h5>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="trainingSectionComplete()">
+                <h5>Save and Continue</h5>
+            </div>
+        </div>
+    </ng-container>
 
 
-  <!--
+    <!--
 
     NUTRITION
 
      -->
-  <ng-container *ngIf="nutritionSection">
-    <div class="row my-4" id="nutritionSection">
-      <div class="col-12 text-center">
-        <span class="major-title-txt">NUTRITION</span>
-      </div>
-      <div class="col-12">
-        <p>The final phase, Nutrition, is the most favored segment of the My Fitbody Program. Nutrition is the fuel that
-          helps power the drive to your fitness goals.</p>
-        <p>In this phase the program engages users to specify their dietary needs thus identifying what works and tastes
-          best to them.</p>
-        <p>Elements such as meal frequency and diet preference are integrated with data from the Body Profile segment to
-          generate the perfect diet regime.</p>
-        <p>The Nutrition phase plays a vital role in the integration process of the My Fitbody Program. Complete the
-          final
-          segment below and claim your ideal fitness plan.</p>
-        <p>Contact Us: <a> Live Chat</a> </p>
-        <p>If you need assistance or have questions.</p>
-      </div>
-      <!-- <div class="col-12 col-lg-6">
+    <ng-container *ngIf="nutritionSection">
+        <div class="row my-4" id="nutritionSection">
+            <div class="col-12 text-center">
+                <span class="major-title-txt">NUTRITION</span>
+            </div>
+            <div class="col-12">
+                <p>The final phase, Nutrition, is the most favored segment of the My Fitbody Program. Nutrition is the
+                    fuel that
+                    helps power the drive to your fitness goals.</p>
+                <p>In this phase the program engages users to specify their dietary needs thus identifying what works
+                    and tastes
+                    best to them.</p>
+                <p>Elements such as meal frequency and diet preference are integrated with data from the Body Profile
+                    segment to
+                    generate the perfect diet regime.</p>
+                <p>The Nutrition phase plays a vital role in the integration process of the My Fitbody Program. Complete
+                    the
+                    final
+                    segment below and claim your ideal fitness plan.</p>
+                <p>Contact Us: <a> Live Chat</a> </p>
+                <p>If you need assistance or have questions.</p>
+            </div>
+            <!-- <div class="col-12 col-lg-6">
         <img src="https://placekitten.com/g/300/300" />
       </div> -->
-    </div>
-
-    <br />
-    <!-- Eleventh Section -->
-    <div class="row my-4">
-      <div class="col-12">
-        <span class="title-txt"><span>11</span> Eating Schedule</span>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <span class="subtitle-txt ml-2">MEAL FREQUENCY</span>
-            <p class="subtitle-description-txt ml-2">Select the amount of meals you prefer to consume in a day.</p>
-          </div>
-          <div class="col-12 col-lg-11">
-            <div class="row justify-content-center">
-              <div class="col-12">
-                <h4 class="fbf-blue ml-4">How Many Meals Do You Prefer To Eat In A Day?</h4>
-              </div>
-              <h4 class="col-12 text-center">I Prefer To Eat: <span class="fbf-blue">{{profile.mealAmount}}</span> Meals
-                A Day</h4>
-              <div class="col-12 col-lg-4">
-                <ng5-slider [(value)]="profile.mealAmount" [options]="mealOptions"></ng5-slider>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <br />
-    <!-- Twelvth Section -->
-    <div class="row justify-content-center my-4">
-      <div class="col-12">
-        <span class="title-txt"><span>12</span> Diet Preference</span>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <span class="subtitle-txt ml-2">MACRO COUNTING DIETING</span>
-            <p class="subtitle-description-txt ml-2">The macro diet has been gaining a lot of popularity because of its
-              flexibility regarding food choices.
-              This philosophy is based on scientific studies showing that the most important factor in losing or gaining
-              weight is quantity of calories consumed. Below are the top macro ratio diets that have a proven history of
-              effectiveness. Select the diet regime you prefer to follow.</p>
-          </div>
-          <div class="col-12 col-lg-11">
-            <div class="row">
-              <div class="col-12">
-                <h4 class="fbf-blue ml-4">Which Dietary Macro-Nutrient Selection Do You Prefer? </h4>
-              </div>
-            </div>
-            <div class="row justify-content-center text-center">
-              <h4 class="col-12 text-center">I Prefer To Follow The: <span class="fbf-blue">{{profile.macroType}}</span>
-                Diet</h4>
-              <ng-container *ngFor="let item of macroTypes; let i = index">
-                <div class="col-5 col-lg-3 py-2 my-1 mx-2 fake-btn" [ngClass]="{'selected': item.selected}"
-                  (click)="onSelect(i, 'MACRO')">
-                  <h5>{{item.type}}</h5>
+        <br />
+        <!-- Eleventh Section -->
+        <div class="row my-4">
+            <div class="col-12">
+                <span class="title-txt"><span>11</span> Eating Schedule</span>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <span class="subtitle-txt ml-2">MEAL FREQUENCY</span>
+                        <p class="subtitle-description-txt ml-2">Select the amount of meals you prefer to consume in a
+                            day.</p>
+                    </div>
+                    <div class="col-12 col-lg-11">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <h4 class="fbf-blue ml-4">How Many Meals Do You Prefer To Eat In A Day?</h4>
+                            </div>
+                            <h4 class="col-12 text-center">I Prefer To Eat: <span
+                                    class="fbf-blue">{{profile.mealAmount}}</span> Meals
+                                A Day</h4>
+                            <div class="col-12 col-lg-4">
+                                <ng5-slider [(value)]="profile.mealAmount" [options]="mealOptions"></ng5-slider>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </ng-container>
             </div>
-          </div>
-          <!-- <div class="col-12 col-lg-8">
+        </div>
+
+        <br />
+        <!-- Twelvth Section -->
+        <div class="row justify-content-center my-4">
+            <div class="col-12">
+                <span class="title-txt"><span>12</span> Diet Preference</span>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <span class="subtitle-txt ml-2">MACRO COUNTING DIETING</span>
+                        <p class="subtitle-description-txt ml-2">The macro diet has been gaining a lot of popularity
+                            because of its
+                            flexibility regarding food choices.
+                            This philosophy is based on scientific studies showing that the most important factor in
+                            losing or gaining
+                            weight is quantity of calories consumed. Below are the top macro ratio diets that have a
+                            proven history of
+                            effectiveness. Select the diet regime you prefer to follow.</p>
+                    </div>
+                    <div class="col-12 col-lg-11">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4 class="fbf-blue ml-4">Which Dietary Macro-Nutrient Selection Do You Prefer? </h4>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center text-center">
+                            <h4 class="col-12 text-center">I Prefer To Follow The: <span
+                                    class="fbf-blue">{{profile.macroType}}</span>
+                                Diet</h4>
+                            <ng-container *ngFor="let item of macroTypes; let i = index">
+                                <div class="col-5 col-lg-3 py-2 my-1 mx-2 fake-btn"
+                                    [ngClass]="{'selected': item.selected}" (click)="onSelect(i, 'MACRO')">
+                                    <h5>{{item.type}}</h5>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <!-- <div class="col-12 col-lg-8">
             <ngb-carousel>
               <ng-container *ngFor="let item of macroTypes; let i = index">
                 <ng-template ngbSlide>
@@ -655,76 +706,84 @@
               </ng-container>
             </ngb-carousel>
           </div> -->
+                </div>
+            </div>
+            <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="nutritionSectionComplete()">
+                <h5>Save and Continue</h5>
+            </div>
         </div>
-      </div>
-      <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="nutritionSectionComplete()">
-        <h5>Save and Continue</h5>
-      </div>
-    </div>
-  </ng-container>
+    </ng-container>
 
-  <ng-container *ngIf="confirmSection">
-    <div class="row justify-content-center text-center my-4" id="confirmSection">
-      <div class="col-12 text-center">
-        <h1>Confirm</h1>
-      </div>
-      <div class="col-12">
-        <p>You've now completed all 3 phases of the My Fitbody Progam! Below are confirmation boxes, from all three
-          phases, with your submitted content. Review your input for errors and ensure the information is accurate.</p>
-        <p>If you are not satisfied with your submissions click the phase button, either in the header of the
-          confirmations box or on the phase tracker above to make changes. Once you are satisfied, click the save &
-          continue button in the segment to store the new submissions. Afterward, click the confirm check button in the
-          phase tracker above to return back to the confirm segment.</p>
-        <p>Review your content once more and enter your name & additional comments in the specified input box. Afterward
-          click the submit button to finalize the My Fitbody Program.</p>
-        <p>Contact Us: <a>Live Chat</a></p>
-        <p>If you need assistance or have questions.</p>
-      </div>
-      <div class="col-12">
-        <form [formGroup]="custInfoForm" autocomplete="off" novalidate>
-          <div class="row justify-content-center">
-            <div class="col-12 col-lg-8 mt-2">
-              <ui-input [placeHolderText]="'First Name'" [inputId]="'firstName'" [inputType]="'text'"
-                [theFormGroup]="custInfoForm">
-              </ui-input>
-              <ui-field-error [displayError]="isFormInvalid('firstName')" [errorMsg]="'Please enter your first name.'"
-                [inputId]="'firstName'" [theFormGroup]="custInfoForm">
-              </ui-field-error>
+    <ng-container *ngIf="confirmSection">
+        <div class="row justify-content-center text-center my-4" id="confirmSection">
+            <div class="col-12 text-center">
+                <h1>Confirm</h1>
             </div>
-            <div class="col-12 col-lg-8 mt-2">
-              <ui-input [placeHolderText]="'Last Name'" [inputId]="'lastName'" [inputType]="'text'"
-                [theFormGroup]="custInfoForm">
-              </ui-input>
-              <ui-field-error [displayError]="isFormInvalid('lastName')" [errorMsg]="'Please enter your last name.'"
-                [inputId]="'lastName'" [theFormGroup]="custInfoForm">
-              </ui-field-error>
+            <div class="col-12">
+                <p>You've now completed all 3 phases of the My Fitbody Progam! Below are confirmation boxes, from all
+                    three
+                    phases, with your submitted content. Review your input for errors and ensure the information is
+                    accurate.</p>
+                <p>If you are not satisfied with your submissions click the phase button, either in the header of the
+                    confirmations box or on the phase tracker above to make changes. Once you are satisfied, click the
+                    save &
+                    continue button in the segment to store the new submissions. Afterward, click the confirm check
+                    button in the
+                    phase tracker above to return back to the confirm segment.</p>
+                <p>Review your content once more and enter your name & additional comments in the specified input box.
+                    Afterward
+                    click the submit button to finalize the My Fitbody Program.</p>
+                <p>Contact Us: <a>Live Chat</a></p>
+                <p>If you need assistance or have questions.</p>
             </div>
-            <div class="col-12 col-lg-8 mt-2">
-              <ui-input [placeHolderText]="'Email'" [inputId]="'email'" [inputType]="'text'"
-                [theFormGroup]="custInfoForm">
-              </ui-input>
-              <ui-field-error [displayError]="isFormInvalid('email')" [errorMsg]="'Please enter a valid email.'"
-                [inputId]="'email'" [theFormGroup]="custInfoForm">
-              </ui-field-error>
+            <div class="col-12">
+                <form [formGroup]="custInfoForm" autocomplete="off" novalidate>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8 mt-2">
+                            <ui-input [placeHolderText]="'First Name'" [inputId]="'firstName'" [inputType]="'text'"
+                                [theFormGroup]="custInfoForm">
+                            </ui-input>
+                            <ui-field-error [displayError]="isFormInvalid('firstName')"
+                                [errorMsg]="'Please enter your first name.'" [inputId]="'firstName'"
+                                [theFormGroup]="custInfoForm">
+                            </ui-field-error>
+                        </div>
+                        <div class="col-12 col-lg-8 mt-2">
+                            <ui-input [placeHolderText]="'Last Name'" [inputId]="'lastName'" [inputType]="'text'"
+                                [theFormGroup]="custInfoForm">
+                            </ui-input>
+                            <ui-field-error [displayError]="isFormInvalid('lastName')"
+                                [errorMsg]="'Please enter your last name.'" [inputId]="'lastName'"
+                                [theFormGroup]="custInfoForm">
+                            </ui-field-error>
+                        </div>
+                        <div class="col-12 col-lg-8 mt-2">
+                            <ui-input [placeHolderText]="'Email'" [inputId]="'email'" [inputType]="'text'"
+                                [theFormGroup]="custInfoForm">
+                            </ui-input>
+                            <ui-field-error [displayError]="isFormInvalid('email')"
+                                [errorMsg]="'Please enter a valid email.'" [inputId]="'email'"
+                                [theFormGroup]="custInfoForm">
+                            </ui-field-error>
+                        </div>
+                        <div class="col-12 col-lg-8 mt-2">
+                            <ui-check
+                                [placeHolderText]="'I acknowledge acceptance of FloBro Fitness Terms of Service, Privacy Policy, Refund Policy & Disclaimer.'"
+                                [inputId]="'terms'" [theFormGroup]="custInfoForm">
+                            </ui-check>
+                            <ui-field-error [displayError]="isFormInvalid('terms')"
+                                [errorMsg]="'Please accept the terms and condition to proceed.'" [inputId]="'terms'"
+                                [theFormGroup]="custInfoForm">
+                            </ui-field-error>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="col-12 col-lg-8 mt-2">
-              <ui-check
-                [placeHolderText]="'I acknowledge acceptance of FloBro Fitness Terms of Service, Privacy Policy, Refund Policy & Disclaimer.'"
-                [inputId]="'terms'" [theFormGroup]="custInfoForm">
-              </ui-check>
-              <ui-field-error [displayError]="isFormInvalid('terms')"
-                [errorMsg]="'Please accept the terms and condition to proceed.'" [inputId]="'terms'"
-                [theFormGroup]="custInfoForm">
-              </ui-field-error>
+            <div class="col-11 col-lg-3 fake-btn my-5 py-2"
+                [ngClass]="{'disabled': custInfoForm.invalid, 'selected': custInfoForm.valid}"
+                (click)="custInfoForm.valid && submitEmail()">
+                <h5>Submit</h5>
             </div>
-          </div>
-        </form>
-      </div>
-      <div class="col-11 col-lg-3 fake-btn my-5 py-2"
-        [ngClass]="{'disabled': custInfoForm.invalid, 'selected': custInfoForm.valid}"
-        (click)="custInfoForm.valid && submitEmail()">
-        <h5>Submit</h5>
-      </div>
-    </div>
-  </ng-container>
+        </div>
+    </ng-container>
 </div>
