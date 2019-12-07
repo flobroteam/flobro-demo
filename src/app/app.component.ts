@@ -74,8 +74,22 @@ export class AppComponent implements OnInit {
     public objectiveOptions: Options = {
         floor: -4,
         ceil: 4,
-        vertical: true
+        vertical: true,
+        showSelectionBar: false,
+        showTicksValues: true,
     }
+
+    public objectiveValues: any[] = [
+        {name:'AGGRESSIVE', value: 4, colorClass: 'red'},
+        {name: 'MODERALITY AGGRESSIVE', value: 3, colorClass: 'orange'},
+        {name: 'MODERATE', value: 2, colorClass: 'light-orange'},
+        {name: 'CONSERVATIVE', value: 1, colorClass: 'light-green'},
+        {name: 'MINIMAL', value: 0, colorClass: 'green'},
+        {name: 'CONSERVATIVE', value: -1, colorClass: 'light-green'},
+        {name: 'MODERATE', value: -2, colorClass: 'light-orange'},
+        {name: 'MODERALITY AGGRESSIVE', value: -3, colorClass: 'orange'},
+        {name: 'AGGRESSIVE', value: -4, colorClass: 'red'}
+    ]
 
     public frequencyOptions: Options = {
         floor: 1,
@@ -97,9 +111,9 @@ export class AppComponent implements OnInit {
 
 
     public levelTypes: any[] = [
-        { description: 'Little to no exercise experience, less than 1 yr', shortDec: 'Beginner Novice', selected: true },
+        { description: 'Novice, little to no exercise experience, less than 1 yr', shortDec: 'Beginner', selected: true },
         { description: 'Proficient & skilled in exercise practices, 2-4 yrs experience', shortDec: 'Intermediate', selected: false },
-        { description: 'Well-skilled in exercise practices, +5 yrs experience', shortDec: 'Advance Seasoned', selected: false }
+        { description: 'Seasoned, well-skilled in exercise practices, +5 yrs experience', shortDec: 'Advance', selected: false }
     ]
 
     public goalTypes: any[] = [
@@ -129,51 +143,51 @@ export class AppComponent implements OnInit {
         {
             type: 'Deltoids', description: 'Front Delts, Side Delts, Rear Delts', selected: false,
             subitems: [
-                { subtype: 'Front Delts', sessions: 0 },
-                { subtype: 'Side Delts', sessions: 0 },
-                { subtype: 'Rear Delts', sessions: 0 }
+                { subtype: 'Front Delts', sessions: 0, imgSrc: 'FrontDeltHighlight.png' },
+                { subtype: 'Side Delts', sessions: 0, imgSrc: 'SideDeltHighlight.png' },
+                { subtype: 'Rear Delts', sessions: 0, imgSrc: 'RearDeltHighlight.png' }
             ]
         },
         {
             type: 'Chest', description: 'Upper, Lower', selected: false,
             subitems: [
-                { subtype: 'Upper', sessions: 0 },
-                { subtype: 'Lower', sessions: 0 }
+                { subtype: 'Upper', sessions: 0, imgSrc: 'UpperChestHighlight.png' },
+                { subtype: 'Lower', sessions: 0, imgSrc: 'LowerChestHighlight.png' }
             ]
         },
         {
             type: 'Back', description: 'Trapezius, Middle Back, Lats, Lower Back', selected: false,
             subitems: [
-                { subtype: 'Trapezius', sessions: 0 },
-                { subtype: 'Middle Back', sessions: 0 },
-                { subtype: 'Lats', sessions: 0 },
-                { subtype: 'Lower Back', sessions: 0 }
+                { subtype: 'Trapezius', sessions: 0, imgSrc: 'TrapeziusHighlight.png' },
+                { subtype: 'Middle Back', sessions: 0, imgSrc: 'MiddleBackHighlight.png' },
+                { subtype: 'Lats', sessions: 0, imgSrc: '' },
+                { subtype: 'Lower Back', sessions: 0, imgSrc: 'LowerBackHighlight.png' }
             ]
         },
         {
             type: 'Arm', description: 'Triceps, Biceps, Forearms', selected: false,
             subitems: [
-                { subtype: 'Triceps', sessions: 0 },
-                { subtype: 'Biceps', sessions: 0 },
-                { subtype: 'Forearms', sessions: 0 }
+                { subtype: 'Triceps', sessions: 0, imgSrc: 'TricepHighlight.png' },
+                { subtype: 'Biceps', sessions: 0, imgSrc: 'BicepHighlight.png' },
+                { subtype: 'Forearms', sessions: 0, imgSrc: 'ForearmHighlight.png' }
             ]
         },
         {
             type: 'Core', description: 'Abdominals, Obliques', selected: false,
             subitems: [
-                { subtype: 'Abdominals', sessions: 0 },
-                { subtype: 'Obliques', sessions: 0 }
+                { subtype: 'Abdominals', sessions: 0, imgSrc: 'AbdominalsHighlight.png' },
+                { subtype: 'Obliques', sessions: 0, imgSrc: 'ObliquesHighlight.png' }
             ]
         },
         {
             type: 'Leg', description: 'Glutes, Hamstrings, Abductors, Quadriceps, Adductors, Calves', selected: false,
             subitems: [
-                { subtype: 'Glutes', sessions: 0 },
-                { subtype: 'Hamstrings', sessions: 0 },
-                { subtype: 'Abductors', sessions: 0 },
-                { subtype: 'Quadriceps', sessions: 0 },
-                { subtype: 'Adductors', sessions: 0 },
-                { subtype: 'Calves', sessions: 0 }
+                { subtype: 'Glutes', sessions: 0, imgSrc: 'GlutesHighlight.png' },
+                { subtype: 'Hamstrings', sessions: 0, imgSrc: 'HamstringsHighlight.png' },
+                { subtype: 'Abductors', sessions: 0, imgSrc: 'AbductorsHighlight.png' },
+                { subtype: 'Quadriceps', sessions: 0, imgSrc: 'QuadricepsHighlight.png' },
+                { subtype: 'Adductors', sessions: 0, imgSrc: 'AdductorsHighlight.png' },
+                { subtype: 'Calves', sessions: 0, imgSrc: '' }
             ]
         }
     ]
