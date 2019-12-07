@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
 
     fatPercentageOptions: Options = {
         floor: 2,
-        ceil: 39
+        ceil: 40
     }
 
     public bodyTypes: any[] = [

@@ -37,15 +37,15 @@
         <div class="col-12">
             <span class="title-txt"><span>1</span> USER PROFILE</span>
             <div class="row justify-content-center">
-                <hr class="col-12 fb-shadow">
+                <hr class="col-12 fb-shadow mt-0">
                 <div class="col-12">
                     <span class="subtitle-txt ml-2">Personal Stats</span>
                     <p class="subtitle-description-txt ml-2">Complete the user stats form as accurately as possible.</p>
                 </div>
                 <div class="col-12 col-lg-11">
                     <div class="row">
-                        <hr class="col-12 fb-shadow">
-                        <div class="col-12">
+                        <!-- <hr class="col-12 fb-shadow"> -->
+                        <div class="col-12 my-3">
                             <h4 class="fbf-blue">What is your gender?</h4>
                             <div class="row justify-content-center">
                                 <h4 class="col-12 text-center">My Sex Is: <span
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <hr class="col-12 fb-shadow">
-                        <div class="col-12">
+                        <div class="col-12 my-4">
                             <h4 class="fbf-blue">How old are you?</h4>
                             <div class="row justify-content-center">
                                 <h4 class="col-12 text-center">I Am: <span class="fbf-blue">{{profile.age}}</span> Years
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <hr class="col-12 fb-shadow">
-                        <div class="col-12">
+                        <div class="col-12 my-4">
                             <h4 class="fbf-blue">How tall are you?</h4>
                             <div class="row justify-content-center">
                                 <h4 class="col-12 text-center">My Height Is:
@@ -83,22 +83,22 @@
                             </div>
                         </div>
                         <hr class="col-12 fb-shadow">
-                        <div class="col-12">
+                        <div class="col-12 my-4">
                             <h4 class="fbf-blue">How much do you weigh?</h4>
                             <div class="row justify-content-center">
                                 <h4 class="col-12 text-center">My Weight Is: <span
-                                        class="fbf-blue">{{profile.weight}}</span> lbs</h4>
+                                        class="fbf-blue">{{profile.weight < 400 ? profile.weight : profile.weight + '+'}}</span> lbs</h4>
                                 <div class="col-12 col-lg-4">
                                     <ng5-slider [(value)]="profile.weight" [options]="weightOptions"></ng5-slider>
                                 </div>
                             </div>
                         </div>
                         <hr class="col-12 fb-shadow">
-                        <div class="col-12">
+                        <div class="col-12 my-4">
                             <h4 class="fbf-blue">What is your body fat %?</h4>
                             <div class="row justify-content-center">
                                 <h4 class="col-12 text-center">My Body Fat Percentage Is: <span
-                                        class="fbf-blue">{{profile.fatPercentage}}</span> %</h4>
+                                        class="fbf-blue">{{profile.fatPercentage < 40 ? profile.fatPercentage : profile.fatPercentage + '+'}}</span> %</h4>
                                 <div class="col-12 col-lg-4">
                                     <ng5-slider [(value)]="profile.fatPercentage" [options]="fatPercentageOptions">
                                     </ng5-slider>
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <hr class="col-12 fb-shadow">
-                        <div class="col-12">
+                        <div class="col-12 my-4">
                             <h4 class="fbf-blue">What is your body type?</h4>
                             <div class="row">
                                 <h4 class="col-12 text-center">My Body Type Is: <span
@@ -121,6 +121,7 @@
                                 </ng-container>
                             </div>
                         </div>
+                        <hr class="col-12 fb-shadow">
                     </div>
                 </div>
             </div>
@@ -133,7 +134,7 @@
         <div class="col-12">
             <span class="title-txt"><span>2</span> CURRENT ACTIVITY OUTPUT</span>
             <div class="row justify-content-center">
-                <hr class="col-12 fb-shadow">
+                <hr class="col-12 fb-shadow mt-0">
                 <div class="col-12">
                     <span class="subtitle-txt ml-2">USER ACTIVITY LEVEL</span>
                     <p class="subtitle-description-txt ml-2">Select the activity level that best describes your current
@@ -150,9 +151,9 @@
                     </div>
                     <ng-container *ngFor="let item of activityTypes; let i = index">
                         <div class="row justify-content-center my-2">
-                            <div class="col-11 col-lg-5 fake-btn py-2" [ngClass]="{'selected': item.selected}"
+                            <div class="col-11 col-lg-5 fake-btn" [ngClass]="{'selected': item.selected}"
                                 (click)="onSelect(i, 'ACTIVITY')">
-                                <div class="row">
+                                <div class="row align-items-center h-85">
                                     <div class="col-5">
                                         <h5>{{item.type}}</h5>
                                     </div>
@@ -164,7 +165,7 @@
                         </div>
                     </ng-container>
                 </div>
-                <hr class="col-12 fb-shadow">
+                <hr class="col-10 fb-shadow">
             </div>
         </div>
     </div>
@@ -175,13 +176,13 @@
         <div class="col-12">
             <span class="title-txt"><span>3</span> REPOSE ASSESSMENT</span>
             <div class="row justify-content-center">
-                <hr class="col-12 fb-shadow">
+                <hr class="col-12 fb-shadow mt-0">
                 <div class="col-12">
                     <span class="subtitle-txt ml-2">SLEEP GAUGE</span>
                     <p class="subtitle-description-txt ml-2">Specify, on average, the total daily time you spend asleep.
                     </p>
                 </div>
-                <hr class="col-12 fb-shadow">
+                <!-- <hr class="col-10 fb-shadow"> -->
                 <div class="col-12 col-lg-11">
                     <div class="row">
                         <div class="col">
@@ -197,7 +198,7 @@
                         </div>
                     </div>
                 </div>
-                <hr class="col-12 fb-shadow">
+                <hr class="col-10 fb-shadow">
             </div>
         </div>
     </div>
@@ -208,7 +209,7 @@
         <div class="col-12">
             <span class="title-txt"><span>4</span> PROBLEMATIC AREAS-PT I</span>
             <div class="row justify-content-center">
-                <hr class="col-12 fb-shadow">
+                <hr class="col-12 fb-shadow mt-0">
                 <div class="col-12">
                     <span class="subtitle-txt ml-2">INJURY ASSESSMENT</span>
                     <p class="subtitle-description-txt ml-2">Specify, which body parts, if any, you're currently
@@ -216,8 +217,8 @@
                         setbacks with because of
                         past/current injuries.</p>
                 </div>
-                <hr class="col-12 fb-shadow">
-                <div class="col-12 col-lg-11">
+                <!-- <hr class="col-10 fb-shadow"> -->
+                <div class="col-12 col-lg-11 my-4">
                     <div class="row">
                         <div class="col">
                             <h4 class="fbf-blue">Have You Sustained Any Injuries That Currently Pose A Physical Setback
@@ -254,7 +255,7 @@
                         </div>
                     </ng-container>
                 </div>
-                <hr class="col-12 fb-shadow">
+                <hr class="col-10 fb-shadow">
             </div>
         </div>
     </div>
@@ -265,7 +266,7 @@
         <div class="col-12">
             <span class="title-txt"><span>5</span> SET FITNESS GOAL-PT I</span>
             <div class="row justify-content-center">
-                <hr class="col-12 fb-shadow">
+                <hr class="col-12 fb-shadow mt-0">
                 <div class="col-12">
                     <span class="subtitle-txt ml-2">PHYSIQUE OBJECTIVES</span>
                     <p class="subtitle-description-txt ml-2">Specify, which body parts, if any, you're currently
@@ -273,7 +274,7 @@
                         setbacks with because of
                         past/current injuries.</p>
                 </div>
-                <hr class="col-12 fb-shadow">
+                <!-- <hr class="col-10 fb-shadow"> -->
                 <div class="col-12 col-lg-11">
                     <div class="row">
                         <div class="col-12">
@@ -283,10 +284,22 @@
                     <div class="row justify-content-center">
                         <h4 class="col-12 text-center">My Physique Objective Is To: <span
                                 class="fbf-blue">{{profile.getObjectivesString}}</span></h4>
+                        <div class="col-12 col-lg-3 text-center">
+                            <div class="fs-26">&#8593;</div>
+                            <div class="fs-20 fbf-blue">GAIN WEIGHT</div>
+                            <div class="fs-12">(PRIORITIZES MUSCLE GAINS)</div>
+                            <div class="fs-26">&#8595;</div>
+                            <div class="fs-20 fbf-blue">MAINTENANCE</div>
+                            <div class="fs-12">(MINIMAL FAT LOSS/MUSCLE GAINS)</div>
+                            <div class="fs-26">&#8593;</div>
+                            <div class="fs-20 fbf-blue">LOSE WEIGHT</div>
+                            <div class="fs-12">(PRIORITIZES FAT LOSS)</div>
+                            <div class="fs-26">&#8595;</div>
+                        </div>
                         <div class="col-3 col-lg-1 objective-height">
                             <ng5-slider [(value)]="profile.objectives" [options]="objectiveOptions"></ng5-slider>
                         </div>
-                        <div class="col-7 col-lg-3 objective-height">
+                        <div class="col-8 col-lg-3 objective-height">
                             <div class="row">
                                 <ng-container  *ngFor="let objectiveItem of objectiveValues">
                                     <div class="col-12 objective-text pl-0"
@@ -299,12 +312,12 @@
                         </div>
                     </div>
                 </div>
-                <hr class="col-12 fb-shadow">
             </div>
         </div>
-        <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="profileSectionComplete()">
+        <div class="col-11 col-lg-3 fake-btn selected mt-5 py-2 text-center" (click)="profileSectionComplete()">
             <h5>Save and Continue</h5>
         </div>
+        <hr class="col-12 fb-shadow">
     </div>
 
 
@@ -315,7 +328,7 @@
      -->
     <ng-container *ngIf="trainingSection">
         <div class="row my-4" id="trainingSection">
-            <hr class="col-12 fb-shadow">
+            <!-- <hr class="col-12 fb-shadow"> -->
             <div class="col-12 text-center">
                 <span class="major-title-txt">TRAINING</span>
             </div>
@@ -349,7 +362,7 @@
             <div class="col-12">
                 <span class="title-txt"><span>6</span> WORKOUT SCHEDULE</span>
                 <div class="row justify-content-center">
-                    <hr class="col-12 fb-shadow">
+                    <hr class="col-12 fb-shadow mt-0">
                     <div class="col-12">
                         <span class="subtitle-txt ml-2">TRAINING FREQUENCY</span>
                         <p class="subtitle-description-txt ml-2">Specify the available training days you prefer in a 7
@@ -359,7 +372,7 @@
                             being the
                             maximum.</p>
                     </div>
-                    <hr class="col-12 fb-shadow">
+                    <!-- <hr class="col-10 fb-shadow"> -->
                     <div class="col-12 col-lg-11">
                         <div class="row">
                             <div class="col">
@@ -395,7 +408,7 @@
                             </ng-container>
                         </div>
                     </div>
-                    <hr class="col-12 fb-shadow">
+                    <hr class="col-10 fb-shadow">
                 </div>
             </div>
         </div>
@@ -406,14 +419,14 @@
             <div class="col-12">
                 <span class="title-txt"><span>7</span> EXPERIENCE LEVEL</span>
                 <div class="row justify-content-center">
-                    <hr class="col-12 fb-shadow">
+                    <hr class="col-12 fb-shadow mt-0">
                     <div class="col-12">
                         <span class="subtitle-txt ml-2">TRAINING SKILL</span>
                         <p class="subtitle-description-txt ml-2">Select the experience level that best describes your
                             exercise
                             skill/competence.</p>
                     </div>
-                    <hr class="col-12 fb-shadow">
+                    <!-- <hr class="col-10 fb-shadow"> -->
                     <div class="col-12 col-lg-11">
                         <div class="row">
                             <div class="col-12">
@@ -432,7 +445,7 @@
                             </ng-container>
                         </div>
                     </div>
-                    <hr class="col-12 fb-shadow">
+                    <hr class="col-10 fb-shadow">
                 </div>
             </div>
         </div>
@@ -443,7 +456,7 @@
             <div class="col-12">
                 <span class="title-txt"><span>8</span> SET FITNESS GOAL-PT II</span>
                 <div class="row justify-content-center">
-                    <hr class="col-12 fb-shadow">
+                    <hr class="col-12 fb-shadow mt-0">
                     <div class="col-12">
                         <span class="subtitle-txt ml-2">TRAINING OBJECTIVES</span>
                         <p class="subtitle-description-txt ml-2">Choose your desired goal for each muscle group from the
@@ -452,7 +465,7 @@
                             the formulation of your personal fitness plan and will be factored into your training
                             regime.</p>
                     </div>
-                    <hr class="col-12 fb-shadow">
+                    <!-- <hr class="col-10 fb-shadow"> -->
                     <div class="col-11">
                         <h4 class="fbf-blue">What Is Your Training Objective For The Specified Muscle Group?</h4>
                     </div>
@@ -494,7 +507,7 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="col-12 fb-shadow">
+                        <hr class="col-10 fb-shadow">
                     </ng-container>
 
                 </div>
@@ -507,7 +520,7 @@
             <div class="col-12">
                 <span class="title-txt"><span>9</span> PROBLEMATIC AREAS-PT II</span>
                 <div class="row justify-content-center">
-                    <hr class="col-12 fb-shadow">
+                    <hr class="col-12 fb-shadow mt-0">
                     <div class="col-12">
                         <span class="subtitle-txt ml-2">PRIORITIZED MUSCLE GROUPS</span>
                         <p class="subtitle-description-txt ml-2">Specify, which muscle groups, if any, you consider to
@@ -520,7 +533,7 @@
                     <div class="col-11">
                         <h4 class="fbf-blue">What Is Your Present Training Experience Level?</h4>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 my-3">
                         <div class="row justify-content-center">
                             <h4 class="col-12 text-center">Presently, I: <span
                                     class="fbf-blue">{{getMucleWeaknesesString}}</span>
@@ -532,7 +545,6 @@
                             <div class="col-4 col-lg-2">Do</div>
                         </div>
                     </div>
-                    <hr class="col-12 fb-shadow">
                     <div class="col-12" *ngIf="mucleWeakneses">
                         <ng-container *ngFor="let item of muscleTypes; let i = index">
                             <div class="row my-2 justify-content-center">
@@ -557,14 +569,14 @@
                                                 <ng5-slider [(value)]="subitem.sessions" [options]="mucleOptions">
                                                 </ng5-slider>
                                             </div>
+                                            <hr class="col-10 fb-shadow">
                                         </div>
                                     </ng-container>
                                 </div>
-                                <hr class="col-12 fb-shadow">
                             </div>
                         </ng-container>
                     </div>
-
+                    <hr class="col-10 fb-shadow">
                 </div>
             </div>
         </div>
@@ -575,14 +587,14 @@
             <div class="col-12 my-4">
                 <span class="title-txt"><span>10</span> TRAINING STYLE</span>
                 <div class="row justify-content-center">
-                    <hr class="col-12 fb-shadow">
+                    <hr class="col-12 fb-shadow mt-0">
                     <div class="col-12">
                         <span class="subtitle-txt ml-2">EXERCISE REGIME</span>
                         <p class="subtitle-description-txt ml-2">Select each equipment to identify the training arsenal
                             you have access
                             to and/or prefer to work with.</p>
                     </div>
-                    <hr class="col-12 fb-shadow">
+                    <!-- <hr class="col-10 fb-shadow"> -->
                     <div class="col-12 col-lg-11">
                         <div class="row">
                             <div class="col-12">
@@ -605,14 +617,13 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <hr class="col-12 fb-shadow">
                 </div>
             </div>
-            <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="trainingSectionComplete()">
+            <div class="col-11 col-lg-3 fake-btn selected mt-5 py-2 text-center" (click)="trainingSectionComplete()">
                 <h5>Save and Continue</h5>
             </div>
+            <hr class="col-12 fb-shadow">
         </div>
     </ng-container>
 
@@ -624,7 +635,7 @@
      -->
     <ng-container *ngIf="nutritionSection">
         <div class="row my-4" id="nutritionSection">
-            <hr class="col-12 fb-shadow">
+            <!-- <hr class="col-12 fb-shadow"> -->
             <div class="col-12 text-center">
                 <span class="major-title-txt">NUTRITION</span>
             </div>
@@ -656,13 +667,13 @@
             <div class="col-12">
                 <span class="title-txt"><span>11</span> Eating Schedule</span>
                 <div class="row justify-content-center">
-                    <hr class="col-12 fb-shadow">
+                    <hr class="col-12 fb-shadow mt-0">
                     <div class="col-12">
                         <span class="subtitle-txt ml-2">MEAL FREQUENCY</span>
                         <p class="subtitle-description-txt ml-2">Select the amount of meals you prefer to consume in a
                             day.</p>
                     </div>
-                    <hr class="col-12 fb-shadow">
+                    <!-- <hr class="col-10 fb-shadow"> -->
                     <div class="col-12 col-lg-11">
                         <div class="row justify-content-center">
                             <div class="col-12">
@@ -676,6 +687,7 @@
                             </div>
                         </div>
                     </div>
+                    <hr class="col-10 fb-shadow">
                 </div>
             </div>
         </div>
@@ -686,7 +698,7 @@
             <div class="col-12">
                 <span class="title-txt"><span>12</span> Diet Preference</span>
                 <div class="row justify-content-center">
-                    <hr class="col-12 fb-shadow">
+                    <hr class="col-12 fb-shadow mt-0">
                     <div class="col-12">
                         <span class="subtitle-txt ml-2">MACRO COUNTING DIETING</span>
                         <p class="subtitle-description-txt ml-2">The macro diet has been gaining a lot of popularity
@@ -698,7 +710,7 @@
                             proven history of
                             effectiveness. Select the diet regime you prefer to follow.</p>
                     </div>
-                    <hr class="col-12 fb-shadow">
+                    <!-- <hr class="col-10 fb-shadow"> -->
                     <div class="col-12 col-lg-11">
                         <div class="row">
                             <div class="col-12">
@@ -734,18 +746,17 @@
           </div> -->
                 </div>
             </div>
-            <hr class="col-12 fb-shadow">
-            <div class="col-11 col-lg-3 fake-btn selected my-5 py-2 text-center" (click)="nutritionSectionComplete()">
+            <div class="col-11 col-lg-3 fake-btn selected mt-5 py-2 text-center" (click)="nutritionSectionComplete()">
                 <h5>Save and Continue</h5>
             </div>
+            <hr class="col-12 fb-shadow">
         </div>
     </ng-container>
 
     <ng-container *ngIf="confirmSection">
-        <div class="row justify-content-center text-center my-4" id="confirmSection">
-            <hr class="col-12 fb-shadow">
+        <div class="row justify-content-center my-4" id="confirmSection">
             <div class="col-12 text-center">
-                <h1>Confirm</h1>
+                <span class="major-title-txt">CONFIRM</span>
             </div>
             <div class="col-12">
                 <p>You've now completed all 3 phases of the My Fitbody Progam! Below are confirmation boxes, from all
@@ -807,8 +818,7 @@
                     </div>
                 </form>
             </div>
-            <hr class="col-12 fb-shadow">
-            <div class="col-11 col-lg-3 fake-btn my-5 py-2"
+            <div class="col-11 col-lg-3 fake-btn my-5 py-2 text-center"
                 [ngClass]="{'disabled': custInfoForm.invalid, 'selected': custInfoForm.valid}"
                 (click)="custInfoForm.valid && submitEmail()">
                 <h5>Submit</h5>
