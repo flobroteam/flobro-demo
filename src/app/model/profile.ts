@@ -63,6 +63,36 @@ export class Profile {
         };
     }
 
+    public get getGenderStr(): string {
+        return this.gender ? 'Male' : 'Female';
+    }
+
+    public get getAgeStr(): string {
+        return this.age + " yrs old";
+    }
+
+    public get getWeigthStr(): string {
+        return this.weight + " lbs";
+    }
+
+    public get getHeigthStr(): string {
+        return this.height + " in";
+    }
+
+    public get getBodyFatStr(): string {
+        return this.fatPercentage + "%";
+    }
+
+    public get getSleepTimeStr(): string {
+        return this.sleepTime + " hrs";
+    }
+
+    public get getGoalStr(): string {
+        return this.objectives + " lbs/week";
+    }
+
+
+
     public get getHeightFtString() {
         return Math.trunc(this.height / 12);
     }

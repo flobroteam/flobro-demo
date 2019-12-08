@@ -1,4 +1,5 @@
-<app-header [trainingSection]="trainingSection" [nutritionSection]="nutritionSection" [confirmSection]="confirmSection">
+<app-header [trainingSection]="trainingSection" [nutritionSection]="nutritionSection" [confirmSection]="confirmSection"
+    [formValid]="custInfoForm.valid">
 </app-header>
 <div class="container">
 
@@ -26,8 +27,55 @@
             <p>Contact Us: <a> Live Chat</a> </p>
             <p>If you need assistance or have questions.</p>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 fbf-bc-blue text-center fbf-white">
             <!-- <img src="https://placekitten.com/g/300/300" /> -->
+            <div class="row my-3">
+                <div class="col-12">
+                    <fa-icon [icon]="['fas', 'user']" size="2x"></fa-icon>
+                </div>
+            </div>
+            <div class="row my-3" *ngIf="showProfileSectionDetails">
+                <div class="col-12">
+                    <span>Gender: </span>
+                    <span>{{profile.getGenderStr}}</span>
+                </div>
+                <div class="col-12">
+                    <span>Age: </span>
+                    <span>{{profile.getAgeStr}}</span>
+                </div>
+                <div class="col-12">
+                    <span>Height: </span>
+                    <span>{{profile.getHeigthStr}}</span>
+                </div>
+                <div class="col-12">
+                    <span>Weight: </span>
+                    <span>{{profile.getWeigthStr}}</span>
+                </div>
+                <div class="col-12">
+                    <span>Fat Percentage: </span>
+                    <span>{{profile.getBodyFatStr}}</span>
+                </div>
+                <div class="col-12">
+                    <span>Body Type: </span>
+                    <span>{{profile.bodyType}}</span>
+                </div>
+                <div class="col-12">
+                    <span>Activity Level: </span>
+                    <span>{{profile.activityLevel}}</span>
+                </div>
+                <div class="col-12">
+                    <span>Sleep Time: </span>
+                    <span>{{profile.getSleepTimeStr}}</span>
+                </div>
+                <div class="col-12">
+                    <span>Injury(s): </span>
+                    <span>{{profile.physicalSetback ? getSetbackStr : 'None'}}</span>
+                </div>
+                <div class="col-12">
+                    <span>Goal: </span>
+                    <span>{{profile.getGoalStr}}</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -354,8 +402,36 @@
                 <p>Contact Us: <a> Live Chat</a> </p>
                 <p>If you need assistance or have questions.</p>
             </div>
-            <div class="col-12 col-lg-6">
-                <!-- <img src="https://placekitten.com/g/300/300" /> -->
+            <div class="col-12 col-lg-6 fbf-bc-blue text-center fbf-white training-view">
+                <div class="row my-3">
+                    <div class="col-12">
+                        <fa-icon [icon]="['fas', 'dumbbell']" size="2x"></fa-icon>
+                    </div>
+                </div>
+                <div class="row my-3" *ngIf="showTrainingSectionDetails">
+                    <div class="col-12">
+                        <span>Training Frequency: </span>
+                        <span>{{frequency.sessions}}</span>
+                    </div>
+                    <div class="col-12">
+                        <span>Training Skill: </span>
+                        <span>{{getSkill}}</span>
+                    </div>
+                     <div class="col-12" *ngFor="let item of goalTypes; let i = index">
+                        <span>{{item.type}}: </span>
+                        <span>{{getGoalTypeByIndex(i)}}</span>
+                    </div>
+                    <ng-container *ngIf="mucleWeakneses">
+                        <div class="col-12" *ngFor="let item of getProblematicAreas()">
+                            <span>{{item.name}}: </span>
+                            <span>{{item.value}}</span>
+                        </div>
+                    </ng-container>
+                    <div class="col-12">
+                        <span>Training Style(s): </span>
+                        <span>{{getTrainingStylesStr}}</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -659,9 +735,23 @@
                 <p>Contact Us: <a> Live Chat</a> </p>
                 <p>If you need assistance or have questions.</p>
             </div>
-            <div class="col-12 col-lg-6">
-                <!-- <img src="https://placekitten.com/g/300/300" /> -->
-            </div>
+            <div class="col-12 col-lg-6 fbf-bc-blue text-center fbf-white">
+                <div class="row my-3">
+                    <div class="col-12">
+                        <fa-icon [icon]="['fas', 'utensils']" size="2x"></fa-icon>
+                    </div>
+                </div>
+                <div class="row my-3" *ngIf="showNutritionSectionDetails">
+                    <div class="col-12">
+                        <span>Meal Frequency: </span>
+                        <span>{{profile.mealAmount}}</span>
+                    </div>
+                    <div class="col-12">
+                        <span>Diet: </span>
+                        <span>{{profile.macroType}}</span>
+                    </div>
+                </div>
+                </div>
         </div>
 
         <br />
@@ -699,7 +789,7 @@
         </div>
 
         <br />
-        <!-- Twelvth Section -->
+        <!-- Twelveth Section -->
         <div class="row justify-content-center my-4">
             <div class="col-12">
                 <span class="title-txt"><span>12</span> Diet Preference</span>
@@ -764,7 +854,7 @@
             <div class="col-12 text-center">
                 <span class="major-title-txt">CONFIRM</span>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12">
                 <p>You've now completed all 3 phases of the My Fitbody Progam! Below are confirmation boxes, from all
                     three
                     phases, with your submitted content. Review your input for errors and ensure the information is
@@ -780,9 +870,6 @@
                     click the submit button to finalize the My Fitbody Program.</p>
                 <p>Contact Us: <a>Live Chat</a></p>
                 <p>If you need assistance or have questions.</p>
-            </div>
-            <div class="col-12 col-lg-6">
-                <!-- <img src="https://placekitten.com/g/300/300" /> -->
             </div>
             <div class="col-12">
                 <form [formGroup]="custInfoForm" autocomplete="off" novalidate>

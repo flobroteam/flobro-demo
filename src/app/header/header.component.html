@@ -3,7 +3,10 @@
         <div class="col-12">
             <img src="assets/img/FLOBROLOGO-white.gif" alt="image">
         </div>
-        <span class="col-3 mt-3"><ngb-progressbar showValue="true" type="secondary" [value]="getPercentage"></ngb-progressbar></span>
+        <span class="col-3 mt-3">
+            <ngb-progressbar type="secondary" [value]="getPercentage" height=".1rem"></ngb-progressbar>
+        </span>
+        <span class="col-1 mt-2 fs-12 text-left">{{getPercentage}} %</span>
         <span class="col-12 main-title mb-2">MY FITBODY PROGRAM</span>
         <span class="col-12 sub-title">"THE FASTEST WAY TO REACH YOUR FITNESS GOALS GUARENTEED!"</span>
     </div>

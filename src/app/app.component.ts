@@ -223,6 +223,10 @@ export class AppComponent implements OnInit {
     public nutritionSection: boolean = false;
     public confirmSection: boolean = false;
 
+    public showProfileSectionDetails: boolean = false;
+    public showTrainingSectionDetails: boolean = false;
+    public showNutritionSectionDetails: boolean = false;
+
     public images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
     public custInfoForm: FormGroup;
@@ -395,12 +399,20 @@ export class AppComponent implements OnInit {
                 glutes: this.getGoalTypeByIndex(10),
                 abductors: this.getGoalTypeByIndex(11),
                 adductors: this.getGoalTypeByIndex(12),
-                days: this.getDaysFrequency(),
+                days: this.frequency.days,
                 problematicAreas: this.getProblematicAreas(),
                 trainingStyles: this.trainingTypes.filter((t) => (t.selected)).map((t) => ({ name: t.type }))
             },
             nutrition: this.profile.getNutrition
         };
+    }
+
+    public get getTrainingStylesStr() {
+        return this.trainingTypes.filter((t) => (t.selected)).map((t) => (t.type)).join(', ');
+    }
+
+    public get getSetbackStr() {
+        return this.setbackTypes.filter((s) => (s.selected)).map((s) => (s.type)).join(', ');
     }
 
     public get getSkill(): string {
@@ -421,7 +433,7 @@ export class AppComponent implements OnInit {
             a.subitems.forEach((s) => {
                 value.push({
                     name: s.subtype + ' ' + a.type,
-                    value: s.sessions
+                    value: s.sessions + ' Session(s)'
                 });
             });
         });
@@ -436,6 +448,7 @@ export class AppComponent implements OnInit {
     }
 
     public profileSectionComplete() {
+        this.showProfileSectionDetails = true;
         this.trainingSection = true;
 
         setTimeout(() => {
@@ -444,6 +457,7 @@ export class AppComponent implements OnInit {
     }
 
     public trainingSectionComplete() {
+        this.showTrainingSectionDetails = true;
         this.nutritionSection = true;
 
         setTimeout(() => {
@@ -452,6 +466,7 @@ export class AppComponent implements OnInit {
     }
 
     public nutritionSectionComplete() {
+        this.showNutritionSectionDetails = true;
         this.confirmSection = true;
 
         setTimeout(() => {
@@ -484,41 +499,41 @@ export class AppComponent implements OnInit {
     public get getPhysicalObjectiveRecommendation(): string {
         if (this.profile.gender) {
             if (this.profile.fatPercentage < 4) {
-                return 'Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+                return 'Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week, Gain 3+ lbs/week, Gain 4+ lbs/week';
             } else if (this.profile.fatPercentage < 8) {
-                return '-1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+                return 'Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week, Gain 3+ lbs/week, Gain 4+ lbs/week';
             } else if (this.profile.fatPercentage === 8) {
-                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+                return 'Lose 2+ lbs/week, Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week, Gain 3+ lbs/week, Gain 4+ lbs/week';
             } else if (this.profile.fatPercentage < 13) {
-                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week';
+                return 'Lose 2+ lbs/week, Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week, Gain 3+ lbs/week';
             } else if (this.profile.fatPercentage < 15) {
-                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week';
+                return 'Lose 2+ lbs/week, Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week';
             } else if (this.profile.fatPercentage < 17) {
-                return '-3lbs/week, -2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week';
+                return 'Lose 3+ lbs/week, Lose 2+ lbs/week, Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week';
             } else if (this.profile.fatPercentage < 19) {
-                return '-3lbs/week, -2lbs/week, -1lbs/week, Maintain, +1lbs/week';
+                return 'Lose 3+ lbs/week, Lose 2+ lbs/week, Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week';
             } else {
-                return '-4lbs/week, -3lbs/week, -2lbs/week, -1lbs/week';
+                return 'Lose 4+ lbs/week, Lose 3+ lbs/week, Lose 2+ lbs/week, Lose 1+ lbs/week';
             }
         } else {
             if (this.profile.fatPercentage < 6) {
-                return '+1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+                return 'Gain 1+ lbs/week, Gain 2+ lbs/week, Gain 3+ lbs/week, Gain 4+ lbs/week';
             } else if (this.profile.fatPercentage < 10) {
-                return 'Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+                return 'Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week, Gain 3+ lbs/week, Gain 4+ lbs/week';
             } else if (this.profile.fatPercentage === 10) {
-                return '-1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+                return 'Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week, Gain 3+ lbs/week, Gain 4+ lbs/week';
             } else if (this.profile.fatPercentage < 14) {
-                return '-1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week';
+                return 'Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week, Gain 3+ lbs/week';
             } else if (this.profile.fatPercentage < 19) {
-                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week';
+                return 'Lose 2+ lbs/week, Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week, Gain 3+ lbs/week';
             } else if (this.profile.fatPercentage === 19) {
-                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week';
+                return 'Lose 2+ lbs/week, Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week';
             } else if (this.profile.fatPercentage < 22) {
-                return '-3lbs/week, -2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week';
+                return 'Lose 3+ lbs/week, Lose 2+ lbs/week, Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week, Gain 2+ lbs/week';
             } else if (this.profile.fatPercentage < 25) {
-                return '-3lbs/week, -2lbs/week, -1lbs/week, Maintain, +1lbs/week';
+                return 'Lose 3+ lbs/week, Lose 2+ lbs/week, Lose 1+ lbs/week, Maintain, Gain 1+ lbs/week';
             } else {
-                return '-4lbs/week, -3lbs/week, -2lbs/week, -1lbs/week';
+                return 'Lose 4+ lbs/week, Lose 3+ lbs/week, Lose 2+ lbs/week, Lose 1+ lbs/week';
             }
         }
     }

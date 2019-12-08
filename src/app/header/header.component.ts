@@ -51,6 +51,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     @Input() public nutritionSection: boolean;
     @Input() public confirmSection: boolean;
 
+    @Input() public formValid: boolean;
+
     constructor() { }
 
     ngOnInit() {
@@ -115,6 +117,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         }
 
         if (this.confirmSection) {
+            value += 25;
+        }
+
+        if (this.formValid) {
             value += 25;
         }
 
