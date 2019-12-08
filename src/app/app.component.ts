@@ -574,4 +574,12 @@ export class AppComponent implements OnInit {
                 return '+2 Meals';
         }
     }
+
+    public openTab(num) {
+        if (num === 1) {
+            window.open('https://flobrofitness1.wixsite.com/mysite/body-fat-calculator', "_blank");
+        } else {
+            window.open('https://flobrofitness1.wixsite.com/mysite/body-type-quiz', "_blank");
+        }
+    }
 }
