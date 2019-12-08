@@ -117,7 +117,7 @@ export class AppComponent implements OnInit {
     ]
 
     public goalTypes: any[] = [
-        { type: 'Calves', muscularity: false, strength: false, imgSrc: 'muscles-19.jpg' },
+        { type: 'Calves', muscularity: false, strength: false, imgSrc: 'CalvesHighlight.png' },
         { type: 'Quadriceps', muscularity: false, strength: false, imgSrc: 'QuadricepsHighlight.png' },
         { type: 'Hamstrings', muscularity: false, strength: false, imgSrc: 'HamstringsHighlight.png' },
         { type: 'Back', muscularity: false, strength: false, imgSrc: 'FullBackHighlight.png' },
@@ -143,16 +143,16 @@ export class AppComponent implements OnInit {
         {
             type: 'Deltoids', description: 'Front Delts, Side Delts, Rear Delts', selected: false,
             subitems: [
-                { subtype: 'Front Delts', sessions: 0, imgSrc: 'FrontDeltHighlight.png' },
-                { subtype: 'Side Delts', sessions: 0, imgSrc: 'SideDeltHighlight.png' },
-                { subtype: 'Rear Delts', sessions: 0, imgSrc: 'RearDeltHighlight.png' }
+                { subtype: 'Front Deltoids', sessions: 0, imgSrc: 'FrontDeltHighlight.png' },
+                { subtype: 'Side Deltoids', sessions: 0, imgSrc: 'SideDeltHighlight.png' },
+                { subtype: 'Rear Deltoids', sessions: 0, imgSrc: 'RearDeltHighlight.png' }
             ]
         },
         {
             type: 'Chest', description: 'Upper, Lower', selected: false,
             subitems: [
-                { subtype: 'Upper', sessions: 0, imgSrc: 'UpperChestHighlight.png' },
-                { subtype: 'Lower', sessions: 0, imgSrc: 'LowerChestHighlight.png' }
+                { subtype: 'Upper Chest', sessions: 0, imgSrc: 'UpperChestHighlight.png' },
+                { subtype: 'Lower Chest', sessions: 0, imgSrc: 'LowerChestHighlight.png' }
             ]
         },
         {
@@ -187,7 +187,7 @@ export class AppComponent implements OnInit {
                 { subtype: 'Abductors', sessions: 0, imgSrc: 'AbductorsHighlight.png' },
                 { subtype: 'Quadriceps', sessions: 0, imgSrc: 'QuadricepsHighlight.png' },
                 { subtype: 'Adductors', sessions: 0, imgSrc: 'AdductorsHighlight.png' },
-                { subtype: 'Calves', sessions: 0, imgSrc: '' }
+                { subtype: 'Calves', sessions: 0, imgSrc: 'CalvesHighlight.png' }
             ]
         }
     ]
@@ -432,8 +432,8 @@ export class AppComponent implements OnInit {
         areas.forEach((a) => {
             a.subitems.forEach((s) => {
                 value.push({
-                    name: s.subtype + ' ' + a.type,
-                    value: s.sessions + ' Session(s)'
+                    name: s.subtype,
+                    value: s.sessions
                 });
             });
         });
