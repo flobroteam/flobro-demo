@@ -11,7 +11,7 @@
         <div class="col-12 text-center">
             <span class="major-title-txt">BODY PROFILE</span>
         </div>
-        <div class="col-12">
+        <div class="col-12 col-lg-6">
             <p>The first phase, Body Profile, is the most important segment of the My Fitbody Program. It's the building
                 block
                 that sets the foundation for the formulation of your ideal fitness plan.</p>
@@ -26,9 +26,9 @@
             <p>Contact Us: <a> Live Chat</a> </p>
             <p>If you need assistance or have questions.</p>
         </div>
-        <!-- <div class="col-12 col-lg-6">
-      <img src="https://placekitten.com/g/300/300" />
-    </div> -->
+        <div class="col-12 col-lg-6">
+            <!-- <img src="https://placekitten.com/g/300/300" /> -->
+        </div>
     </div>
 
     <br />
@@ -284,15 +284,15 @@
                     <div class="row justify-content-center">
                         <h4 class="col-12 text-center">My Physique Objective Is To: <span
                                 class="fbf-blue">{{profile.getObjectivesString}}</span></h4>
-                        <div class="col-12 col-lg-3 text-center">
+                        <div class="col-12 col-lg-4 text-center">
                             <div class="fs-26">&#8593;</div>
-                            <div class="fs-20 fbf-blue">GAIN WEIGHT</div>
+                            <div class="fs-20 fw-600 fbf-blue">GAIN WEIGHT</div>
                             <div class="fs-12">(PRIORITIZES MUSCLE GAINS)</div>
                             <div class="fs-26">&#8595;</div>
-                            <div class="fs-20 fbf-blue">MAINTENANCE</div>
+                            <div class="fs-20 fw-600 fbf-blue">MAINTENANCE</div>
                             <div class="fs-12">(MINIMAL FAT LOSS/MUSCLE GAINS)</div>
                             <div class="fs-26">&#8593;</div>
-                            <div class="fs-20 fbf-blue">LOSE WEIGHT</div>
+                            <div class="fs-20 fw-600 fbf-blue">LOSE WEIGHT</div>
                             <div class="fs-12">(PRIORITIZES FAT LOSS)</div>
                             <div class="fs-26">&#8595;</div>
                         </div>
@@ -312,6 +312,9 @@
                         </div>
                     </div>
                 </div>
+                <h4 class="col-12 mb-0">RECOMMENDATION: <span
+                    class="fbf-blue fs-20">{{getPhysicalObjectiveRecommendation}}</span></h4>
+                <div class="col-12 fs-12">(Based On Body Profile)</div>
             </div>
         </div>
         <div class="col-11 col-lg-3 fake-btn selected mt-5 py-2 text-center" (click)="profileSectionComplete()">
@@ -332,7 +335,7 @@
             <div class="col-12 text-center">
                 <span class="major-title-txt">TRAINING</span>
             </div>
-            <div class="col-12">
+            <div class="col-12 col-lg-6">
                 <p>The second phase, Training, makes up one half of your generated fitness plan. It’s the vehicle of the
                     My
                     Fitbody Program that drives you to your fitness goals.</p>
@@ -351,9 +354,9 @@
                 <p>Contact Us: <a> Live Chat</a> </p>
                 <p>If you need assistance or have questions.</p>
             </div>
-            <!-- <div class="col-12 col-lg-6">
-        <img src="https://placekitten.com/g/300/300" />
-      </div> -->
+            <div class="col-12 col-lg-6">
+                <!-- <img src="https://placekitten.com/g/300/300" /> -->
+            </div>
         </div>
 
         <br />
@@ -408,6 +411,9 @@
                             </ng-container>
                         </div>
                     </div>
+                    <h4 class="col-12 mb-0">RECOMMENDATION: <span
+                        class="fbf-blue fs-20">{{getTrainingFrequencyRecommendation}}</span></h4>
+                    <div class="col-12 fs-12">(Based On Body Profile)</div>
                     <hr class="col-10 fb-shadow">
                 </div>
             </div>
@@ -452,7 +458,7 @@
 
         <br />
         <!-- Eigth Section -->
-        <div class="row my-4">
+        <!-- <div class="row my-4">
             <div class="col-12">
                 <span class="title-txt"><span>8</span> SET FITNESS GOAL-PT II</span>
                 <div class="row justify-content-center">
@@ -465,7 +471,6 @@
                             the formulation of your personal fitness plan and will be factored into your training
                             regime.</p>
                     </div>
-                    <!-- <hr class="col-10 fb-shadow"> -->
                     <div class="col-11">
                         <h4 class="fbf-blue">What Is Your Training Objective For The Specified Muscle Group?</h4>
                     </div>
@@ -475,8 +480,6 @@
                                 <h4 class="col-12 text-center">My Training Objective For {{item.type}} Is To:
                                     <span class="fbf-blue">{{getGoalTypeByIndex(i)}}</span>
                                 </h4>
-
-                                <!-- <h5 class="col-12 text-center">Mucle Group</h5> -->
                                 <h5 class="col-12 text-center fbf-blue">{{item.type}}</h5>
                             </div>
                             <div class="row justify-content-center">
@@ -512,7 +515,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <br />
         <!-- Ninth Section -->
@@ -639,7 +642,7 @@
             <div class="col-12 text-center">
                 <span class="major-title-txt">NUTRITION</span>
             </div>
-            <div class="col-12">
+            <div class="col-12 col-lg-6">
                 <p>The final phase, Nutrition, is the most favored segment of the My Fitbody Program. Nutrition is the
                     fuel that
                     helps power the drive to your fitness goals.</p>
@@ -656,9 +659,9 @@
                 <p>Contact Us: <a> Live Chat</a> </p>
                 <p>If you need assistance or have questions.</p>
             </div>
-            <!-- <div class="col-12 col-lg-6">
-        <img src="https://placekitten.com/g/300/300" />
-      </div> -->
+            <div class="col-12 col-lg-6">
+                <!-- <img src="https://placekitten.com/g/300/300" /> -->
+            </div>
         </div>
 
         <br />
@@ -687,6 +690,9 @@
                             </div>
                         </div>
                     </div>
+                    <h4 class="col-12 mb-0">RECOMMENDATION: <span
+                        class="fbf-blue fs-20">{{getEatingScheduleRecommendation}}</span></h4>
+                    <div class="col-12 fs-12">(Based On Body Profile)</div>
                     <hr class="col-10 fb-shadow">
                 </div>
             </div>
@@ -758,7 +764,7 @@
             <div class="col-12 text-center">
                 <span class="major-title-txt">CONFIRM</span>
             </div>
-            <div class="col-12">
+            <div class="col-12 col-lg-6">
                 <p>You've now completed all 3 phases of the My Fitbody Progam! Below are confirmation boxes, from all
                     three
                     phases, with your submitted content. Review your input for errors and ensure the information is
@@ -774,6 +780,9 @@
                     click the submit button to finalize the My Fitbody Program.</p>
                 <p>Contact Us: <a>Live Chat</a></p>
                 <p>If you need assistance or have questions.</p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <!-- <img src="https://placekitten.com/g/300/300" /> -->
             </div>
             <div class="col-12">
                 <form [formGroup]="custInfoForm" autocomplete="off" novalidate>

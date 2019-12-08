@@ -100,4 +100,25 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         }
     }
 
+    public get getPercentage(): number {
+        let value = 0;
+        // if (this.profileSection) {
+        //     value += 25;
+        // }
+
+        if (this.trainingSection) {
+            value += 25;
+        }
+
+        if (this.nutritionSection) {
+            value += 25;
+        }
+
+        if (this.confirmSection) {
+            value += 25;
+        }
+
+        return value
+    }
+
 }

@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
         floor: -4,
         ceil: 4,
         vertical: true,
-        showSelectionBar: false,
+        // showSelectionBar: false,
         showTicksValues: true,
     }
 
@@ -479,5 +479,84 @@ export class AppComponent implements OnInit {
 
     public get getMucleWeaknesesString() {
         return this.mucleWeakneses ? 'Do' : 'Do Not';
+    }
+
+    public get getPhysicalObjectiveRecommendation(): string {
+        if (this.profile.gender) {
+            if (this.profile.fatPercentage < 4) {
+                return 'Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+            } else if (this.profile.fatPercentage < 8) {
+                return '-1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+            } else if (this.profile.fatPercentage === 8) {
+                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+            } else if (this.profile.fatPercentage < 13) {
+                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week';
+            } else if (this.profile.fatPercentage < 15) {
+                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week';
+            } else if (this.profile.fatPercentage < 17) {
+                return '-3lbs/week, -2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week';
+            } else if (this.profile.fatPercentage < 19) {
+                return '-3lbs/week, -2lbs/week, -1lbs/week, Maintain, +1lbs/week';
+            } else {
+                return '-4lbs/week, -3lbs/week, -2lbs/week, -1lbs/week';
+            }
+        } else {
+            if (this.profile.fatPercentage < 6) {
+                return '+1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+            } else if (this.profile.fatPercentage < 10) {
+                return 'Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+            } else if (this.profile.fatPercentage === 10) {
+                return '-1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week, +4lbs/week';
+            } else if (this.profile.fatPercentage < 14) {
+                return '-1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week';
+            } else if (this.profile.fatPercentage < 19) {
+                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week, +3lbs/week';
+            } else if (this.profile.fatPercentage === 19) {
+                return '-2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week';
+            } else if (this.profile.fatPercentage < 22) {
+                return '-3lbs/week, -2lbs/week, -1lbs/week, Maintain, +1lbs/week, +2lbs/week';
+            } else if (this.profile.fatPercentage < 25) {
+                return '-3lbs/week, -2lbs/week, -1lbs/week, Maintain, +1lbs/week';
+            } else {
+                return '-4lbs/week, -3lbs/week, -2lbs/week, -1lbs/week';
+            }
+        }
+    }
+
+    public get getTrainingFrequencyRecommendation(): string {
+        switch(this.profile.objectives) {
+            case -4:
+            case 4:
+                return '+5 Days';
+            case -3:
+            case 3:
+                return '+4 Days';
+            case -2:
+            case 2:
+                return '+3 Days';
+            case -1:
+            case 1:
+                return '+2 Days';
+            case 0:
+                return '+1 Day';
+        }
+    }
+
+    public get getEatingScheduleRecommendation(): string {
+        switch(this.profile.objectives) {
+            case 4:
+                return '+5 Meals';
+            case -4:
+            case 3:
+                return '+4 Meals';
+            case -3:
+            case 2:
+                return '+3 Meals';
+            case -2:
+            case -1:
+            case 1:
+            case 0:
+                return '+2 Meals';
+        }
     }
 }
