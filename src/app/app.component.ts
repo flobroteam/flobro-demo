@@ -143,51 +143,51 @@ export class AppComponent implements OnInit {
         {
             type: 'Deltoids', description: 'Front Delts, Side Delts, Rear Delts', selected: false,
             subitems: [
-                { subtype: 'Front Deltoids', sessions: 0, imgSrc: 'FrontDeltHighlight.png' },
-                { subtype: 'Side Deltoids', sessions: 0, imgSrc: 'SideDeltHighlight.png' },
-                { subtype: 'Rear Deltoids', sessions: 0, imgSrc: 'RearDeltHighlight.png' }
+                { subtype: 'Front Deltoids Ratings', sessions: 0, imgSrc: 'FrontDeltHighlight.png' },
+                { subtype: 'Side Deltoids Ratings', sessions: 0, imgSrc: 'SideDeltHighlight.png' },
+                { subtype: 'Rear Deltoids Ratings', sessions: 0, imgSrc: 'RearDeltHighlight.png' }
             ]
         },
         {
             type: 'Chest', description: 'Upper, Lower', selected: false,
             subitems: [
-                { subtype: 'Upper Chest', sessions: 0, imgSrc: 'UpperChestHighlight.png' },
-                { subtype: 'Lower Chest', sessions: 0, imgSrc: 'LowerChestHighlight.png' }
+                { subtype: 'Upper Chest Ratings', sessions: 0, imgSrc: 'UpperChestHighlight.png' },
+                { subtype: 'Lower Chest Ratings', sessions: 0, imgSrc: 'LowerChestHighlight.png' }
             ]
         },
         {
             type: 'Back', description: 'Trapezius, Middle Back, Lats, Lower Back', selected: false,
             subitems: [
-                { subtype: 'Trapezius', sessions: 0, imgSrc: 'TrapeziusHighlight.png' },
-                { subtype: 'Middle Back', sessions: 0, imgSrc: 'MiddleBackHighlight.png' },
-                { subtype: 'Lats', sessions: 0, imgSrc: '' },
-                { subtype: 'Lower Back', sessions: 0, imgSrc: 'LowerBackHighlight.png' }
+                { subtype: 'Trapezius Ratings', sessions: 0, imgSrc: 'TrapeziusHighlight.png' },
+                { subtype: 'Middle Back Ratings', sessions: 0, imgSrc: 'MiddleBackHighlight.png' },
+                { subtype: 'Lats Ratings', sessions: 0, imgSrc: '' },
+                { subtype: 'Lower Back Ratings', sessions: 0, imgSrc: 'LowerBackHighlight.png' }
             ]
         },
         {
             type: 'Arm', description: 'Triceps, Biceps, Forearms', selected: false,
             subitems: [
-                { subtype: 'Triceps', sessions: 0, imgSrc: 'TricepHighlight.png' },
-                { subtype: 'Biceps', sessions: 0, imgSrc: 'BicepHighlight.png' },
-                { subtype: 'Forearms', sessions: 0, imgSrc: 'ForearmHighlight.png' }
+                { subtype: 'Triceps Ratings', sessions: 0, imgSrc: 'TricepHighlight.png' },
+                { subtype: 'Biceps Ratings', sessions: 0, imgSrc: 'BicepHighlight.png' },
+                { subtype: 'Forearms Ratings', sessions: 0, imgSrc: 'ForearmHighlight.png' }
             ]
         },
         {
             type: 'Core', description: 'Abdominals, Obliques', selected: false,
             subitems: [
-                { subtype: 'Abdominals', sessions: 0, imgSrc: 'AbdominalsHighlight.png' },
-                { subtype: 'Obliques', sessions: 0, imgSrc: 'ObliquesHighlight.png' }
+                { subtype: 'Abdominals Ratings', sessions: 0, imgSrc: 'AbdominalsHighlight.png' },
+                { subtype: 'Obliques Ratings', sessions: 0, imgSrc: 'ObliquesHighlight.png' }
             ]
         },
         {
             type: 'Leg', description: 'Glutes, Hamstrings, Abductors, Quadriceps, Adductors, Calves', selected: false,
             subitems: [
-                { subtype: 'Glutes', sessions: 0, imgSrc: 'GlutesHighlight.png' },
-                { subtype: 'Hamstrings', sessions: 0, imgSrc: 'HamstringsHighlight.png' },
-                { subtype: 'Abductors', sessions: 0, imgSrc: 'AbductorsHighlight.png' },
-                { subtype: 'Quadriceps', sessions: 0, imgSrc: 'QuadricepsHighlight.png' },
-                { subtype: 'Adductors', sessions: 0, imgSrc: 'AdductorsHighlight.png' },
-                { subtype: 'Calves', sessions: 0, imgSrc: 'CalvesHighlight.png' }
+                { subtype: 'Glutes Ratings Ratings', sessions: 0, imgSrc: 'GlutesHighlight.png' },
+                { subtype: 'Hamstrings Ratings', sessions: 0, imgSrc: 'HamstringsHighlight.png' },
+                { subtype: 'Abductors Ratings', sessions: 0, imgSrc: 'AbductorsHighlight.png' },
+                { subtype: 'Quadriceps Ratings', sessions: 0, imgSrc: 'QuadricepsHighlight.png' },
+                { subtype: 'Adductors Ratings', sessions: 0, imgSrc: 'AdductorsHighlight.png' },
+                { subtype: 'Calves Ratings', sessions: 0, imgSrc: 'CalvesHighlight.png' }
             ]
         }
     ]

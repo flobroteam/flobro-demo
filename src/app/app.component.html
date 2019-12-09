@@ -73,7 +73,7 @@
                 </div>
                 <div class="col-12">
                     <span>Goal: </span>
-                    <span>{{profile.getGoalStr}}</span>
+                    <span>{{profile.getObjectivesString}}</span>
                 </div>
             </div>
         </div>
@@ -151,7 +151,7 @@
                                     <ng5-slider [(value)]="profile.fatPercentage" [options]="fatPercentageOptions">
                                     </ng5-slider>
                                 </div>
-                                <div class="col-12 mt-3">Don't know your body fat percentage? Take the quiz <span class="fbf-blue show-cursor" (click)="openTab(1)">here!</span></div>
+                                <div class="col-12 mt-3 text-danger">Don't know your body fat percentage? Take the quiz <a class="text-primary"  href="javascript:void(0)" (click)="openTab(1)">here!</a></div>
                             </div>
                         </div>
                         <hr class="col-12 fb-shadow">
@@ -168,7 +168,7 @@
                                         <h5>{{item.type}}</h5>
                                     </div>
                                 </ng-container>
-                                <div class="col-12 mt-3">Don't know your body type? Take the quiz <span class="fbf-blue show-cursor" (click)="openTab(2)">here!</span></div>
+                                <div class="col-12 mt-3 text-danger">Don't know your body type? Take the quiz <a class="text-primary" href="javascript:void(0)" (click)="openTab(2)">here!</a></div>
                             </div>
                         </div>
                         <hr class="col-12 fb-shadow">
@@ -753,7 +753,7 @@
                 <div class="row my-3" *ngIf="showNutritionSectionDetails">
                     <div class="col-12">
                         <span>Meal Frequency: </span>
-                        <span>{{profile.mealAmount}}</span>
+                        <span>{{profile.mealAmount}} Meal(s)</span>
                     </div>
                     <div class="col-12">
                         <span>Diet: </span>
@@ -928,14 +928,14 @@
                     </div>
                     <div class="col-12">
                         <span>Goal: </span>
-                        <span>{{profile.getGoalStr}}</span>
+                        <span>{{profile.getObjectivesString}}</span>
                     </div>
 
 
                     <!-- Traning Section -->
                     <div class="col-12">
                         <span>Training Frequency: </span>
-                        <span>{{frequency.sessions}}</span>
+                        <span>{{frequency.sessions}} Session(s)</span>
                     </div>
                     <div class="col-12">
                         <span>Training Skill: </span>
@@ -966,7 +966,7 @@
                     <!-- Nutrition Section -->
                     <div class="col-12">
                         <span>Meal Frequency: </span>
-                        <span>{{profile.mealAmount}}</span>
+                        <span>{{profile.mealAmount}} Meal(s)</span>
                     </div>
                     <div class="col-12">
                         <span>Diet: </span>
