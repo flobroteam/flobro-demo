@@ -1,6 +1,6 @@
-<app-header [trainingSection]="trainingSection" [nutritionSection]="nutritionSection" [confirmSection]="confirmSection"
+<!-- <app-header [trainingSection]="trainingSection" [nutritionSection]="nutritionSection" [confirmSection]="confirmSection"
     [formValid]="custInfoForm.valid">
-</app-header>
+</app-header> -->
 <div class="container">
 
     <!--
@@ -290,18 +290,20 @@
                         <div class="col-4 col-lg-1">Do</div>
                     </div>
                     <ng-container *ngIf="profile.physicalSetback">
-                        <div class="row justify-content-center my-2" *ngFor="let item of setbackTypes; let i = index">
-                            <div class="col-12 col-lg-5 fake-btn py-2" [ngClass]="{'selected': item.selected}"
-                                (click)="onSelect(i, 'SETBACK')">
-                                <div class="row">
-                                    <div class="col-5">
-                                        <h5>{{item.type}}</h5>
-                                    </div>
-                                    <div class="col-7">
-                                        <h6>{{item.description}}</h6>
+                        <div class="row align-items-center my-2">
+                            <ng-container *ngFor="let item of setbackTypes; let i = index">
+                                <div class="col-11 col-lg-5 fake-btn py-2 m-2" [ngClass]="{'selected': item.selected}"
+                                    (click)="onSelect(i, 'SETBACK')">
+                                    <div class="row align-items-center text-center h-105">
+                                        <div class="col-5">
+                                            <h5>{{item.type}}</h5>
+                                        </div>
+                                        <div class="col-7">
+                                            <h6>{{item.description}}</h6>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </ng-container>
                         </div>
                     </ng-container>
                 </div>
@@ -829,6 +831,7 @@
                                 Diet</h4>
                             <ng-container *ngFor="let item of macroTypes; let i = index">
                                 <div class="col-5 col-lg-3 py-2 my-1 mx-2 fake-btn"
+                                    *ngIf="item.show || showDiet()"
                                     [ngClass]="{'selected': item.selected}" (click)="onSelect(i, 'MACRO')">
                                     <h5>{{item.type}}</h5>
                                 </div>

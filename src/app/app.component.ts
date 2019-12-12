@@ -208,14 +208,14 @@ export class AppComponent implements OnInit {
     }
 
     public macroTypes: any[] = [
-        { type: 'Moderate', selected: true, imgSrc: 'assets/img/foods/moderate_diet.jpg' },
-        { type: 'Moderate II', selected: false, imgSrc: 'assets/img/foods/moderate_II_diet.jpeg' },
-        { type: 'Ketogenic', selected: false, imgSrc: 'assets/img/foods/ketogenic_diet.jpg' },
-        { type: 'Low Fat', selected: false, imgSrc: 'assets/img/foods/low_fat_diet.jpeg' },
-        { type: 'Anabolic', selected: false, imgSrc: 'assets/img/foods/anabolic_diet.png' },
-        { type: 'Low Carb', selected: false, imgSrc: 'assets/img/foods/low_carb_diet.jpeg' },
-        { type: 'Zone', selected: false, imgSrc: 'assets/img/foods/zone_diet.jpg' },
-        { type: '5 Day Diet', selected: false, imgSrc: 'assets/img/foods/5_day_diet.jpg' }
+        { type: 'Moderate', selected: true, show: true, imgSrc: 'assets/img/foods/moderate_diet.jpg' },
+        { type: 'Moderate II', selected: false, show: true, imgSrc: 'assets/img/foods/moderate_II_diet.jpeg' },
+        { type: 'Ketogenic', selected: false, show: true, imgSrc: 'assets/img/foods/ketogenic_diet.jpg' },
+        { type: 'Low Fat', selected: false, show: true, imgSrc: 'assets/img/foods/low_fat_diet.jpeg' },
+        { type: 'Anabolic', selected: false, show: true, imgSrc: 'assets/img/foods/anabolic_diet.png' },
+        { type: 'Low Carb', selected: false, show: true, imgSrc: 'assets/img/foods/low_carb_diet.jpeg' },
+        { type: 'Zone', selected: false, show: true, imgSrc: 'assets/img/foods/zone_diet.jpg' },
+        { type: '5 Day Diet', selected: false, show: false, imgSrc: 'assets/img/foods/5_day_diet.jpg' }
     ]
 
     public profileSection: boolean = true;
@@ -581,5 +581,12 @@ export class AppComponent implements OnInit {
         } else {
             window.open('https://flobrofitness1.wixsite.com/mysite/body-type-quiz', "_blank");
         }
+    }
+
+    public showDiet() {
+        if (this.profile.fatPercentage < 22 && this.profile.objectives < 0) {
+            return true;
+        }
+        return false;
     }
 }
