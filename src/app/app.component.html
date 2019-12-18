@@ -1,6 +1,6 @@
-<!-- <app-header [trainingSection]="trainingSection" [nutritionSection]="nutritionSection" [confirmSection]="confirmSection"
+<app-header [trainingSection]="trainingSection" [nutritionSection]="nutritionSection" [confirmSection]="confirmSection"
     [formValid]="custInfoForm.valid">
-</app-header> -->
+</app-header>
 <div class="container">
 
     <!--
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-12">
                     <span>Height: </span>
-                    <span>{{profile.getHeigthStr}}</span>
+                    <span>{{profile.getHeightStr}}</span>
                 </div>
                 <div class="col-12">
                     <span>Weight: </span>
@@ -240,9 +240,9 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <h4 class="col-12 text-center">I Sleep: <span class="fbf-blue">{{profile.sleepTime}}</span>
-                            hours, On
-                            Average, Each Day</h4>
+                        <h4 class="col-12 text-center">I Sleep: <span class="fbf-blue">{{profile.getSleepHrString}}</span> Hrs
+                            <span class="fbf-blue">{{profile.getSleepMinString}}</span> Mins
+                            , On Average, Each Day</h4>
                         <div class="col-12 col-lg-4">
                             <ng5-slider [(value)]="profile.sleepTime" [options]="sleepTimeOptions"></ng5-slider>
                         </div>
@@ -428,7 +428,7 @@
                     </div>
                     <ng-container *ngIf="mucleWeakneses">
                         <div class="col-12" *ngFor="let item of getProblematicAreas()">
-                            <span>{{item.name}}: </span>
+                            <span>{{item.name}} Rating: </span>
                             <span>{{item.value}}</span>
                         </div>
                     </ng-container>
@@ -899,7 +899,7 @@
                     </div>
                     <div class="col-12">
                         <span>Height: </span>
-                        <span>{{profile.getHeigthStr}}</span>
+                        <span>{{profile.getHeightStr}}</span>
                     </div>
                     <div class="col-12">
                         <span>Weight: </span>
@@ -946,7 +946,7 @@
                     </div>
                     <ng-container *ngIf="mucleWeakneses">
                         <div class="col-12" *ngFor="let item of getProblematicAreas()">
-                            <span>{{item.name}}: </span>
+                            <span>{{item.name}} Rating: </span>
                             <span>{{item.value}}</span>
                         </div>
                     </ng-container>

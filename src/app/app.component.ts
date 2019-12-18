@@ -60,8 +60,8 @@ export class AppComponent implements OnInit {
     ];
 
     public sleepTimeOptions: Options = {
-        floor: 2,
-        ceil: 16
+        floor: 32,
+        ceil: 960
     }
 
     public setbackTypes: any[] = [

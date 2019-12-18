@@ -31,7 +31,7 @@ export class Profile {
         this.bodyType = values.bodyType || 'Ectomorph';
         this.activityLevel = values.activityLevel || 'Sedantary';
 
-        this.sleepTime = values.sleepTime || 8;
+        this.sleepTime = values.sleepTime || 480;
 
         this.physicalSetback = values.physicalSetback || false;
 
@@ -54,11 +54,11 @@ export class Profile {
             sex: this.gender ? 'Male' : 'Female',
             age: this.age + " yrs old",
             weight: this.weight + " lbs",
-            height: this.height + " in.",
+            height: this.getHeightStr,
             bodyFat: this.fatPercentage + "%",
             bodyType: this.bodyType,
             activityLevel: this.activityLevel,
-            sleepTime: this.sleepTime + " hrs",
+            sleepTime: this.getSleepTimeStr,
             goal: this.objectives + " lbs/week"
         };
     }
@@ -75,16 +75,26 @@ export class Profile {
         return this.weight + " lbs";
     }
 
-    public get getHeigthStr(): string {
-        return this.height + " in";
-    }
+    // public get getHeigthStr(): string {
+    //     return this.height + " in";
+    // }
 
     public get getBodyFatStr(): string {
         return this.fatPercentage + "%";
     }
 
     public get getSleepTimeStr(): string {
-        return this.sleepTime + " hrs";
+        const hours: number = Math.trunc(this.sleepTime / 60);
+        const minutes: number = this.sleepTime % 60;
+        return hours + " hrs" +  (minutes ? " " + minutes + ' mins' : '');
+    }
+
+    public get getSleepHrString() {
+        return Math.trunc(this.sleepTime / 60);
+    }
+
+    public get getSleepMinString() {
+        return this.sleepTime % 60;
     }
 
     public get getGoalStr(): string {
@@ -92,6 +102,11 @@ export class Profile {
     }
 
 
+    public get getHeightStr(): string {
+        const feet: number = Math.trunc(this.height / 12);
+        const inches: number = this.height % 12;
+        return feet + ' fts' + (inches ? ' ' + inches + ' ins' : '');
+    }
 
     public get getHeightFtString() {
         return Math.trunc(this.height / 12);
