@@ -399,7 +399,7 @@ export class AppComponent implements OnInit {
                 glutes: this.getGoalTypeByIndex(10),
                 abductors: this.getGoalTypeByIndex(11),
                 adductors: this.getGoalTypeByIndex(12),
-                days: this.frequency.days,
+                days: this.getDaysFrequency(),
                 problematicAreas: this.getProblematicAreas(),
                 trainingStyles: this.trainingTypes.filter((t) => (t.selected)).map((t) => ({ name: t.type }))
             },
@@ -442,8 +442,8 @@ export class AppComponent implements OnInit {
 
     public getDaysFrequency() {
         return this.frequencyTypes.filter((f) => (f.selected)).map((f) => ({
-            name: f.type,
-            value: f.sessions + ' Sessions'
+            name: f.type + ' Sessions',
+            value: f.sessions
         }));
     }
 
