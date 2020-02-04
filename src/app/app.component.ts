@@ -4,13 +4,14 @@ import { Profile } from './model/profile';
 
 import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarousel, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.sass']
+    styleUrls: ['./app.component.sass'],
+    providers: [NgbCarouselConfig]
 })
 export class AppComponent implements OnInit {
     title = 'flobro-demo';
@@ -208,14 +209,180 @@ export class AppComponent implements OnInit {
     }
 
     public macroTypes: any[] = [
-        { type: 'Moderate', selected: true, show: true, imgSrc: 'assets/img/foods/moderate_diet.jpg' },
-        { type: 'Moderate II', selected: false, show: true, imgSrc: 'assets/img/foods/moderate_II_diet.jpeg' },
-        { type: 'Ketogenic', selected: false, show: true, imgSrc: 'assets/img/foods/ketogenic_diet.jpg' },
-        { type: 'Low Fat', selected: false, show: true, imgSrc: 'assets/img/foods/low_fat_diet.jpeg' },
-        { type: 'Anabolic', selected: false, show: true, imgSrc: 'assets/img/foods/anabolic_diet.png' },
-        { type: 'Low Carb', selected: false, show: true, imgSrc: 'assets/img/foods/low_carb_diet.jpeg' },
-        { type: 'Zone', selected: false, show: true, imgSrc: 'assets/img/foods/zone_diet.jpg' },
-        { type: '5 Day Diet', selected: false, show: false, imgSrc: 'assets/img/foods/5_day_diet.jpg' }
+        {
+            type: 'Moderate', selected: true, show: true, imgSrc: 'assets/img/foods/moderate_diet.jpg',
+            id: 0,
+            macroRatios: [
+                {
+                    title: '',
+                    content: [
+                        'Protein= 25% of total calories',
+                        'Fat= 25% of total calories',
+                        'Carbohydrate= 50% of total calories'
+                    ]
+                }
+            ],
+            description: 'The moderate diet provides a well balanced ratio of the three macros. The diet prioritizes a reasonable proportion of nutrients, avoiding over-indulgence & dietary restrictions, to encourage moderation. Observing a moderate and varied diet can help with your health, weight loss, weight gain and weight control.',
+            ratings: [
+                { type: 'Adherence', star: 5 },
+                { type: 'Satiety', star: 5 },
+                { type: 'Acceptability', star: 5 }
+            ]
+        },
+        {
+            type: 'Moderate II', selected: false, show: true, imgSrc: 'assets/img/foods/moderate_II_diet.jpeg',
+            id: 1,
+            macroRatios: [
+                {
+                    title: '',
+                    content: [
+                        'Protein= 1g per pound of lean body weight',
+                        'Fat= .4g per pound of lean body weight + 25% of remaining calories',
+                        'Carbohydrate= The remaining required calories to meet the specified goal'
+                    ]
+                }
+            ],
+            description: 'The moderate diet provides a well balanced ratio of the three macros. The diet prioritizes a reasonable proportion of nutrients, avoiding over-indulgence & dietary restrictions, to encourage moderation. Observing a moderate and varied diet can help with your health, weight loss, weight gain and weight control.',
+            ratings: [
+                { type: 'Adherence', star: 4 },
+                { type: 'Satiety', star: 4 },
+                { type: 'Acceptability', star: 4 }
+            ]
+        },
+        {
+            type: 'Ketogenic', selected: false, show: true, imgSrc: 'assets/img/foods/ketogenic_diet.jpg',
+            id: 2,
+            macroRatios: [
+                {
+                    title: '',
+                    content: [
+                        'Protein= 25% of total calories',
+                        'Fat= 70% of total calories',
+                        'Carbohydrate= 5% of total calories'
+                    ]
+                }
+            ],
+            description: 'The moderate diet provides a well balanced ratio of the three macros. The diet prioritizes a reasonable proportion of nutrients, avoiding over-indulgence & dietary restrictions, to encourage moderation. Observing a moderate and varied diet can help with your health, weight loss, weight gain and weight control.',
+            ratings: [
+                { type: 'Adherence', star: 2 },
+                { type: 'Satiety', star: 4.5 },
+                { type: 'Acceptability', star: 2 }
+            ]
+        },
+        {
+            type: 'Low Fat', selected: false, show: true, imgSrc: 'assets/img/foods/low_fat_diet.jpeg',
+            id: 3,
+            macroRatios: [
+                {
+                    title: '',
+                    content: [
+                        'Protein= 25% of total calories',
+                        'Fat= 20% of total calories',
+                        'Carbohydrate= 50% of total calories'
+                    ]
+                }
+            ],
+            description: 'The low fat diet restricts access to fats. This diet macro ratio makes the body become dependent on carbohydrate and protein as its primary and secondary energy source. Following a low fat diet can reduce chances of heart disease and obesity, promote weight loss, and gain better control of weight.',
+            ratings: [
+                { type: 'Adherence', star: 5 },
+                { type: 'Satiety', star: 5 },
+                { type: 'Acceptability', star: 5 }
+            ]
+        },
+        {
+            type: 'Anabolic', selected: false, show: true, imgSrc: 'assets/img/foods/anabolic_diet.png',
+            id: 4,
+            macroRatios: [
+                {
+                    title: 'Low Carb Cycle',
+                    content: [
+                        'Protein= 30% of total calories',
+                        'Fat= 65% of total calories',
+                        'Carbohydrate= <30g per day'
+                    ]
+                },
+                {
+                    title: 'High Carb Cycle',
+                    content: [
+                        'Protein= 20% of total calories',
+                        'Fat= 15% of total calories',
+                        'Carbohydrate= 65% of total calories'
+                    ]
+                }
+            ],
+            description: 'The anabolic diet provides periods of low-carb dieting followed by a brief "carb loading" phase to restore glycogen. The diet prioritizes macronutrient manipulation that is conducive to maximizing your fitness progress. The anabolic diet is a tri-phasic diet of: maintaining, bulking, and cutting.',
+            ratings: [
+                { type: 'Adherence', star: 4 },
+                { type: 'Satiety', star: 5 },
+                { type: 'Acceptability', star: 5 }
+            ]
+        },
+        {
+            type: 'Low Carb', selected: false, show: true, imgSrc: 'assets/img/foods/low_carb_diet.jpeg',
+            id: 5,
+            macroRatios: [
+                {
+                    title: '',
+                    content: [
+                        'Protein= 35% of total calories',
+                        'Fat= 40% of total calories',
+                        'Carbohydrate= 25% of total calories'
+                    ]
+                }
+            ],
+            description: 'The low carb diet restricts access to carbohydrates. This diet macro ratio makes the body become dependent on fat and protein as its primary and secondary energy source. Following a low carb diet can result in weight loss and improved health.',
+            ratings: [
+                { type: 'Adherence', star: 3 },
+                { type: 'Satiety', star: 3 },
+                { type: 'Acceptability', star: 3 }
+            ]
+        },
+        {
+            type: 'Zone', selected: false, show: true, imgSrc: 'assets/img/foods/zone_diet.jpg',
+            id: 6,
+            macroRatios: [
+                {
+                    title: '',
+                    content: [
+                        'Protein= 30% of total calories',
+                        'Fat= 30% of total calories',
+                        'Carbohydrate= 40% of total calories'
+                    ]
+                }
+            ],
+            description: 'The zone diet provides all three macronutrients at their optimum levels. The diet ensures that the body reaches a zone of complete balance. Observing the zone diet can assist in improving general health, weight loss, and muscle gain. mental physical performance.',
+            ratings: [
+                { type: 'Adherence', star: 3 },
+                { type: 'Satiety', star: 4 },
+                { type: 'Acceptability', star: 5 }
+            ]
+        },
+        {
+            type: '5 Day Diet', selected: false, show: false, imgSrc: 'assets/img/foods/5_day_diet.jpg',
+            id: 7,
+            macroRatios: [
+                {
+                    title: 'Low Carb Cycle',
+                    content: [
+                        'Protein= 30% of total calories',
+                        'Fat= 5% of total calories',
+                        'Carbohydrate= <30g per day'
+                    ]
+                },
+                {
+                    title: 'High Carb Cycle',
+                    content: [
+                        'Calories =< Maintenance'
+                    ]
+                }
+            ],
+            description: 'The 5 day diet is a new dietary selection unique to FloBro Fitness. The diet comprises of two opposing periods of low-carb dieting followed by a brief " high overall macro loading" phase to restore appetite and metabolism functionality. The diet prioritizes macronutrient manipulation that is conducive to maximizing consistency in your fitness progress.',
+            ratings: [
+                { type: 'Adherence', star: 4 },
+                { type: 'Satiety', star: 5 },
+                { type: 'Acceptability', star: 5 }
+            ]
+        }
     ]
 
     public profileSection: boolean = true;
@@ -227,17 +394,20 @@ export class AppComponent implements OnInit {
     public showTrainingSectionDetails: boolean = false;
     public showNutritionSectionDetails: boolean = false;
 
-    public images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+    @ViewChild('carousel', {static : true}) carousel: NgbCarousel;
 
     public custInfoForm: FormGroup;
 
     constructor(
         private httpClient: HttpClient,
-        private config: NgbCarouselConfig) {
+        public config: NgbCarouselConfig) {
+
         config.interval = 10000;
         config.wrap = true;
         config.keyboard = false;
         config.pauseOnHover = true;
+        config.showNavigationIndicators = false;
+        config.showNavigationArrows = false;
     }
 
     ngOnInit() {
@@ -324,9 +494,9 @@ export class AppComponent implements OnInit {
             case 'MACRO':
                 const macro = this.macroTypes.find((type) => (type.selected));
                 macro.selected = false;
-
                 this.profile.macroType = this.macroTypes[index].type;
                 this.macroTypes[index].selected = true;
+                this.carousel.select(this.macroTypes[index].id)
                 break;
             default:
         }

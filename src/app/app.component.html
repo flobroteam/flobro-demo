@@ -826,9 +826,7 @@
                             </div>
                         </div>
                         <div class="row justify-content-center text-center">
-                            <h4 class="col-12 text-center">I Prefer To Follow The: <span
-                                    class="fbf-blue">{{profile.macroType}}</span>
-                                Diet</h4>
+                            <h4 class="col-12 text-center">I Prefer To Follow The: <span class="fbf-blue">{{profile.macroType}}</span>Diet</h4>
                             <ng-container *ngFor="let item of macroTypes; let i = index">
                                 <div class="col-5 col-lg-3 py-2 my-1 mx-2 fake-btn"
                                     *ngIf="item.show || showDiet()"
@@ -838,24 +836,40 @@
                             </ng-container>
                         </div>
                     </div>
-                    <!-- <div class="col-12 col-lg-8">
-            <ngb-carousel>
-              <ng-container *ngFor="let item of macroTypes; let i = index">
-                <ng-template ngbSlide>
-                  <div class="picsum-img-wrapper">
-                    <img [src]="item.imgSrc" alt="Random first slide">
-                  </div>
-                  <div class="carousel-caption">
-                    <h3>10 seconds between slides...</h3>
-                    <p>This carousel uses customized default values.</p>
-                  </div>
-                </ng-template>
-              </ng-container>
-            </ngb-carousel>
-          </div> -->
+                    <div class="col-12 col-lg-8 capi">
+                        <ngb-carousel #carousel>
+                            <ng-template *ngFor="let item of macroTypes; let i = index"  id="{{item.id}}" ngbSlide>
+                                <div class="picsum-img-wrapper">
+                                    <img [src]="item.imgSrc" alt="Random first slide">
+                                </div>
+
+                                <div class="carousel-caption">
+                                    <h3>MACRO RATIO</h3>
+                                    <div class="row justify-content-center">
+                                        <div class="col-6" *ngFor="let ration of item.macroRatios">
+                                            <p *ngFor="let content of ration.content">
+                                                {{content}}
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                    <h3>DESCRIPTION</h3>
+                                    <p>{{item.description}}</p>
+
+                                    <h3>5 STAR RATING</h3>
+                                    <div *ngFor="let rating of item.ratings">
+                                        <span>{{rating.type}}</span>
+                                        <span>{{rating.star}}</span>
+                                    </div>
+
+                                </div>
+                            </ng-template>
+                        </ngb-carousel>
+                    </div>
                 </div>
             </div>
-            <div class="col-11 col-lg-3 fake-btn selected mt-5 py-2 text-center" (click)="nutritionSectionComplete()">
+            <div class="col-11 col-lg-3 fake-btn selected py-2 text-center" (click)="nutritionSectionComplete()">
                 <h5>Save and Continue</h5>
             </div>
             <hr class="col-12 fb-shadow">
